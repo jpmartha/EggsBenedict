@@ -1,7 +1,5 @@
 # SharingOnInstagram
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
 ShareOnInstagram is a library for sharing photo on Instagram in Swift.
 
 Open your photo in Instagram's sharing flow.
