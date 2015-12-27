@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8661C3023BB00B203EC /* AppDelegate.swift */; };
-		5CDCE8691C3023BB00B203EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8681C3023BB00B203EC /* ViewController.swift */; };
-		5CDCE86C1C3023BB00B203EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86A1C3023BB00B203EC /* Main.storyboard */; };
 		5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
 		5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */; };
 		5CDCE87C1C3023BB00B203EC /* SharingOnInstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */; };
 		5CDCE8871C3023BB00B203EC /* SharingOnInstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8861C3023BB00B203EC /* SharingOnInstagramUITests.swift */; };
+		5CDCE8981C30244500B203EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8971C30244500B203EC /* ViewController.swift */; };
+		5CDCE89A1C30249600B203EC /* SendImageToInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SendImageToInstagram.swift */; };
+		5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE89B1C30254D00B203EC /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +37,6 @@
 /* Begin PBXFileReference section */
 		5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingOnInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCE8661C3023BB00B203EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5CDCE8681C3023BB00B203EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5CDCE86B1C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CDCE86D1C3023BB00B203EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDCE8701C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CDCE8721C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +46,9 @@
 		5CDCE8821C3023BB00B203EC /* SharingOnInstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharingOnInstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCE8861C3023BB00B203EC /* SharingOnInstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingOnInstagramUITests.swift; sourceTree = "<group>"; };
 		5CDCE8881C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CDCE8971C30244500B203EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5CDCE8991C30249600B203EC /* SendImageToInstagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendImageToInstagram.swift; sourceTree = "<group>"; };
+		5CDCE89B1C30254D00B203EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +79,8 @@
 		5CDCE85A1C3023BB00B203EC = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8651C3023BB00B203EC /* SharingOnInstagram */,
+				5CDCE8941C3023E000B203EC /* SharingOnInstagram */,
+				5CDCE8651C3023BB00B203EC /* DemoApp */,
 				5CDCE87A1C3023BB00B203EC /* SharingOnInstagramTests */,
 				5CDCE8851C3023BB00B203EC /* SharingOnInstagramUITests */,
 				5CDCE8641C3023BB00B203EC /* Products */,
@@ -94,17 +97,16 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5CDCE8651C3023BB00B203EC /* SharingOnInstagram */ = {
+		5CDCE8651C3023BB00B203EC /* DemoApp */ = {
 			isa = PBXGroup;
 			children = (
 				5CDCE8661C3023BB00B203EC /* AppDelegate.swift */,
-				5CDCE8681C3023BB00B203EC /* ViewController.swift */,
-				5CDCE86A1C3023BB00B203EC /* Main.storyboard */,
+				5CDCE8971C30244500B203EC /* ViewController.swift */,
 				5CDCE86D1C3023BB00B203EC /* Assets.xcassets */,
+				5CDCE89B1C30254D00B203EC /* Main.storyboard */,
 				5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */,
-				5CDCE8721C3023BB00B203EC /* Info.plist */,
 			);
-			path = SharingOnInstagram;
+			path = DemoApp;
 			sourceTree = "<group>";
 		};
 		5CDCE87A1C3023BB00B203EC /* SharingOnInstagramTests */ = {
@@ -123,6 +125,15 @@
 				5CDCE8881C3023BB00B203EC /* Info.plist */,
 			);
 			path = SharingOnInstagramUITests;
+			sourceTree = "<group>";
+		};
+		5CDCE8941C3023E000B203EC /* SharingOnInstagram */ = {
+			isa = PBXGroup;
+			children = (
+				5CDCE8991C30249600B203EC /* SendImageToInstagram.swift */,
+				5CDCE8721C3023BB00B203EC /* Info.plist */,
+			);
+			path = SharingOnInstagram;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,9 +240,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */,
 				5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */,
 				5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */,
-				5CDCE86C1C3023BB00B203EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,8 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDCE8691C3023BB00B203EC /* ViewController.swift in Sources */,
+				5CDCE8981C30244500B203EC /* ViewController.swift in Sources */,
 				5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */,
+				5CDCE89A1C30249600B203EC /* SendImageToInstagram.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,14 +305,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5CDCE86A1C3023BB00B203EC /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5CDCE86B1C3023BB00B203EC /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -348,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -386,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -398,6 +402,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SharingOnInstagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -409,6 +414,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SharingOnInstagram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
