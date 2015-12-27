@@ -30,6 +30,4 @@ Open your photo in Instagram's sharing flow.
 
 ## License
 
-SharingOnInstagram is released under the [MIT License](LICENSE.md).
-
-
+SharingOnInstagram is released under the [MIT License](LICENSE).
