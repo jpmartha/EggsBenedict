@@ -11,7 +11,7 @@ If the custom URL `instagram://` can be opened direct users on the iOS device, t
 
 1. Save temporary file in "tmp/" directory as `jpmarthaeggsbenedict` using the filename extension `.ig` or `.igo`.
 2. Display an options menu for copying to Instagram.
-3. Open Instagram app with its filter screen.
+3. If users tap the "Copy to Instagram" icon, open Instagram app with its filter screen.
 
   > The image is preloaded and sized appropriately for Instagram. For best results, Instagram prefers opening a JPEG that is 640px by 640px square. If the image is larger, it will be resized dynamically.
 4. Remove temporary file in "tmp/" directory.
