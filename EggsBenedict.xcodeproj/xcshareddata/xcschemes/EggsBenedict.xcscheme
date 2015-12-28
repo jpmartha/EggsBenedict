@@ -17,7 +17,7 @@
                BlueprintIdentifier = "5CF238FF1C30B1900009815F"
                BuildableName = "EggsBenedict.framework"
                BlueprintName = "EggsBenedict"
-               ReferencedContainer = "container:SharingOnInstagram.xcodeproj">
+               ReferencedContainer = "container:EggsBenedict.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,7 +48,7 @@
             BlueprintIdentifier = "5CF238FF1C30B1900009815F"
             BuildableName = "EggsBenedict.framework"
             BlueprintName = "EggsBenedict"
-            ReferencedContainer = "container:SharingOnInstagram.xcodeproj">
+            ReferencedContainer = "container:EggsBenedict.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,7 +66,7 @@
             BlueprintIdentifier = "5CF238FF1C30B1900009815F"
             BuildableName = "EggsBenedict.framework"
             BlueprintName = "EggsBenedict"
-            ReferencedContainer = "container:SharingOnInstagram.xcodeproj">
+            ReferencedContainer = "container:EggsBenedict.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

@@ -68,11 +68,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingOnInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CDCE8631C3023BB00B203EC /* EggsBenedict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EggsBenedict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCE8661C3023BB00B203EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CDCE86D1C3023BB00B203EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDCE8701C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5CDCE8771C3023BB00B203EC /* SharingOnInstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharingOnInstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggsBenedict.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingOnInstagramTests.swift; sourceTree = "<group>"; };
 		5CDCE87D1C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CDCE8971C30244500B203EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 		5CDCE8641C3023BB00B203EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */,
-				5CDCE8771C3023BB00B203EC /* SharingOnInstagramTests.xctest */,
+				5CDCE8631C3023BB00B203EC /* EggsBenedict.app */,
+				5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */,
 				5CF239001C30B1900009815F /* EggsBenedict.framework */,
 				5CF239091C30B1900009815F /* EggsBenedictTests.xctest */,
 			);
@@ -151,7 +151,8 @@
 				5CDCE89B1C30254D00B203EC /* Main.storyboard */,
 				5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */,
 			);
-			path = DemoApp;
+			name = DemoApp;
+			path = DemoApp/DemoApp;
 			sourceTree = "<group>";
 		};
 		5CDCE87A1C3023BB00B203EC /* DemoAppTests */ = {
@@ -160,7 +161,8 @@
 				5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */,
 				5CDCE87D1C3023BB00B203EC /* Info.plist */,
 			);
-			path = DemoAppTests;
+			name = DemoAppTests;
+			path = DemoApp/DemoAppTests;
 			sourceTree = "<group>";
 		};
 		5CF239011C30B1900009815F /* EggsBenedict */ = {
@@ -196,9 +198,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5CDCE8621C3023BB00B203EC /* SharingOnInstagram */ = {
+		5CDCE8621C3023BB00B203EC /* DemoApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagram" */;
+			buildConfigurationList = 5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoApp" */;
 			buildPhases = (
 				5CDCE85F1C3023BB00B203EC /* Sources */,
 				5CDCE8601C3023BB00B203EC /* Frameworks */,
@@ -210,14 +212,14 @@
 			dependencies = (
 				5CF239141C30B1900009815F /* PBXTargetDependency */,
 			);
-			name = SharingOnInstagram;
+			name = DemoApp;
 			productName = SharingOnInstagram;
-			productReference = 5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */;
+			productReference = 5CDCE8631C3023BB00B203EC /* EggsBenedict.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5CDCE8761C3023BB00B203EC /* SharingOnInstagramTests */ = {
+		5CDCE8761C3023BB00B203EC /* DemoAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagramTests" */;
+			buildConfigurationList = 5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoAppTests" */;
 			buildPhases = (
 				5CDCE8731C3023BB00B203EC /* Sources */,
 				5CDCE8741C3023BB00B203EC /* Frameworks */,
@@ -228,9 +230,9 @@
 			dependencies = (
 				5CDCE8791C3023BB00B203EC /* PBXTargetDependency */,
 			);
-			name = SharingOnInstagramTests;
+			name = DemoAppTests;
 			productName = SharingOnInstagramTests;
-			productReference = 5CDCE8771C3023BB00B203EC /* SharingOnInstagramTests.xctest */;
+			productReference = 5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		5CF238FF1C30B1900009815F /* EggsBenedict */ = {
@@ -296,7 +298,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "SharingOnInstagram" */;
+			buildConfigurationList = 5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "EggsBenedict" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -309,8 +311,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5CDCE8621C3023BB00B203EC /* SharingOnInstagram */,
-				5CDCE8761C3023BB00B203EC /* SharingOnInstagramTests */,
+				5CDCE8621C3023BB00B203EC /* DemoApp */,
+				5CDCE8761C3023BB00B203EC /* DemoAppTests */,
 				5CF238FF1C30B1900009815F /* EggsBenedict */,
 				5CF239081C30B1900009815F /* EggsBenedictTests */,
 			);
@@ -391,7 +393,7 @@
 /* Begin PBXTargetDependency section */
 		5CDCE8791C3023BB00B203EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5CDCE8621C3023BB00B203EC /* SharingOnInstagram */;
+			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
 			targetProxy = 5CDCE8781C3023BB00B203EC /* PBXContainerItemProxy */;
 		};
 		5CF2390C1C30B1900009815F /* PBXTargetDependency */ = {
@@ -401,7 +403,7 @@
 		};
 		5CF2390E1C30B1900009815F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5CDCE8621C3023BB00B203EC /* SharingOnInstagram */;
+			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
 			targetProxy = 5CF2390D1C30B1900009815F /* PBXContainerItemProxy */;
 		};
 		5CF239141C30B1900009815F /* PBXTargetDependency */ = {
@@ -512,8 +514,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/EggsBenedict/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagram;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
+				PRODUCT_NAME = EggsBenedict;
 			};
 			name = Debug;
 		};
@@ -525,8 +527,8 @@
 				INFOPLIST_FILE = "$(SRCROOT)/EggsBenedict/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagram;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
+				PRODUCT_NAME = EggsBenedict;
 			};
 			name = Release;
 		};
@@ -537,8 +539,8 @@
 				INFOPLIST_FILE = SharingOnInstagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharingOnInstagram.app/SharingOnInstagram";
+				PRODUCT_NAME = EggsBenedict;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Debug;
 		};
@@ -549,8 +551,8 @@
 				INFOPLIST_FILE = SharingOnInstagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharingOnInstagram.app/SharingOnInstagram";
+				PRODUCT_NAME = EggsBenedict;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Release;
 		};
@@ -604,7 +606,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedictTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharingOnInstagram.app/SharingOnInstagram";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Debug;
 		};
@@ -616,14 +618,14 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedictTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharingOnInstagram.app/SharingOnInstagram";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "SharingOnInstagram" */ = {
+		5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "EggsBenedict" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CDCE8891C3023BB00B203EC /* Debug */,
@@ -632,7 +634,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagram" */ = {
+		5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CDCE88C1C3023BB00B203EC /* Debug */,
@@ -641,7 +643,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagramTests" */ = {
+		5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CDCE88F1C3023BB00B203EC /* Debug */,
@@ -657,6 +659,7 @@
 				5CF239181C30B1910009815F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5CF2391D1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedictTests" */ = {
 			isa = XCConfigurationList;
@@ -665,6 +668,7 @@
 				5CF2391A1C30B1910009815F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
