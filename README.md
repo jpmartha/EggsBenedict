@@ -1,8 +1,8 @@
 # EggsBenedict (Coming soon)
 
-![DemoApp](wiki/images/EggsBenedict01.png)
-![Options Menu](wiki/images/EggsBenedict02.png)
-![Instagram app](wiki/images/EggsBenedict03.png)
+![DemoApp](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict01.png)
+![Options Menu](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict02.png)
+![Instagram app](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict03.png)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
