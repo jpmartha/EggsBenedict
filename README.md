@@ -6,11 +6,13 @@ __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
 This library is following Instagram's sharing flow.
 
+> Instagram's documentation
+
 > [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
 _\- Why was it named "EggsBenedict"?_
 
-\- The reason is because I like Eggs Benedict.
+The reason is because I like Eggs Benedict.
 
 ## Availability
 
