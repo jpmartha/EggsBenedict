@@ -17,7 +17,7 @@ This library is following Instagram's sharing flow.
 
 > - [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
-_\- Why was it named "EggsBenedict"?_
+_\- By the way, why was it named "EggsBenedict"?_
 
 The reason is because I like Eggs Benedict.
 
