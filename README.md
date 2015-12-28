@@ -7,7 +7,7 @@
 
 __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
-1. Save temporary file in `tmp/` directory as `jpmarthaeggsbenedict` using the filename extension ".ig".
+1. Save temporary file in `tmp/` directory as `jpmarthaeggsbenedict` using the filename extension ".ig" or ".igo".
 2. Show the options menu for copying to Instagram.
 3. Remove temporary file in `tmp/` directory.
 
