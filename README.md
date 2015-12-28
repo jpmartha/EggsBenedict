@@ -1,4 +1,4 @@
-# EggsBenedict
+# EggsBenedict (Coming soon)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -8,7 +8,7 @@ This library is following Instagram's sharing flow.
 
 > [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
-###### Why was it named __EggsBenedict__?
+_\- Why was it named "EggsBenedict"?_
 
 The reason is because I like Eggs Benedict.
 
@@ -33,7 +33,7 @@ If you don't install Carthage, please install it.
 ```
 /usr/local/bin/carthage copy-frameworks
 ```
-and add the paths to EggsBenedict.framework
+and add the paths to EggsBenedict.framework.
 ```
 $(SRCROOT)/Carthage/Build/iOS/EggsBenedict.framework
 ```
@@ -42,35 +42,39 @@ $(SRCROOT)/Carthage/Build/iOS/EggsBenedict.framework
 
 1. On your application Info.plist, add `LSApplicationQueriesSchemes` key.
 
-Key                                           |Type    |Value
-------------------------------------|--------|-----------
-LSApplicationQueriesSchemes | Array | instagram
+  Key                                           |Type    |Value
+  ------------------------------------|--------|-----------
+  LSApplicationQueriesSchemes | Array | instagram
 
 2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration. 
 
-#### SharingFlowType enumeration
+  #### SharingFlowType enumeration
 
-According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow.
+  According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow.
 
-1. `IGPhoto`
-Show Instagram plus any other public/jpeg-conforming apps in the application list.
+  - `IGPhoto`
+  
+    Show Instagram plus any other public/jpeg-conforming apps in the application list.
 
-2. `IGOExclusivegram`
-Show only Instagram in the application list. (Actually, some apps are shown.)
+  - `IGOExclusivegram`
+  
+    Show only Instagram in the application list. (Actually, some apps are shown.)
 
-```swift
-let eggsBenedict = SharingFlow(sharingFlowType: .IGOExclusivegram)
-```
+  ```swift
+  let eggsBenedict = SharingFlow(sharingFlowType: .IGOExclusivegram)
+  ```
 
 3. Call `sendImage` method with two parameters.
   - image: `UIImage`
-    - The image for sending to Instagram app.
+  
+    The image for sending to Instagram app.
   - view: `UIView`
-    - The view from which to display the options menu.
+  
+    The view from which to display the options menu.
 
-```swift
-eggsBenedict.sendImage(YourImage, view: YourView)
-```
+  ```swift
+  eggsBenedict.sendImage(YourImage, view: YourView)
+  ```
 
 ## License
 
