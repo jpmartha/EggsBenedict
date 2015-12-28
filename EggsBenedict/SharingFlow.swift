@@ -1,5 +1,5 @@
 //
-//  SharingOnInstagram.swift
+//  SharingFlow.swift
 //  EggsBenedict
 //
 //  Created by JPMartha on 2015/12/26.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-public enum InstagramFileType {
+public enum SharingFlowType {
     case IGPhoto
     case IGOExclusivegram
 }
 
-public final class SharingOnInstagram: NSObject, UIDocumentInteractionControllerDelegate {
+public final class SharingFlow: NSObject, UIDocumentInteractionControllerDelegate {
     
     lazy var documentInteractionController = UIDocumentInteractionController()
     
@@ -26,8 +26,8 @@ public final class SharingOnInstagram: NSObject, UIDocumentInteractionController
     var filenameExtension: String!
     var UTI: String!
     
-    required public init?(instagramFileType: InstagramFileType) {
-        switch instagramFileType {
+    required public init?(sharingFlowType: SharingFlowType) {
+        switch sharingFlowType {
         case .IGPhoto:
             self.filenameExtension = "ig"
             self.UTI = "com.instagram.photo"
@@ -38,11 +38,11 @@ public final class SharingOnInstagram: NSObject, UIDocumentInteractionController
     }
     
     /**
-     Send image to Instagram App.
-     - Parameter image: The image for sending to Instagram App.
+     Send image to Instagram app.
+     - Parameter image: The image for sending to Instagram app.
      - Parameter view: The view from which to display the options menu.
     */
-    public func sendImageToInstagram(image: UIImage, view: UIView) {
+    public func sendImage(image: UIImage!, view: UIView!) {
         
         guard self.hasInstagram else {
             return
@@ -61,8 +61,7 @@ public final class SharingOnInstagram: NSObject, UIDocumentInteractionController
     private func saveImage(image: UIImage) -> NSURL {
         
         let documentDirectory = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("tmp")
-        imagePath = (documentDirectory as NSString).stringByAppendingPathComponent("InstagramPhoto\(filenameExtension)")
-        
+        imagePath = (documentDirectory as NSString).stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
         let imageData = UIImageJPEGRepresentation(image, 1.0)
         imageData?.writeToFile(imagePath!, atomically: true)
         
@@ -80,7 +79,10 @@ public final class SharingOnInstagram: NSObject, UIDocumentInteractionController
     // MARK: - UIDocumentInteractionControllerDelegate
     
     public func documentInteractionController(controller: UIDocumentInteractionController, didEndSendingToApplication application: String?) {
-        
+        removeTemporaryImage()
+    }
+    
+    public func documentInteractionControllerDidDismissOptionsMenu(controller: UIDocumentInteractionController) {
         removeTemporaryImage()
     }
 }

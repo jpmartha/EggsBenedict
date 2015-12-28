@@ -1,15 +1,15 @@
 //
-//  SharingOnInstagramTests.swift
-//  SharingOnInstagramTests
+//  SharingFlowTests.swift
+//  SharingFlowTests
 //
 //  Created by JPMartha on 2015/12/27.
 //  Copyright © 2015年 JPMartha. All rights reserved.
 //
 
 import XCTest
-@testable import SharingOnInstagram
+@testable import SharingFlow
 
-class SharingOnInstagramTests: XCTestCase {
+class SharingFlowTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

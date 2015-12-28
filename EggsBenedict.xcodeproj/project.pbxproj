@@ -10,16 +10,14 @@
 		5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8661C3023BB00B203EC /* AppDelegate.swift */; };
 		5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
 		5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */; };
-		5CDCE87C1C3023BB00B203EC /* SharingOnInstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */; };
+		5CDCE87C1C3023BB00B203EC /* SharingFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE87B1C3023BB00B203EC /* SharingFlowTests.swift */; };
 		5CDCE8981C30244500B203EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8971C30244500B203EC /* ViewController.swift */; };
-		5CDCE89A1C30249600B203EC /* SharingOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */; };
 		5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE89B1C30254D00B203EC /* Main.storyboard */; };
 		5CF239031C30B1900009815F /* EggsBenedict.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF239021C30B1900009815F /* EggsBenedict.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5CF2390A1C30B1900009815F /* EggsBenedict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; };
 		5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF239101C30B1900009815F /* EggsBenedictTests.swift */; };
-		5CF239151C30B1900009815F /* EggsBenedict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; };
-		5CF239161C30B1900009815F /* EggsBenedict.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		5CF2391E1C30B1C90009815F /* SharingOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */; };
+		5CF239441C30CD520009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
+		5CF239451C30CD9C0009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
+		5CF239461C30CDE00009815F /* EggsBenedict.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +58,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5CF239161C30B1900009815F /* EggsBenedict.framework in Embed Frameworks */,
+				5CF239461C30CDE00009815F /* EggsBenedict.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,10 +71,10 @@
 		5CDCE86D1C3023BB00B203EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDCE8701C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggsBenedict.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingOnInstagramTests.swift; sourceTree = "<group>"; };
+		5CDCE87B1C3023BB00B203EC /* SharingFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingFlowTests.swift; sourceTree = "<group>"; };
 		5CDCE87D1C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CDCE8971C30244500B203EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingOnInstagram.swift; sourceTree = "<group>"; };
+		5CDCE8991C30249600B203EC /* SharingFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingFlow.swift; sourceTree = "<group>"; };
 		5CDCE89B1C30254D00B203EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CF239001C30B1900009815F /* EggsBenedict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EggsBenedict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF239021C30B1900009815F /* EggsBenedict.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EggsBenedict.h; sourceTree = "<group>"; };
@@ -91,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CF239151C30B1900009815F /* EggsBenedict.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +110,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CF2390A1C30B1900009815F /* EggsBenedict.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +154,7 @@
 		5CDCE87A1C3023BB00B203EC /* DemoAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */,
+				5CDCE87B1C3023BB00B203EC /* SharingFlowTests.swift */,
 				5CDCE87D1C3023BB00B203EC /* Info.plist */,
 			);
 			name = DemoAppTests;
@@ -168,7 +164,7 @@
 		5CF239011C30B1900009815F /* EggsBenedict */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */,
+				5CDCE8991C30249600B203EC /* SharingFlow.swift */,
 				5CF239021C30B1900009815F /* EggsBenedict.h */,
 				5CF239041C30B1900009815F /* Info.plist */,
 			);
@@ -360,7 +356,7 @@
 			files = (
 				5CDCE8981C30244500B203EC /* ViewController.swift in Sources */,
 				5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */,
-				5CDCE89A1C30249600B203EC /* SharingOnInstagram.swift in Sources */,
+				5CF239451C30CD9C0009815F /* SharingFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +364,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDCE87C1C3023BB00B203EC /* SharingOnInstagramTests.swift in Sources */,
+				5CDCE87C1C3023BB00B203EC /* SharingFlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CF2391E1C30B1C90009815F /* SharingOnInstagram.swift in Sources */,
+				5CF239441C30CD520009815F /* SharingFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
