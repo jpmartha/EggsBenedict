@@ -1,8 +1,7 @@
 # EggsBenedict (Coming soon)
 
-![DemoApp](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict01.png)
-![Options Menu](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict02.png)
-![Instagram app](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict03.png)
+![Options Menu](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict01.png)
+![Instagram app](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict02.png)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -10,7 +9,11 @@ __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
 This library is following Instagram's sharing flow.
 
-> Instagram's documentation
+1. Save temporary file in `tmp` directory.
+2. Show the options menu for copying to Instagram.
+3. Remove temporary file in `tmp` directory.
+
+> __Instagram's documentation__
 
 > - [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
