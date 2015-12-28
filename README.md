@@ -8,7 +8,7 @@ This library is following Instagram's sharing flow.
 
 > Instagram's documentation
 
-> [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
+> - [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
 _\- Why was it named "EggsBenedict"?_
 
