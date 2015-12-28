@@ -11,10 +11,15 @@
 		5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
 		5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */; };
 		5CDCE87C1C3023BB00B203EC /* SharingOnInstagramTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */; };
-		5CDCE8871C3023BB00B203EC /* SharingOnInstagramUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8861C3023BB00B203EC /* SharingOnInstagramUITests.swift */; };
 		5CDCE8981C30244500B203EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8971C30244500B203EC /* ViewController.swift */; };
-		5CDCE89A1C30249600B203EC /* SendImageToInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SendImageToInstagram.swift */; };
+		5CDCE89A1C30249600B203EC /* SharingOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */; };
 		5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE89B1C30254D00B203EC /* Main.storyboard */; };
+		5CF239031C30B1900009815F /* EggsBenedict.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF239021C30B1900009815F /* EggsBenedict.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5CF2390A1C30B1900009815F /* EggsBenedict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; };
+		5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF239101C30B1900009815F /* EggsBenedictTests.swift */; };
+		5CF239151C30B1900009815F /* EggsBenedict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; };
+		5CF239161C30B1900009815F /* EggsBenedict.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5CF2391E1C30B1C90009815F /* SharingOnInstagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,30 +30,60 @@
 			remoteGlobalIDString = 5CDCE8621C3023BB00B203EC;
 			remoteInfo = SharingOnInstagram;
 		};
-		5CDCE8831C3023BB00B203EC /* PBXContainerItemProxy */ = {
+		5CF2390B1C30B1900009815F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
+			remoteInfo = EggsBenedict;
+		};
+		5CF2390D1C30B1900009815F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 5CDCE8621C3023BB00B203EC;
 			remoteInfo = SharingOnInstagram;
 		};
+		5CF239131C30B1900009815F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
+			remoteInfo = EggsBenedict;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		5CF2391C1C30B1910009815F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5CF239161C30B1900009815F /* EggsBenedict.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharingOnInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CDCE8631C3023BB00B203EC /* EggsBenedict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EggsBenedict.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCE8661C3023BB00B203EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CDCE86D1C3023BB00B203EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDCE8701C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5CDCE8721C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CDCE8771C3023BB00B203EC /* SharingOnInstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharingOnInstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggsBenedict.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingOnInstagramTests.swift; sourceTree = "<group>"; };
 		5CDCE87D1C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5CDCE8821C3023BB00B203EC /* SharingOnInstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharingOnInstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CDCE8861C3023BB00B203EC /* SharingOnInstagramUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingOnInstagramUITests.swift; sourceTree = "<group>"; };
-		5CDCE8881C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CDCE8971C30244500B203EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5CDCE8991C30249600B203EC /* SendImageToInstagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendImageToInstagram.swift; sourceTree = "<group>"; };
+		5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingOnInstagram.swift; sourceTree = "<group>"; };
 		5CDCE89B1C30254D00B203EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5CF239001C30B1900009815F /* EggsBenedict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EggsBenedict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CF239021C30B1900009815F /* EggsBenedict.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EggsBenedict.h; sourceTree = "<group>"; };
+		5CF239041C30B1900009815F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CF239091C30B1900009815F /* EggsBenedictTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggsBenedictTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CF239101C30B1900009815F /* EggsBenedictTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggsBenedictTests.swift; sourceTree = "<group>"; };
+		5CF239121C30B1900009815F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF239151C30B1900009815F /* EggsBenedict.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,10 +102,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CDCE87F1C3023BB00B203EC /* Frameworks */ = {
+		5CF238FC1C30B1900009815F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CF239061C30B1900009815F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CF2390A1C30B1900009815F /* EggsBenedict.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,10 +123,10 @@
 		5CDCE85A1C3023BB00B203EC = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8941C3023E000B203EC /* SharingOnInstagram */,
 				5CDCE8651C3023BB00B203EC /* DemoApp */,
-				5CDCE87A1C3023BB00B203EC /* SharingOnInstagramTests */,
-				5CDCE8851C3023BB00B203EC /* SharingOnInstagramUITests */,
+				5CDCE87A1C3023BB00B203EC /* DemoAppTests */,
+				5CF239011C30B1900009815F /* EggsBenedict */,
+				5CF2390F1C30B1900009815F /* EggsBenedictTests */,
 				5CDCE8641C3023BB00B203EC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,9 +134,10 @@
 		5CDCE8641C3023BB00B203EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */,
-				5CDCE8771C3023BB00B203EC /* SharingOnInstagramTests.xctest */,
-				5CDCE8821C3023BB00B203EC /* SharingOnInstagramUITests.xctest */,
+				5CDCE8631C3023BB00B203EC /* EggsBenedict.app */,
+				5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */,
+				5CF239001C30B1900009815F /* EggsBenedict.framework */,
+				5CF239091C30B1900009815F /* EggsBenedictTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,59 +151,75 @@
 				5CDCE89B1C30254D00B203EC /* Main.storyboard */,
 				5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */,
 			);
-			path = DemoApp;
+			name = DemoApp;
+			path = DemoApp/DemoApp;
 			sourceTree = "<group>";
 		};
-		5CDCE87A1C3023BB00B203EC /* SharingOnInstagramTests */ = {
+		5CDCE87A1C3023BB00B203EC /* DemoAppTests */ = {
 			isa = PBXGroup;
 			children = (
 				5CDCE87B1C3023BB00B203EC /* SharingOnInstagramTests.swift */,
 				5CDCE87D1C3023BB00B203EC /* Info.plist */,
 			);
-			path = SharingOnInstagramTests;
+			name = DemoAppTests;
+			path = DemoApp/DemoAppTests;
 			sourceTree = "<group>";
 		};
-		5CDCE8851C3023BB00B203EC /* SharingOnInstagramUITests */ = {
+		5CF239011C30B1900009815F /* EggsBenedict */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8861C3023BB00B203EC /* SharingOnInstagramUITests.swift */,
-				5CDCE8881C3023BB00B203EC /* Info.plist */,
+				5CDCE8991C30249600B203EC /* SharingOnInstagram.swift */,
+				5CF239021C30B1900009815F /* EggsBenedict.h */,
+				5CF239041C30B1900009815F /* Info.plist */,
 			);
-			path = SharingOnInstagramUITests;
+			path = EggsBenedict;
 			sourceTree = "<group>";
 		};
-		5CDCE8941C3023E000B203EC /* SharingOnInstagram */ = {
+		5CF2390F1C30B1900009815F /* EggsBenedictTests */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8991C30249600B203EC /* SendImageToInstagram.swift */,
-				5CDCE8721C3023BB00B203EC /* Info.plist */,
+				5CF239101C30B1900009815F /* EggsBenedictTests.swift */,
+				5CF239121C30B1900009815F /* Info.plist */,
 			);
-			path = SharingOnInstagram;
+			path = EggsBenedictTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5CF238FD1C30B1900009815F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CF239031C30B1900009815F /* EggsBenedict.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		5CDCE8621C3023BB00B203EC /* SharingOnInstagram */ = {
+		5CDCE8621C3023BB00B203EC /* DemoApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagram" */;
+			buildConfigurationList = 5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoApp" */;
 			buildPhases = (
 				5CDCE85F1C3023BB00B203EC /* Sources */,
 				5CDCE8601C3023BB00B203EC /* Frameworks */,
 				5CDCE8611C3023BB00B203EC /* Resources */,
+				5CF2391C1C30B1910009815F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				5CF239141C30B1900009815F /* PBXTargetDependency */,
 			);
-			name = SharingOnInstagram;
+			name = DemoApp;
 			productName = SharingOnInstagram;
-			productReference = 5CDCE8631C3023BB00B203EC /* SharingOnInstagram.app */;
+			productReference = 5CDCE8631C3023BB00B203EC /* EggsBenedict.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5CDCE8761C3023BB00B203EC /* SharingOnInstagramTests */ = {
+		5CDCE8761C3023BB00B203EC /* DemoAppTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagramTests" */;
+			buildConfigurationList = 5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoAppTests" */;
 			buildPhases = (
 				5CDCE8731C3023BB00B203EC /* Sources */,
 				5CDCE8741C3023BB00B203EC /* Frameworks */,
@@ -169,28 +230,47 @@
 			dependencies = (
 				5CDCE8791C3023BB00B203EC /* PBXTargetDependency */,
 			);
-			name = SharingOnInstagramTests;
+			name = DemoAppTests;
 			productName = SharingOnInstagramTests;
-			productReference = 5CDCE8771C3023BB00B203EC /* SharingOnInstagramTests.xctest */;
+			productReference = 5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5CDCE8811C3023BB00B203EC /* SharingOnInstagramUITests */ = {
+		5CF238FF1C30B1900009815F /* EggsBenedict */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE8911C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagramUITests" */;
+			buildConfigurationList = 5CF2391B1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedict" */;
 			buildPhases = (
-				5CDCE87E1C3023BB00B203EC /* Sources */,
-				5CDCE87F1C3023BB00B203EC /* Frameworks */,
-				5CDCE8801C3023BB00B203EC /* Resources */,
+				5CF238FB1C30B1900009815F /* Sources */,
+				5CF238FC1C30B1900009815F /* Frameworks */,
+				5CF238FD1C30B1900009815F /* Headers */,
+				5CF238FE1C30B1900009815F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5CDCE8841C3023BB00B203EC /* PBXTargetDependency */,
 			);
-			name = SharingOnInstagramUITests;
-			productName = SharingOnInstagramUITests;
-			productReference = 5CDCE8821C3023BB00B203EC /* SharingOnInstagramUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			name = EggsBenedict;
+			productName = EggsBenedict;
+			productReference = 5CF239001C30B1900009815F /* EggsBenedict.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CF239081C30B1900009815F /* EggsBenedictTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5CF2391D1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedictTests" */;
+			buildPhases = (
+				5CF239051C30B1900009815F /* Sources */,
+				5CF239061C30B1900009815F /* Frameworks */,
+				5CF239071C30B1900009815F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5CF2390C1C30B1900009815F /* PBXTargetDependency */,
+				5CF2390E1C30B1900009815F /* PBXTargetDependency */,
+			);
+			name = EggsBenedictTests;
+			productName = EggsBenedictTests;
+			productReference = 5CF239091C30B1900009815F /* EggsBenedictTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -209,13 +289,16 @@
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 5CDCE8621C3023BB00B203EC;
 					};
-					5CDCE8811C3023BB00B203EC = {
+					5CF238FF1C30B1900009815F = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					5CF239081C30B1900009815F = {
 						CreatedOnToolsVersion = 7.2;
 						TestTargetID = 5CDCE8621C3023BB00B203EC;
 					};
 				};
 			};
-			buildConfigurationList = 5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "SharingOnInstagram" */;
+			buildConfigurationList = 5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "EggsBenedict" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -228,9 +311,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5CDCE8621C3023BB00B203EC /* SharingOnInstagram */,
-				5CDCE8761C3023BB00B203EC /* SharingOnInstagramTests */,
-				5CDCE8811C3023BB00B203EC /* SharingOnInstagramUITests */,
+				5CDCE8621C3023BB00B203EC /* DemoApp */,
+				5CDCE8761C3023BB00B203EC /* DemoAppTests */,
+				5CF238FF1C30B1900009815F /* EggsBenedict */,
+				5CF239081C30B1900009815F /* EggsBenedictTests */,
 			);
 		};
 /* End PBXProject section */
@@ -253,7 +337,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CDCE8801C3023BB00B203EC /* Resources */ = {
+		5CF238FE1C30B1900009815F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CF239071C30B1900009815F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -269,7 +360,7 @@
 			files = (
 				5CDCE8981C30244500B203EC /* ViewController.swift in Sources */,
 				5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */,
-				5CDCE89A1C30249600B203EC /* SendImageToInstagram.swift in Sources */,
+				5CDCE89A1C30249600B203EC /* SharingOnInstagram.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,11 +372,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CDCE87E1C3023BB00B203EC /* Sources */ = {
+		5CF238FB1C30B1900009815F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CDCE8871C3023BB00B203EC /* SharingOnInstagramUITests.swift in Sources */,
+				5CF2391E1C30B1C90009815F /* SharingOnInstagram.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5CF239051C30B1900009815F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,13 +393,23 @@
 /* Begin PBXTargetDependency section */
 		5CDCE8791C3023BB00B203EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5CDCE8621C3023BB00B203EC /* SharingOnInstagram */;
+			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
 			targetProxy = 5CDCE8781C3023BB00B203EC /* PBXContainerItemProxy */;
 		};
-		5CDCE8841C3023BB00B203EC /* PBXTargetDependency */ = {
+		5CF2390C1C30B1900009815F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 5CDCE8621C3023BB00B203EC /* SharingOnInstagram */;
-			targetProxy = 5CDCE8831C3023BB00B203EC /* PBXContainerItemProxy */;
+			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
+			targetProxy = 5CF2390B1C30B1900009815F /* PBXContainerItemProxy */;
+		};
+		5CF2390E1C30B1900009815F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
+			targetProxy = 5CF2390D1C30B1900009815F /* PBXContainerItemProxy */;
+		};
+		5CF239141C30B1900009815F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
+			targetProxy = 5CF239131C30B1900009815F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -401,11 +510,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SharingOnInstagram/Info.plist;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/EggsBenedict/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagram;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
+				PRODUCT_NAME = EggsBenedict;
 			};
 			name = Debug;
 		};
@@ -413,11 +523,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = SharingOnInstagram/Info.plist;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "$(SRCROOT)/EggsBenedict/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagram;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
+				PRODUCT_NAME = EggsBenedict;
 			};
 			name = Release;
 		};
@@ -428,8 +539,8 @@
 				INFOPLIST_FILE = SharingOnInstagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharingOnInstagram.app/SharingOnInstagram";
+				PRODUCT_NAME = EggsBenedict;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Debug;
 		};
@@ -440,39 +551,81 @@
 				INFOPLIST_FILE = SharingOnInstagramTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SharingOnInstagram.app/SharingOnInstagram";
+				PRODUCT_NAME = EggsBenedict;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Release;
 		};
-		5CDCE8921C3023BB00B203EC /* Debug */ = {
+		5CF239171C30B1910009815F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SharingOnInstagramUITests/Info.plist;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EggsBenedict/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SharingOnInstagram;
-				USES_XCTRUNNER = YES;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		5CDCE8931C3023BB00B203EC /* Release */ = {
+		5CF239181C30B1910009815F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = SharingOnInstagramUITests/Info.plist;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = EggsBenedict/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = SharingOnInstagram;
-				USES_XCTRUNNER = YES;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5CF239191C30B1910009815F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EggsBenedictTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedictTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
+			};
+			name = Debug;
+		};
+		5CF2391A1C30B1910009815F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = EggsBenedictTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedictTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "SharingOnInstagram" */ = {
+		5CDCE85E1C3023BB00B203EC /* Build configuration list for PBXProject "EggsBenedict" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CDCE8891C3023BB00B203EC /* Debug */,
@@ -481,29 +634,41 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagram" */ = {
+		5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CDCE88C1C3023BB00B203EC /* Debug */,
 				5CDCE88D1C3023BB00B203EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagramTests" */ = {
+		5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5CDCE88F1C3023BB00B203EC /* Debug */,
 				5CDCE8901C3023BB00B203EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
-		5CDCE8911C3023BB00B203EC /* Build configuration list for PBXNativeTarget "SharingOnInstagramUITests" */ = {
+		5CF2391B1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedict" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5CDCE8921C3023BB00B203EC /* Debug */,
-				5CDCE8931C3023BB00B203EC /* Release */,
+				5CF239171C30B1910009815F /* Debug */,
+				5CF239181C30B1910009815F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5CF2391D1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedictTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5CF239191C30B1910009815F /* Debug */,
+				5CF2391A1C30B1910009815F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

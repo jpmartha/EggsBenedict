@@ -1,6 +1,6 @@
 //
 //  SharingOnInstagram.swift
-//  DocumentInteraction
+//  EggsBenedict
 //
 //  Created by JPMartha on 2015/12/26.
 //  Copyright © 2015年 JPMartha. All rights reserved.
@@ -13,7 +13,7 @@ public enum InstagramFileType {
     case IGOExclusivegram
 }
 
-public class SharingOnInstagram: NSObject, UIDocumentInteractionControllerDelegate {
+public final class SharingOnInstagram: NSObject, UIDocumentInteractionControllerDelegate {
     
     lazy var documentInteractionController = UIDocumentInteractionController()
     
