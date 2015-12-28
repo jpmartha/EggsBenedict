@@ -48,6 +48,16 @@
                ReferencedContainer = "container:SharingOnInstagram.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "5CF239081C30B1900009815F"
+               BuildableName = "EggsBenedictTests.xctest"
+               BlueprintName = "EggsBenedictTests"
+               ReferencedContainer = "container:SharingOnInstagram.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
