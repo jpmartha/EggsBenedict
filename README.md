@@ -21,7 +21,7 @@ If the custom URL `instagram://` can be opened direct users on the iOS device, t
   > The image is preloaded and sized appropriately for Instagram. For best results, Instagram prefers opening a JPEG that is 640px by 640px square. If the image is larger, it will be resized dynamically.
 4. Remove temporary file in "tmp/" directory.
 
-_\- By the way, why was it named "EggsBenedict"?_
+#### _\- By the way, why was it named "EggsBenedict"?_
 
 The reason is because I like Eggs Benedict.
 
