@@ -1,15 +1,10 @@
-# EggsBenedict (Coming soon)
+# EggsBenedict (Coming soon) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
+__EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
 ![Options Menu](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict01.png)
 ![Instagram app](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict02.png)
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-
-__EggsBenedict__ is a library for sharing picture on Instagram in Swift.
-
-1. Save temporary file in `tmp/` directory as `jpmarthaeggsbenedict` using the filename extension ".ig" or ".igo".
-2. Display an options menu for copying to Instagram.
-3. Remove temporary file in `tmp/` directory.
 
 This library is following Instagram's sharing flow.
 
@@ -17,7 +12,16 @@ This library is following Instagram's sharing flow.
 
 > - [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
-_\- Why was it named "EggsBenedict"?_
+If the custom URL `instagram://` can be opened direct users on the iOS device, the flow is as follows.
+
+1. Save temporary file in "tmp/" directory as `jpmarthaeggsbenedict` using the filename extension `.ig` or `.igo`.
+2. Display an options menu for copying to Instagram.
+3. If users tap the "Copy to Instagram" icon, open Instagram app with its filter screen.
+
+  > The image is preloaded and sized appropriately for Instagram. For best results, Instagram prefers opening a JPEG that is 640px by 640px square. If the image is larger, it will be resized dynamically.
+4. Remove temporary file in "tmp/" directory.
+
+#### _\- By the way, why was it named "EggsBenedict"?_
 
 The reason is because I like Eggs Benedict.
 
