@@ -7,7 +7,7 @@
 
 __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
-If the custom URL `instagram://` can be opened direct users on the iPhone, the flow is as follows.
+If the custom URL `instagram://` can be opened direct users on the iOS device, the flow is as follows.
 
 1. Save temporary file in "tmp/" directory as `jpmarthaeggsbenedict` using the filename extension `.ig` or `.igo`.
 2. Display an options menu for copying to Instagram.
