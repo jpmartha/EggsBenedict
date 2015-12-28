@@ -1,6 +1,6 @@
-# SharingOnInstagram
+# EggsBenedict
 
-ShareOnInstagram is a library for sharing photo on Instagram in Swift.
+__EggsBenedict__ is a library for sharing photo on Instagram in Swift.
 
 Open your photo in Instagram's sharing flow.
 > [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
@@ -16,7 +16,7 @@ Open your photo in Instagram's sharing flow.
   - Type: `Array`
   - Value: `instagram`
   
-## Enumerations
+## Enumeration
 
 ### InstagramFileType
 
@@ -28,4 +28,4 @@ Open your photo in Instagram's sharing flow.
 
 ## License
 
-SharingOnInstagram is released under the [MIT License](LICENSE).
+__EggsBenedict__ is released under the [MIT License](LICENSE).
