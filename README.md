@@ -1,5 +1,9 @@
 # EggsBenedict (Coming soon)
 
+![DemoApp](wiki/images/EggsBenedict01.png)
+![Options Menu](wiki/images/EggsBenedict02.png)
+![Instagram app](wiki/images/EggsBenedict03.png)
+
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
