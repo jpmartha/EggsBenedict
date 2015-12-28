@@ -41,6 +41,10 @@ If you don't install Carthage, please install it.
 
 2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration. 
 
+  ```swift
+  let eggsBenedict = SharingFlow(type: .IGOExclusivegram)
+  ```
+  
   #### SharingFlowType enumeration
 
   According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow.
@@ -53,21 +57,21 @@ If you don't install Carthage, please install it.
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
-  ```swift
-  let eggsBenedict = SharingFlow(sharingFlowType: .IGOExclusivegram)
-  ```
-
 3. Call `sendImage` method with two parameters.
-  - image: `UIImage`
-  
-    The image for sending to Instagram app.
-  - view: `UIView`
-  
-    The view from which to display the options menu.
 
   ```swift
   eggsBenedict.sendImage(YourImage, view: YourView)
   ```
+  
+  #### Parameters
+  
+  - image: `UIImage`
+  
+    The image for sending to Instagram app.
+    
+  - view: `UIView`
+  
+    The view from which to display the options menu.
 
 ## License
 

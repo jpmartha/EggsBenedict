@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
-    let eggsBenedict = SharingFlow(sharingFlowType: .IGOExclusivegram)
+    let eggsBenedict = SharingFlow(type: .IGOExclusivegram)
     
     @IBAction func sharedOnInstagramButtonTapped(sender: UIButton) {
         saveSampleImageAndSendToInstagram()

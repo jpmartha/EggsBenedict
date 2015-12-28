@@ -26,8 +26,8 @@ public final class SharingFlow: NSObject, UIDocumentInteractionControllerDelegat
     var filenameExtension: String!
     var UTI: String!
     
-    required public init?(sharingFlowType: SharingFlowType) {
-        switch sharingFlowType {
+    required public init?(type: SharingFlowType) {
+        switch type {
         case .IGPhoto:
             self.filenameExtension = "ig"
             self.UTI = "com.instagram.photo"
