@@ -26,4 +26,8 @@ class ViewController: UIViewController {
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
         sharingFlow?.sendImage(imageView.image, view: view)
     }
+    
+    @IBAction func removeTmpButtonTapped(sender: UIButton) {
+        sharingFlow?.removeTemporaryImage()
+    }
 }

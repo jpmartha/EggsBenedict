@@ -35,13 +35,26 @@
                                     <action selector="shareOnInstagramButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IYh-FO-Rb0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FMh-eY-OHX">
+                                <rect key="frame" x="468" y="556" width="132" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="XOA-R0-HfQ"/>
+                                    <constraint firstAttribute="width" constant="132" id="Zx9-bI-zWw"/>
+                                </constraints>
+                                <state key="normal" title="Remove tmp"/>
+                                <connections>
+                                    <action selector="removeTmpButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="59t-wT-Pod"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="FMh-eY-OHX" secondAttribute="trailing" id="0ZP-Mk-XCD"/>
                             <constraint firstItem="7CK-Ha-A9h" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3cb-DA-8oQ"/>
                             <constraint firstItem="7CK-Ha-A9h" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EO2-Ui-LKN"/>
                             <constraint firstItem="7CK-Ha-A9h" firstAttribute="top" secondItem="UyA-Gg-m2O" secondAttribute="bottom" id="Z4i-BF-sLb"/>
                             <constraint firstItem="UyA-Gg-m2O" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="kwk-wb-hae"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="FMh-eY-OHX" secondAttribute="bottom" id="ljb-9E-gXB"/>
                             <constraint firstItem="UyA-Gg-m2O" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="o2Z-y2-wTe"/>
                             <constraint firstItem="7CK-Ha-A9h" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="qIG-MO-nz9"/>
                         </constraints>
