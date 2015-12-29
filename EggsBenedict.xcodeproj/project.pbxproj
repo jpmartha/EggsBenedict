@@ -18,10 +18,16 @@
 		5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF239101C30B1900009815F /* EggsBenedictTests.swift */; };
 		5CF239441C30CD520009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
 		5CF239451C30CD9C0009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
-		5CF239461C30CDE00009815F /* EggsBenedict.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF239001C30B1900009815F /* EggsBenedict.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5CD031DC1C32161C00BC4BF6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
+			remoteInfo = EggsBenedict;
+		};
 		5CDCE8781C3023BB00B203EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
@@ -43,13 +49,6 @@
 			remoteGlobalIDString = 5CDCE8621C3023BB00B203EC;
 			remoteInfo = SharingOnInstagram;
 		};
-		5CF239131C30B1900009815F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
-			remoteInfo = EggsBenedict;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5CF239461C30CDE00009815F /* EggsBenedict.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +205,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				5CF239141C30B1900009815F /* PBXTargetDependency */,
+				5CD031DD1C32161C00BC4BF6 /* PBXTargetDependency */,
 			);
 			name = DemoApp;
 			productName = SharingOnInstagram;
@@ -389,6 +387,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5CD031DD1C32161C00BC4BF6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
+			targetProxy = 5CD031DC1C32161C00BC4BF6 /* PBXContainerItemProxy */;
+		};
 		5CDCE8791C3023BB00B203EC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
@@ -403,11 +406,6 @@
 			isa = PBXTargetDependency;
 			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
 			targetProxy = 5CF2390D1C30B1900009815F /* PBXContainerItemProxy */;
-		};
-		5CF239141C30B1900009815F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
-			targetProxy = 5CF239131C30B1900009815F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
