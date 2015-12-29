@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  SharingOnInstagram
+//  DemoApp
 //
 //  Created by JPMartha on 2015/12/25.
 //  Copyright © 2015年 JPMartha. All rights reserved.
@@ -10,15 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let insta = SharingOnInstagram(instagramFileType: .IGOExclusivegram)
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var shareOnInstagramButton: UIButton!
+
+    let sharingFlow = SharingFlow(type: .IGOExclusivegram)
     
-    @IBAction func sharedOnInstagramButtonTapped(sender: UIButton) {
-        saveSampleImageAndSendToInstagram()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let sharingFlow = sharingFlow {
+            shareOnInstagramButton.enabled = sharingFlow.hasInstagram
+        }
     }
     
-    func saveSampleImageAndSendToInstagram () {
-        if let insta = insta {
-            insta.sendImageToInstagram(UIImage(named: "OZPA")!, view: view)
-        }
+    @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
+        sharingFlow?.sendImage(imageView.image, view: view)
+    }
+    
+    @IBAction func removeTmpButtonTapped(sender: UIButton) {
+        sharingFlow?.removeTemporaryImage()
     }
 }
