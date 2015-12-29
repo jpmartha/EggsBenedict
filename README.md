@@ -64,7 +64,7 @@ If you don't install Carthage, please install it.
 2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration. 
 
   ```swift
-  let eggsBenedict = SharingFlow(type: .IGOExclusivegram)
+  let sharingFlow = SharingFlow(type: .IGOExclusivegram)
   ```
   
   #### SharingFlowType enumeration
@@ -82,7 +82,7 @@ If you don't install Carthage, please install it.
 3. Call `sendImage` method with two parameters.
 
   ```swift
-  eggsBenedict.sendImage(YourImage, view: YourView)
+  sharingFlow.sendImage(YourImage, view: YourView)
   ```
   
   #### Parameters

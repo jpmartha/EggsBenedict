@@ -32,7 +32,7 @@
                                 </constraints>
                                 <state key="normal" title="Share on Instagram"/>
                                 <connections>
-                                    <action selector="sharedOnInstagramButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bfh-8y-LBJ"/>
+                                    <action selector="shareOnInstagramButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IYh-FO-Rb0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -55,6 +55,7 @@
                     <navigationItem key="navigationItem" id="yyz-5a-i1t"/>
                     <connections>
                         <outlet property="imageView" destination="UyA-Gg-m2O" id="zqr-Gl-Kwp"/>
+                        <outlet property="shareOnInstagramButton" destination="7CK-Ha-A9h" id="NfS-g3-baz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

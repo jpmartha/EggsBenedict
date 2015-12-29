@@ -13,23 +13,23 @@ public enum SharingFlowType {
     case IGOExclusivegram
 }
 
-public final class SharingFlow: NSObject, UIDocumentInteractionControllerDelegate {
+public final class SharingFlow {
     
-    lazy var documentInteractionController = UIDocumentInteractionController()
+    var documentInteractionController = UIDocumentInteractionController()
     
     var imagePath: String?
-    
-    var hasInstagram: Bool {
-        return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
-    }
     
     var filenameExtension: String!
     var UTI: String!
     
+    public var hasInstagram: Bool {
+        return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
+    }
+    
     required public init?(type: SharingFlowType) {
         switch type {
         case .IGPhoto:
-            self.filenameExtension = "ig"
+            self.filenameExtension = ".ig"
             self.UTI = "com.instagram.photo"
         case .IGOExclusivegram:
             self.filenameExtension = ".igo"
@@ -48,9 +48,12 @@ public final class SharingFlow: NSObject, UIDocumentInteractionControllerDelegat
             return
         }
         
-        documentInteractionController.URL = saveImage(image)
+        guard saveTemporaryImage(image) else {
+            return
+        }
+        
+        documentInteractionController.URL = NSURL.fileURLWithPath(imagePath!)
         documentInteractionController.UTI = UTI
-
         documentInteractionController.presentOptionsMenuFromRect(
             view.bounds,
             inView: view,
@@ -58,31 +61,13 @@ public final class SharingFlow: NSObject, UIDocumentInteractionControllerDelegat
         )
     }
     
-    private func saveImage(image: UIImage) -> NSURL {
+    private func saveTemporaryImage(image: UIImage) -> Bool {
         
         let documentDirectory = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("tmp")
         imagePath = (documentDirectory as NSString).stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
-        let imageData = UIImageJPEGRepresentation(image, 1.0)
-        imageData?.writeToFile(imagePath!, atomically: true)
         
-        return NSURL.fileURLWithPath(imagePath!)
-    }
-    
-    private func removeTemporaryImage() {
-        do {
-            try NSFileManager().removeItemAtPath(imagePath!)
-        } catch {
-            print("Error: removeTemporaryImage")
-        }
-    }
-    
-    // MARK: - UIDocumentInteractionControllerDelegate
-    
-    public func documentInteractionController(controller: UIDocumentInteractionController, didEndSendingToApplication application: String?) {
-        removeTemporaryImage()
-    }
-    
-    public func documentInteractionControllerDidDismissOptionsMenu(controller: UIDocumentInteractionController) {
-        removeTemporaryImage()
+        let imageData = UIImageJPEGRepresentation(image, 1.0)
+        
+        return (imageData?.writeToFile(imagePath!, atomically: true))!
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import SharingFlow
+@testable import EggsBenedict
 
 class SharingFlowTests: XCTestCase {
     

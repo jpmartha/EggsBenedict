@@ -11,16 +11,19 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var shareOnInstagramButton: UIButton!
+
+    let sharingFlow = SharingFlow(type: .IGOExclusivegram)
     
-    let eggsBenedict = SharingFlow(type: .IGOExclusivegram)
-    
-    @IBAction func sharedOnInstagramButtonTapped(sender: UIButton) {
-        saveSampleImageAndSendToInstagram()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let sharingFlow = sharingFlow {
+            shareOnInstagramButton.enabled = sharingFlow.hasInstagram
+        }
     }
     
-    func saveSampleImageAndSendToInstagram () {
-        if let eggsBenedict = eggsBenedict {
-            eggsBenedict.sendImage(imageView.image, view: view)
-        }
+    @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
+        sharingFlow?.sendImage(imageView.image, view: view)
     }
 }
