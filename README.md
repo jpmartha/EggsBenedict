@@ -14,12 +14,11 @@ This library is following Instagram's sharing flow.
 
 If the custom URL `instagram://` can be opened direct users on the iOS device, the flow is as follows.
 
-1. Save temporary file in "tmp/" directory as `jpmarthaeggsbenedict` using the filename extension `.ig` or `.igo`.
+1. Save temporary file named  `jpmarthaeggsbenedict` (JPEG format) in "tmp/" directory using the filename extension `.ig` or `.igo`.
 2. Display an options menu for copying to Instagram.
 3. If users tap the "Copy to Instagram" icon, open Instagram app with its filter screen.
 
   > The image is preloaded and sized appropriately for Instagram. For best results, Instagram prefers opening a JPEG that is 640px by 640px square. If the image is larger, it will be resized dynamically.
-4. Remove temporary file in "tmp/" directory.
 
 #### _\- By the way, why was it named "EggsBenedict"?_
 
@@ -37,8 +36,6 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
 
 If you don't install Carthage, please install it.
 
-#### Getting started
-
 1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.0`.
 2. Run `carthage update --platform iOS`.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
@@ -53,7 +50,7 @@ If you don't install Carthage, please install it.
   
   This script works around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries and ensures that necessary bitcode-related files are copied when archiving.
 
-## Usage
+## Getting started
 
 1. On your application Info.plist, add `LSApplicationQueriesSchemes` key.
 
@@ -75,7 +72,7 @@ If you don't install Carthage, please install it.
   
     Show Instagram plus any other public/jpeg-conforming apps in the application list.
 
-  - `IGOExclusivegram`
+  - `IGOExclusivegram` (preferred)
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
