@@ -92,6 +92,13 @@ If you don't install Carthage, please install it.
   
     The view from which to display the options menu.
 
+## Remove temporary image
+
+To remove temporary image in "tmp/" directory, call `removeTemporaryImage` method of the created instance.
+```swift
+sharingFlow.removeTemporaryImage()
+```
+
 ## License
 
 __EggsBenedict__ is released under the [MIT License](LICENSE).

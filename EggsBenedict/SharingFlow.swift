@@ -27,8 +27,8 @@ public final class SharingFlow {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
     
-    private var filenameExtension: String!
-    private var UTI: String!
+    internal var filenameExtension: String!
+    internal var UTI: String!
 
     required public init?(type: SharingFlowType) {
         switch type {

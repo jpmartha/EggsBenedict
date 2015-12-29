@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C8FA86C1C327B6D008F26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
 		5CD031D61C31C7B600BC4BF6 /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
 		5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8661C3023BB00B203EC /* AppDelegate.swift */; };
 		5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
 		5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */; };
-		5CDCE87C1C3023BB00B203EC /* SharingFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE87B1C3023BB00B203EC /* SharingFlowTests.swift */; };
 		5CDCE8981C30244500B203EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8971C30244500B203EC /* ViewController.swift */; };
 		5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE89B1C30254D00B203EC /* Main.storyboard */; };
 		5CF239031C30B1900009815F /* EggsBenedict.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF239021C30B1900009815F /* EggsBenedict.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -27,13 +27,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
 			remoteInfo = EggsBenedict;
-		};
-		5CDCE8781C3023BB00B203EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5CDCE8621C3023BB00B203EC;
-			remoteInfo = SharingOnInstagram;
 		};
 		5CF2390B1C30B1900009815F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -69,9 +62,6 @@
 		5CDCE8661C3023BB00B203EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5CDCE86D1C3023BB00B203EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CDCE8701C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggsBenedict.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CDCE87B1C3023BB00B203EC /* SharingFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharingFlowTests.swift; sourceTree = "<group>"; };
-		5CDCE87D1C3023BB00B203EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CDCE8971C30244500B203EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5CDCE8991C30249600B203EC /* SharingFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingFlow.swift; sourceTree = "<group>"; };
 		5CDCE89B1C30254D00B203EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -85,13 +75,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		5CDCE8601C3023BB00B203EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CDCE8741C3023BB00B203EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -119,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				5CDCE8651C3023BB00B203EC /* DemoApp */,
-				5CDCE87A1C3023BB00B203EC /* DemoAppTests */,
 				5CF239011C30B1900009815F /* EggsBenedict */,
 				5CF2390F1C30B1900009815F /* EggsBenedictTests */,
 				5CDCE8641C3023BB00B203EC /* Products */,
@@ -130,7 +112,6 @@
 			isa = PBXGroup;
 			children = (
 				5CDCE8631C3023BB00B203EC /* EggsBenedict.app */,
-				5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */,
 				5CF239001C30B1900009815F /* EggsBenedict.framework */,
 				5CF239091C30B1900009815F /* EggsBenedictTests.xctest */,
 			);
@@ -148,16 +129,6 @@
 			);
 			name = DemoApp;
 			path = DemoApp/DemoApp;
-			sourceTree = "<group>";
-		};
-		5CDCE87A1C3023BB00B203EC /* DemoAppTests */ = {
-			isa = PBXGroup;
-			children = (
-				5CDCE87B1C3023BB00B203EC /* SharingFlowTests.swift */,
-				5CDCE87D1C3023BB00B203EC /* Info.plist */,
-			);
-			name = DemoAppTests;
-			path = DemoApp/DemoAppTests;
 			sourceTree = "<group>";
 		};
 		5CF239011C30B1900009815F /* EggsBenedict */ = {
@@ -212,24 +183,6 @@
 			productReference = 5CDCE8631C3023BB00B203EC /* EggsBenedict.app */;
 			productType = "com.apple.product-type.application";
 		};
-		5CDCE8761C3023BB00B203EC /* DemoAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoAppTests" */;
-			buildPhases = (
-				5CDCE8731C3023BB00B203EC /* Sources */,
-				5CDCE8741C3023BB00B203EC /* Frameworks */,
-				5CDCE8751C3023BB00B203EC /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5CDCE8791C3023BB00B203EC /* PBXTargetDependency */,
-			);
-			name = DemoAppTests;
-			productName = SharingOnInstagramTests;
-			productReference = 5CDCE8771C3023BB00B203EC /* EggsBenedict.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		5CF238FF1C30B1900009815F /* EggsBenedict */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CF2391B1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedict" */;
@@ -280,10 +233,6 @@
 					5CDCE8621C3023BB00B203EC = {
 						CreatedOnToolsVersion = 7.2;
 					};
-					5CDCE8761C3023BB00B203EC = {
-						CreatedOnToolsVersion = 7.2;
-						TestTargetID = 5CDCE8621C3023BB00B203EC;
-					};
 					5CF238FF1C30B1900009815F = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -307,7 +256,6 @@
 			projectRoot = "";
 			targets = (
 				5CDCE8621C3023BB00B203EC /* DemoApp */,
-				5CDCE8761C3023BB00B203EC /* DemoAppTests */,
 				5CF238FF1C30B1900009815F /* EggsBenedict */,
 				5CF239081C30B1900009815F /* EggsBenedictTests */,
 			);
@@ -325,13 +273,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5CDCE8751C3023BB00B203EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5CF238FE1C30B1900009815F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,6 +284,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C8FA86C1C327B6D008F26EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,14 +298,6 @@
 				5CDCE8981C30244500B203EC /* ViewController.swift in Sources */,
 				5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */,
 				5CF239451C30CD9C0009815F /* SharingFlow.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5CDCE8731C3023BB00B203EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5CDCE87C1C3023BB00B203EC /* SharingFlowTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,11 +325,6 @@
 			isa = PBXTargetDependency;
 			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
 			targetProxy = 5CD031DC1C32161C00BC4BF6 /* PBXContainerItemProxy */;
-		};
-		5CDCE8791C3023BB00B203EC /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
-			targetProxy = 5CDCE8781C3023BB00B203EC /* PBXContainerItemProxy */;
 		};
 		5CF2390C1C30B1900009815F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -528,30 +457,6 @@
 			};
 			name = Release;
 		};
-		5CDCE88F1C3023BB00B203EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SharingOnInstagramTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramTests;
-				PRODUCT_NAME = EggsBenedict;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
-			};
-			name = Debug;
-		};
-		5CDCE8901C3023BB00B203EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = SharingOnInstagramTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.SharingOnInstagramTests;
-				PRODUCT_NAME = EggsBenedict;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EggsBenedict.app/EggsBenedict";
-			};
-			name = Release;
-		};
 		5CF239171C30B1910009815F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -635,15 +540,6 @@
 			buildConfigurations = (
 				5CDCE88C1C3023BB00B203EC /* Debug */,
 				5CDCE88D1C3023BB00B203EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5CDCE88E1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5CDCE88F1C3023BB00B203EC /* Debug */,
-				5CDCE8901C3023BB00B203EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
