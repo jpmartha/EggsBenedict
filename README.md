@@ -22,7 +22,7 @@ If the custom URL `instagram://` can be opened direct users on the iOS device, t
 
 #### _\- By the way, why was it named "EggsBenedict"?_
 
-The reason is because I like Eggs Benedict.
+The reason is because I like Eggs Benedict 😋
 
 ## Availability
 
