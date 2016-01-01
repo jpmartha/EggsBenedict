@@ -8,9 +8,13 @@
 
 import UIKit
 
-public enum SharingFlowType {
-    case IGPhoto
-    case IGOExclusivegram
+private protocol InstagramSharingFlow {
+    var hasInstagram: Bool { get }
+    var filenameExtension: String { get }
+    var UTI: String { get }
+    func saveImage(image: UIImage)
+    func sendImage(image: UIImage!, view: UIView!)
+    func removeImage()
 }
 
 private enum SharingFlowError: ErrorType {
@@ -18,64 +22,40 @@ private enum SharingFlowError: ErrorType {
     case CannotSaveImage
 }
 
-public final class SharingFlow {
-    
-    lazy private var documentInteractionController = UIDocumentInteractionController()
-    private var imagePath: String?
-    
+public class SharingFlow: InstagramSharingFlow {
+
+    /// Returns a Boolean value indicating whether or not Instagram app is installed on the device.
     public var hasInstagram: Bool {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
     
-    internal var filenameExtension: String!
-    internal var UTI: String!
-
-    required public init?(type: SharingFlowType) {
-        switch type {
-        case .IGPhoto:
-            self.filenameExtension = ".ig"
-            self.UTI = "com.instagram.photo"
-        case .IGOExclusivegram:
-            self.filenameExtension = ".igo"
-            self.UTI = "com.instagram.exclusivegram"
-        }
+    private var filenameExtension: String {
+        return ""
     }
     
-    /// Send image to Instagram app.
-    /// - Parameter image: The image for sending to Instagram app.
-    /// - Parameter view: The view from which to display the options menu.
-    public func sendImage(image: UIImage!, view: UIView!){
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            guard self.hasInstagram else {
-                print("Error: Not found Instagram app.")
-                return
+    private var UTI: String {
+        return ""
+    }
+    
+    private var imagePath: String?
+    
+    lazy private var documentInteractionController = UIDocumentInteractionController()
+    
+    private func saveImage(image: UIImage) {
+        do {
+            try self.saveTemporaryImage(image)
+        } catch let sharingFlowError as SharingFlowError {
+            switch sharingFlowError {
+            case .CannotManipulateImage:
+                print("Error: Cannot manipulate image.")
+            case .CannotSaveImage:
+                print("Error: Cannot save image.")
             }
-            
-            do {
-                try self.saveTemporaryImage(image)
-            } catch let sharingFlowError as SharingFlowError {
-                switch sharingFlowError {
-                case .CannotManipulateImage:
-                    print("Error: Cannot manipulate image.")
-                case .CannotSaveImage:
-                    print("Error: Cannot save image.")
-                }
-                return
-            } catch let error as NSError {
-                print("Error: \(error.description)")
-                return
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), {
-                self.documentInteractionController.URL = NSURL.fileURLWithPath(self.imagePath!)
-                self.documentInteractionController.UTI = self.UTI
-                self.documentInteractionController.presentOptionsMenuFromRect(
-                    view.bounds,
-                    inView: view,
-                    animated: true
-                )
-            })
-        })
+            return
+        } catch let error as NSError {
+            print("Error: \(error.description)")
+            return
+        }
     }
     
     private func saveTemporaryImage(image: UIImage) throws {
@@ -91,8 +71,32 @@ public final class SharingFlow {
         }
     }
     
+    /// Send image to Instagram app.
+    /// - Parameter image: The image for sending to Instagram app.
+    /// - Parameter view: The view from which to display the options menu.
+    public func sendImage(image: UIImage!, view: UIView!){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            guard self.hasInstagram else {
+                print("Error: Not found Instagram app.")
+                return
+            }
+            
+            self.saveImage(image)
+
+            dispatch_async(dispatch_get_main_queue(), {
+                self.documentInteractionController.URL = NSURL.fileURLWithPath(self.imagePath!)
+                self.documentInteractionController.UTI = self.UTI
+                self.documentInteractionController.presentOptionsMenuFromRect(
+                    view.bounds,
+                    inView: view,
+                    animated: true
+                )
+            })
+        })
+    }
+    
     /// Remove temporary image in "tmp/" directory.
-    public func removeTemporaryImage() {
+    public func removeImage() {
         guard let imagePath = imagePath else {
             print("Error: ImagePath is nil.")
             return
@@ -112,5 +116,25 @@ public final class SharingFlow {
         } catch let error as NSError {
             throw error
         }
+    }
+}
+
+public final class SharingFlowIGPhoto: SharingFlow {
+    override internal var filenameExtension: String {
+        return ".ig"
+    }
+    
+    override public var UTI: String {
+        return "com.instagram.photo"
+    }
+}
+
+public final class SharingFlowIGOExclusivegram: SharingFlow {
+    override internal var filenameExtension: String {
+        return ".igo"
+    }
+    
+    override internal var UTI: String {
+        return "com.instagram.exclusivegram"
     }
 }

@@ -58,21 +58,21 @@ If you don't install Carthage, please install it.
   ------------------------------------|--------|-----------
   LSApplicationQueriesSchemes | Array | instagram
 
-2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration. 
+2. Create an instance of `SharingFlowIGPhoto` class or `SharingFlowIGOExclusivegram`(preferred). 
 
   ```swift
-  let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+  let sharingFlow = SharingFlowIGOExclusivegram()
   ```
   
-  #### SharingFlowType enumeration
+  #### Differences between SharingFlowIGPhoto and SharingFlowIGOExclusivegram
 
   According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow.
 
-  - `IGPhoto`
+  - `SharingFlowIGPhoto` class
   
     Show Instagram plus any other public/jpeg-conforming apps in the application list.
 
-  - `IGOExclusivegram` (preferred)
+  - `SharingFlowIGOExclusivegram` class (preferred)
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
@@ -94,9 +94,9 @@ If you don't install Carthage, please install it.
 
 ## Remove temporary image
 
-To remove temporary image in "tmp/" directory, call `removeTemporaryImage` method of the created instance.
+To remove temporary image in "tmp/" directory, call `removeImage` method of the created instance.
 ```swift
-sharingFlow.removeTemporaryImage()
+sharingFlow.removeImage()
 ```
 
 ## License

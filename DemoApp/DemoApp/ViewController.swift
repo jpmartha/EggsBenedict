@@ -13,21 +13,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var shareOnInstagramButton: UIButton!
 
-    let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+    let sharingFlow = SharingFlowIGOExclusivegram()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let sharingFlow = sharingFlow {
-            shareOnInstagramButton.enabled = sharingFlow.hasInstagram
-        }
+        shareOnInstagramButton.enabled = sharingFlow.hasInstagram
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow?.sendImage(imageView.image, view: view)
+        sharingFlow.sendImage(imageView.image, view: view)
     }
     
     @IBAction func removeTmpButtonTapped(sender: UIButton) {
-        sharingFlow?.removeTemporaryImage()
+        sharingFlow.removeImage()
     }
 }
