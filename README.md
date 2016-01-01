@@ -58,21 +58,21 @@ If you don't install Carthage, please install it.
   ------------------------------------|--------|-----------
   LSApplicationQueriesSchemes | Array | instagram
 
-2. Create an instance of `SharingFlowIGPhoto` class or `SharingFlowIGOExclusivegram` class (preferred). 
+2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration.
 
   ```swift
-  let sharingFlow = SharingFlowIGOExclusivegram()
+  let sharingFlow = SharingFlow(type: .IGOExclusivegram)
   ```
   
-  #### Differences between SharingFlowIGPhoto and SharingFlowIGOExclusivegram
+  #### SharingFlowType enumeration
 
   According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow.
 
-  - `SharingFlowIGPhoto` class
+  - `IGPhoto`
   
     Show Instagram plus any other public/jpeg-conforming apps in the application list.
 
-  - `SharingFlowIGOExclusivegram` class (preferred)
+  - `IGOExclusivegram` (preferred)
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
