@@ -10,8 +10,8 @@ import UIKit
 
 private protocol InstagramSharingFlow {
     var hasInstagram: Bool { get }
-    var filenameExtension: String { get }
-    var UTI: String { get }
+    var filenameExtension: String! { get }
+    var UTI: String! { get }
     func saveImage(image: UIImage!)
     func sendImage(image: UIImage!, view: UIView!)
     func removeImage()
@@ -33,15 +33,15 @@ public class SharingFlow: InstagramSharingFlow {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
     
-    private var filenameExtension: String {
+    private var filenameExtension: String! {
         return ""
     }
     
-    private var UTI: String {
+    private var UTI: String! {
         return ""
     }
     
-    private var imagePath: String?
+    private var imagePath: String!
     
     lazy private var documentInteractionController = UIDocumentInteractionController()
     
@@ -62,7 +62,7 @@ public class SharingFlow: InstagramSharingFlow {
         }
     }
     
-    private func saveTemporaryImage(image: UIImage) throws {
+    private func saveTemporaryImage(image: UIImage!) throws {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
             throw SharingFlowError.CannotManipulateImage
         }
@@ -70,7 +70,7 @@ public class SharingFlow: InstagramSharingFlow {
         let documentDirectory = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("tmp")
         imagePath = (documentDirectory as NSString).stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
         
-        guard imageData.writeToFile(imagePath!, atomically: true) else {
+        guard imageData.writeToFile(imagePath, atomically: true) else {
             throw SharingFlowError.CannotSaveImage
         }
     }
@@ -85,11 +85,21 @@ public class SharingFlow: InstagramSharingFlow {
                 return
             }
             
+            guard let UTI = self.UTI else {
+                print("Error: UTI is empty.")
+                return
+            }
+            
             self.saveImage(image)
+            
+            guard let imagePath = self.imagePath else {
+                print("Error: ImagePath is empty.")
+                return
+            }
 
             dispatch_async(dispatch_get_main_queue(), {
-                self.documentInteractionController.URL = NSURL.fileURLWithPath(self.imagePath!)
-                self.documentInteractionController.UTI = self.UTI
+                self.documentInteractionController.URL = NSURL.fileURLWithPath(imagePath)
+                self.documentInteractionController.UTI = UTI
                 self.documentInteractionController.presentOptionsMenuFromRect(
                     view.bounds,
                     inView: view,
@@ -101,8 +111,8 @@ public class SharingFlow: InstagramSharingFlow {
     
     /// Remove temporary image in "tmp/" directory.
     public func removeImage() {
-        guard let imagePath = imagePath else {
-            print("Error: ImagePath is nil.")
+        guard let imagePath = self.imagePath else {
+            print("Error: ImagePath is empty.")
             return
         }
         
@@ -114,7 +124,7 @@ public class SharingFlow: InstagramSharingFlow {
         }
     }
     
-    private func removeTemporaryImage(imagePath: String) throws {
+    private func removeTemporaryImage(imagePath: String!) throws {
         do {
             try NSFileManager().removeItemAtPath(imagePath)
         } catch let error as NSError {
