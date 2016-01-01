@@ -12,7 +12,7 @@ private protocol InstagramSharingFlow {
     var hasInstagram: Bool { get }
     var filenameExtension: String { get }
     var UTI: String { get }
-    func saveImage(image: UIImage)
+    func saveImage(image: UIImage!)
     func sendImage(image: UIImage!, view: UIView!)
     func removeImage()
 }
@@ -23,6 +23,10 @@ private enum SharingFlowError: ErrorType {
 }
 
 public class SharingFlow: InstagramSharingFlow {
+    
+    public init() {
+        
+    }
 
     /// Returns a Boolean value indicating whether or not Instagram app is installed on the device.
     public var hasInstagram: Bool {
@@ -41,7 +45,7 @@ public class SharingFlow: InstagramSharingFlow {
     
     lazy private var documentInteractionController = UIDocumentInteractionController()
     
-    private func saveImage(image: UIImage) {
+    private func saveImage(image: UIImage!) {
         do {
             try self.saveTemporaryImage(image)
         } catch let sharingFlowError as SharingFlowError {
