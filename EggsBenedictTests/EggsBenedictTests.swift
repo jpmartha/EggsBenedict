@@ -12,13 +12,13 @@ import XCTest
 class EggsBenedictTests: XCTestCase {
     
     func testSharingFlowIGPhotoInitialization() {
-        let sharingFlow = SharingFlowIGPhoto()
+        let sharingFlow = SharingFlow(type: .IGPhoto)
         XCTAssert(sharingFlow.filenameExtension == ".ig")
         XCTAssert(sharingFlow.UTI == "com.instagram.photo")
     }
     
     func testSharingFlowIGOExclusivegramInitialization() {
-        let sharingFlow = SharingFlowIGOExclusivegram()
+        let sharingFlow = SharingFlow(type: .IGOExclusivegram)
         XCTAssert(sharingFlow.filenameExtension == ".igo")
         XCTAssert(sharingFlow.UTI == "com.instagram.exclusivegram")
     }

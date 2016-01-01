@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var shareOnInstagramButton: UIButton!
 
-    let sharingFlow = SharingFlowIGOExclusivegram()
+    let sharingFlow = SharingFlow(type: .IGOExclusivegram)
     
     override func viewDidLoad() {
         super.viewDidLoad()

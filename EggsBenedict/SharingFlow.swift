@@ -9,12 +9,17 @@
 import UIKit
 
 private protocol InstagramSharingFlow {
-    var hasInstagram: Bool { get }
     var filenameExtension: String! { get }
     var UTI: String! { get }
-    func saveImage(image: UIImage!)
+    var hasInstagram: Bool { get }
+    func saveImage(image: UIImage!) -> String
     func sendImage(image: UIImage!, view: UIView!)
     func removeImage()
+}
+
+public enum SharingFlowType {
+    case IGPhoto
+    case IGOExclusivegram
 }
 
 private enum SharingFlowError: ErrorType {
@@ -24,8 +29,18 @@ private enum SharingFlowError: ErrorType {
 
 public class SharingFlow: InstagramSharingFlow {
     
-    public init() {
-        
+    internal var filenameExtension: String!
+    internal var UTI: String!
+    
+    public init(type: SharingFlowType) {
+        switch type {
+        case .IGPhoto:
+            self.filenameExtension = ".ig"
+            self.UTI = "com.instagram.photo"
+        case .IGOExclusivegram:
+            self.filenameExtension = ".igo"
+            self.UTI = "com.instagram.exclusivegram"
+        }
     }
 
     /// Returns a Boolean value indicating whether or not Instagram app is installed on the device.
@@ -33,21 +48,13 @@ public class SharingFlow: InstagramSharingFlow {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
     
-    private var filenameExtension: String! {
-        return ""
-    }
-    
-    private var UTI: String! {
-        return ""
-    }
-    
     private var imagePath: String!
     
     lazy private var documentInteractionController = UIDocumentInteractionController()
     
-    private func saveImage(image: UIImage!) {
+    private func saveImage(image: UIImage!) -> String {
         do {
-            try self.saveTemporaryImage(image)
+            imagePath = try self.saveTemporaryImage(image)
         } catch let sharingFlowError as SharingFlowError {
             switch sharingFlowError {
             case .CannotManipulateImage:
@@ -55,14 +62,16 @@ public class SharingFlow: InstagramSharingFlow {
             case .CannotSaveImage:
                 print("Error: Cannot save image.")
             }
-            return
+            return ""
         } catch let error as NSError {
             print("Error: \(error.description)")
-            return
+            return ""
         }
+        
+        return imagePath
     }
     
-    private func saveTemporaryImage(image: UIImage!) throws {
+    private func saveTemporaryImage(image: UIImage!) throws -> String! {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
             throw SharingFlowError.CannotManipulateImage
         }
@@ -73,6 +82,8 @@ public class SharingFlow: InstagramSharingFlow {
         guard imageData.writeToFile(imagePath, atomically: true) else {
             throw SharingFlowError.CannotSaveImage
         }
+        
+        return imagePath
     }
     
     /// Send image to Instagram app.
@@ -90,7 +101,7 @@ public class SharingFlow: InstagramSharingFlow {
                 return
             }
             
-            self.saveImage(image)
+            self.imagePath = self.saveImage(image)
             
             guard let imagePath = self.imagePath else {
                 print("Error: ImagePath is empty.")
@@ -130,25 +141,5 @@ public class SharingFlow: InstagramSharingFlow {
         } catch let error as NSError {
             throw error
         }
-    }
-}
-
-public final class SharingFlowIGPhoto: SharingFlow {
-    override internal var filenameExtension: String {
-        return ".ig"
-    }
-    
-    override public var UTI: String {
-        return "com.instagram.photo"
-    }
-}
-
-public final class SharingFlowIGOExclusivegram: SharingFlow {
-    override internal var filenameExtension: String {
-        return ".igo"
-    }
-    
-    override internal var UTI: String {
-        return "com.instagram.exclusivegram"
     }
 }
