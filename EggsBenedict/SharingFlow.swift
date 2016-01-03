@@ -12,9 +12,10 @@ private protocol InstagramSharingFlow {
     var filenameExtension: String! { get }
     var UTI: String! { get }
     var hasInstagram: Bool { get }
+    init(type: SharingFlowType)
     func saveImage(image: UIImage!) -> String
-    func sendImage(image: UIImage!, view: UIView!)
-    func removeImage()
+    func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<ErrorType>) -> Void)?)
+    func removeImage() throws
 }
 
 public enum SharingFlowType {
@@ -22,13 +23,35 @@ public enum SharingFlowType {
     case IGOExclusivegram
 }
 
-private enum SharingFlowError: ErrorType {
-    case CannotManipulateImage
-    case CannotSaveImage
+public enum Result<T> {
+    case Success
+    case Failure(T)
 }
 
-public class SharingFlow: InstagramSharingFlow {
+public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
+    case NoInstagramApp
+    case UTIIsEmpty
+    case CannotManipulateImage
+    case CannotSaveImage
+    case ImagePathIsEmpty
     
+    public var debugDescription: String {
+        switch self {
+        case .NoInstagramApp:
+            return "Not found Instagram app."
+        case .UTIIsEmpty:
+            return "UTI is empty."
+        case .CannotManipulateImage:
+            return "Cannot manipulate image."
+        case .CannotSaveImage:
+            return "Cannot save image."
+        case .ImagePathIsEmpty:
+            return "ImagePath is empty."
+        }
+    }
+}
+
+public final class SharingFlow: InstagramSharingFlow {
     internal var filenameExtension: String!
     internal var UTI: String!
     
@@ -56,22 +79,17 @@ public class SharingFlow: InstagramSharingFlow {
         do {
             imagePath = try self.saveTemporaryImage(image)
         } catch let sharingFlowError as SharingFlowError {
-            switch sharingFlowError {
-            case .CannotManipulateImage:
-                print("Error: Cannot manipulate image.")
-            case .CannotSaveImage:
-                print("Error: Cannot save image.")
-            }
+            print("Error: \(sharingFlowError.debugDescription)")
             return ""
         } catch let error as NSError {
-            print("Error: \(error.description)")
+            print("Error: \(error.debugDescription)")
             return ""
         }
         
         return imagePath
     }
     
-    private func saveTemporaryImage(image: UIImage!) throws -> String! {
+    private func saveTemporaryImage(image: UIImage!) throws -> String {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
             throw SharingFlowError.CannotManipulateImage
         }
@@ -89,22 +107,41 @@ public class SharingFlow: InstagramSharingFlow {
     /// Send image to Instagram app.
     /// - Parameter image: The image for sending to Instagram app.
     /// - Parameter view: The view from which to display the options menu.
-    public func sendImage(image: UIImage!, view: UIView!){
+    /// - Parameter completion: The block to execute after the sending image finishes. You may specify nil for this parameter.
+    public func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<ErrorType>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagram else {
-                print("Error: Not found Instagram app.")
+                if let completion = completion {
+                    completion(result: .Failure(SharingFlowError.NoInstagramApp))
+                }
                 return
             }
             
             guard let UTI = self.UTI else {
-                print("Error: UTI is empty.")
+                if let completion = completion {
+                    completion(result: .Failure(SharingFlowError.UTIIsEmpty))
+                }
                 return
             }
             
-            self.imagePath = self.saveImage(image)
+            do {
+                self.imagePath = try self.saveTemporaryImage(image)
+            } catch let sharingFlowError as SharingFlowError {
+                if let completion = completion {
+                    completion(result: .Failure(sharingFlowError))
+                }
+                return
+            } catch let error as NSError {
+                if let completion = completion {
+                    completion(result: .Failure(error))
+                }
+                return
+            }
             
             guard let imagePath = self.imagePath else {
-                print("Error: ImagePath is empty.")
+                if let completion = completion {
+                    completion(result: .Failure(SharingFlowError.ImagePathIsEmpty))
+                }
                 return
             }
 
@@ -116,22 +153,23 @@ public class SharingFlow: InstagramSharingFlow {
                     inView: view,
                     animated: true
                 )
+                if let completion = completion {
+                    completion(result: .Success)
+                }
             })
         })
     }
     
     /// Remove temporary image in "tmp/" directory.
-    public func removeImage() {
+    public func removeImage() throws {
         guard let imagePath = self.imagePath else {
-            print("Error: ImagePath is empty.")
-            return
+            throw SharingFlowError.ImagePathIsEmpty
         }
         
         do {
             try removeTemporaryImage(imagePath)
         } catch let error as NSError {
-            print("Error: \(error.description)")
-            return
+            throw error
         }
     }
     

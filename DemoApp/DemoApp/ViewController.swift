@@ -22,10 +22,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow.sendImage(imageView.image, view: view)
+        sharingFlow.sendImage(imageView.image, view: view) { (result) -> Void in
+            switch result {
+            case .Success:
+                print("Success!")
+            case let .Failure(error as SharingFlowError):
+                print(error.debugDescription)
+            case let .Failure(error as NSError):
+                print(error.debugDescription)
+            case let .Failure(error):
+                print(error)
+            }
+        }
     }
-    
+
     @IBAction func removeTmpButtonTapped(sender: UIButton) {
-        sharingFlow.removeImage()
+        do {
+            try sharingFlow.removeImage()
+        } catch let sharingFlowError as SharingFlowError {
+            print("Error: \(sharingFlowError.debugDescription)")
+        } catch let error as NSError {
+            print("Error: \(error.debugDescription)")
+        }
     }
 }

@@ -36,7 +36,7 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
 
 If you don't install Carthage, please install it.
 
-1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.1`.
+1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.2`.
 2. Run `carthage update --platform iOS`.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents: 
@@ -77,9 +77,32 @@ If you don't install Carthage, please install it.
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
 3. Call `sendImage` method with two parameters.
-
+  1. Handling Errors
+  
   ```swift
-  sharingFlow.sendImage(YourImage, view: YourView)
+  sharingFlow.sendImage(imageView.image, view: view) { (result) -> Void in
+      // Handling Errors
+  }
+  ```
+  
+    - Error Handing Example
+    
+    ```swift
+    switch result {
+    case .Success:
+        print("Success!")
+    case let .Failure(error as SharingFlowError):
+        print(error.debugDescription)
+    case let .Failure(error as NSError):
+        print(error.debugDescription)
+    case let .Failure(error):
+        print(error)
+    }
+    ```
+  2. Not Handling Errors
+  
+  ```swift
+  sharingFlow.sendImage(imageView.image, view: view, completion: nil)
   ```
   
   #### Parameters
@@ -91,13 +114,34 @@ If you don't install Carthage, please install it.
   - view: `UIView`
   
     The view from which to display the options menu.
+    
+  - completion: `((result: Result<ErrorType>) -> Void)?`
+  
+    The block to execute after the sending image finishes. You may specify nil for this parameter.
 
 ## Remove temporary image
 
 To remove temporary image in "tmp/" directory, call `removeImage` method of the created instance.
+
 ```swift
-sharingFlow.removeImage()
+do {
+    try sharingFlow.removeImage()
+} catch {
+    // Handling Errors
+}
 ```
+
+  - Error Handing Example
+  
+  ```swift
+  do {
+      try sharingFlow.removeImage()
+  } catch let sharingFlowError as SharingFlowError {
+      print("Error: \(sharingFlowError.debugDescription)")
+  } catch let error as NSError {
+      print("Error: \(error.debugDescription)")
+  }
+  ```
 
 ## License
 
