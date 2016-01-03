@@ -37,12 +37,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func removeTmpButtonTapped(sender: UIButton) {
-        do {
-            try sharingFlow.removeTemporaryImage()
-        } catch let sharingFlowError as SharingFlowError {
-            print("Error: \(sharingFlowError.debugDescription)")
-        } catch let error as NSError {
-            print("Error: \(error.debugDescription)")
+        sharingFlow.removeTemporaryImage { (result) -> Void in
+            switch result {
+            case .Success:
+                print("Success!")
+            case let .Failure(error as SharingFlowError):
+                print(error.debugDescription)
+            case let .Failure(error as NSError):
+                print(error.debugDescription)
+            case let .Failure(error):
+                print(error)
+            }
         }
     }
 }

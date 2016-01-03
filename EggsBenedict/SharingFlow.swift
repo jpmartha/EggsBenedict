@@ -15,7 +15,7 @@ private protocol InstagramSharingFlow {
     init(type: SharingFlowType)
     func saveTemporaryImage(image: UIImage!) throws -> String
     func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<ErrorType>) -> Void)?)
-    func removeTemporaryImage() throws
+    func removeTemporaryImage(completion: ((result: Result<ErrorType>) -> Void)?)
 }
 
 public enum SharingFlowType {
@@ -54,6 +54,8 @@ public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
 public final class SharingFlow: InstagramSharingFlow {
     public var filenameExtension: String!
     public var UTI: String!
+    private var imagePath: String!
+    lazy private var documentInteractionController = UIDocumentInteractionController()
     
     public init(type: SharingFlowType) {
         switch type {
@@ -71,17 +73,13 @@ public final class SharingFlow: InstagramSharingFlow {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
     
-    private var imagePath: String!
-    
-    lazy private var documentInteractionController = UIDocumentInteractionController()
-    
     private func saveTemporaryImage(image: UIImage!) throws -> String {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
             throw SharingFlowError.CannotManipulateImage
         }
         
-        let documentDirectory = (NSHomeDirectory() as NSString).stringByAppendingPathComponent("tmp")
-        imagePath = (documentDirectory as NSString).stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
+        let temporaryDirectory = NSTemporaryDirectory()
+        imagePath = (temporaryDirectory as NSString).stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
         
         guard imageData.writeToFile(imagePath, atomically: true) else {
             throw SharingFlowError.CannotSaveImage
@@ -97,37 +95,27 @@ public final class SharingFlow: InstagramSharingFlow {
     public func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<ErrorType>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagram else {
-                if let completion = completion {
-                    completion(result: .Failure(SharingFlowError.NoInstagramApp))
-                }
+                completion?(result: .Failure(SharingFlowError.NoInstagramApp))
                 return
             }
             
             guard let UTI = self.UTI else {
-                if let completion = completion {
-                    completion(result: .Failure(SharingFlowError.UTIIsEmpty))
-                }
+                completion?(result: .Failure(SharingFlowError.UTIIsEmpty))
                 return
             }
             
             do {
                 self.imagePath = try self.saveTemporaryImage(image)
             } catch let sharingFlowError as SharingFlowError {
-                if let completion = completion {
-                    completion(result: .Failure(sharingFlowError))
-                }
+                completion?(result: .Failure(sharingFlowError))
                 return
             } catch let error as NSError {
-                if let completion = completion {
-                    completion(result: .Failure(error))
-                }
+                completion?(result: .Failure(error))
                 return
             }
             
             guard let imagePath = self.imagePath else {
-                if let completion = completion {
-                    completion(result: .Failure(SharingFlowError.ImagePathIsEmpty))
-                }
+                completion?(result: .Failure(SharingFlowError.ImagePathIsEmpty))
                 return
             }
 
@@ -139,25 +127,25 @@ public final class SharingFlow: InstagramSharingFlow {
                     inView: view,
                     animated: true
                 )
-                if let completion = completion {
-                    completion(result: .Success)
-                }
+                completion?(result: .Success)
             })
         })
     }
     
-    // FIXME: dispatch_async
-    
     /// Remove temporary image in "tmp/" directory.
-    public func removeTemporaryImage() throws {
-        guard let imagePath = self.imagePath else {
-            throw SharingFlowError.ImagePathIsEmpty
-        }
-        
-        do {
-            try NSFileManager().removeItemAtPath(imagePath)
-        } catch let error as NSError {
-            throw error
-        }
+    /// - Parameter completion: The block to execute after the removing temporary image finishes. You may specify nil for this parameter.
+    public func removeTemporaryImage(completion: ((result: Result<ErrorType>) -> Void)?) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+            guard let imagePath = self.imagePath else {
+                completion?(result: .Failure(SharingFlowError.ImagePathIsEmpty))
+                return
+            }
+            
+            do {
+                try NSFileManager().removeItemAtPath(imagePath)
+            } catch let error as NSError {
+                completion?(result: .Failure(error))
+            }
+        })
     }
 }
