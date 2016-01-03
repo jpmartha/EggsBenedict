@@ -77,15 +77,14 @@ If you don't install Carthage, please install it.
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
 3. Call `sendImage` method with two parameters.
-  1. Handling Errors
-  
+
   ```swift
   sharingFlow.sendImage(imageView.image, view: view) { (result) -> Void in
       // Handling Errors
   }
   ```
   
-    - Error Handing Example
+    - Handling Errors Example
     
     ```swift
     switch result {
@@ -99,19 +98,14 @@ If you don't install Carthage, please install it.
         print(error)
     }
     ```
-  2. Not Handling Errors
-  
-  ```swift
-  sharingFlow.sendImage(imageView.image, view: view, completion: nil)
-  ```
   
   #### Parameters
   
-  - image: `UIImage`
+  - image: `UIImage!`
   
     The image for sending to Instagram app.
     
-  - view: `UIView`
+  - view: `UIView!`
   
     The view from which to display the options menu.
     
