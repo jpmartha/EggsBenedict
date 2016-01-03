@@ -45,7 +45,7 @@ If you don't install Carthage, please install it.
   ```
   and add the paths to EggsBenedict.framework:
   ```
-  $(SRCROOT)/Carthage/Build/iOS/EggsBenedict.framework`
+  $(SRCROOT)/Carthage/Build/iOS/EggsBenedict.framework
   ```
   
   This script works around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries and ensures that necessary bitcode-related files are copied when archiving.
