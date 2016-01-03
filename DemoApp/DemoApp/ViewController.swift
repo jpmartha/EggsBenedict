@@ -26,12 +26,8 @@ class ViewController: UIViewController {
             switch result {
             case .Success:
                 print("Success!")
-            case let .Failure(error as SharingFlowError):
-                print(error.debugDescription)
-            case let .Failure(error as NSError):
-                print(error.debugDescription)
-            case let .Failure(error):
-                print(error)
+            case .Failure(let error):
+                print("Error: \(error)")
             }
         }
     }
@@ -41,12 +37,8 @@ class ViewController: UIViewController {
             switch result {
             case .Success:
                 print("Success!")
-            case let .Failure(error as SharingFlowError):
-                print(error.debugDescription)
-            case let .Failure(error as NSError):
-                print(error.debugDescription)
-            case let .Failure(error):
-                print(error)
+            case .Failure(let error):
+                print("Error: \(error)")
             }
         }
     }

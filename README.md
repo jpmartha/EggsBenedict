@@ -104,12 +104,8 @@ If you don't install Carthage, please install it.
       switch result {
       case .Success:
           print("Success!")
-      case let .Failure(error as SharingFlowError):
-          print(error.debugDescription)
-      case let .Failure(error as NSError):
-          print(error.debugDescription)
-      case let .Failure(error):
-          print(error)
+      case .Failure(let error):
+          print("Error: \(error)")
       }
       ```
 
@@ -135,12 +131,8 @@ To remove temporary image in "tmp/" directory, call `removeTemporaryImage` metho
       switch result {
       case .Success:
           print("Success!")
-      case let .Failure(error as SharingFlowError):
-          print(error.debugDescription)
-      case let .Failure(error as NSError):
-          print(error.debugDescription)
-      case let .Failure(error):
-          print(error)
+      case .Failure(let error):
+          print("Error: \(error)")
       }
       ```
 
