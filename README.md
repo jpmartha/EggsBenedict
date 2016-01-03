@@ -115,7 +115,7 @@ If you don't install Carthage, please install it.
 
 ## Remove temporary image
 
-To remove temporary image in "tmp/" directory, call `removeImage` method of the created instance.
+To remove temporary image in "tmp/" directory, call `removeTemporaryImage` method of the created instance.
 
 ```swift
 do {
