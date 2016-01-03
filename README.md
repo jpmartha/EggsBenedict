@@ -36,7 +36,7 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
 
 If you don't install Carthage, please install it.
 
-1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.2`.
+1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.3`.
 2. Run `carthage update --platform iOS`.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents: 
@@ -119,7 +119,7 @@ To remove temporary image in "tmp/" directory, call `removeImage` method of the 
 
 ```swift
 do {
-    try sharingFlow.removeImage()
+    try sharingFlow.removeTemporaryImage()
 } catch {
     // Handling Errors
 }
@@ -129,7 +129,7 @@ do {
   
   ```swift
   do {
-      try sharingFlow.removeImage()
+      try sharingFlow.removeTemporaryImage()
   } catch let sharingFlowError as SharingFlowError {
       print("Error: \(sharingFlowError.debugDescription)")
   } catch let error as NSError {

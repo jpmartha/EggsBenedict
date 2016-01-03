@@ -13,9 +13,9 @@ private protocol InstagramSharingFlow {
     var UTI: String! { get }
     var hasInstagram: Bool { get }
     init(type: SharingFlowType)
-    func saveImage(image: UIImage!) -> String
+    func saveTemporaryImage(image: UIImage!) throws -> String
     func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<ErrorType>) -> Void)?)
-    func removeImage() throws
+    func removeTemporaryImage() throws
 }
 
 public enum SharingFlowType {
@@ -52,8 +52,8 @@ public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
 }
 
 public final class SharingFlow: InstagramSharingFlow {
-    internal var filenameExtension: String!
-    internal var UTI: String!
+    public var filenameExtension: String!
+    public var UTI: String!
     
     public init(type: SharingFlowType) {
         switch type {
@@ -74,20 +74,6 @@ public final class SharingFlow: InstagramSharingFlow {
     private var imagePath: String!
     
     lazy private var documentInteractionController = UIDocumentInteractionController()
-    
-    private func saveImage(image: UIImage!) -> String {
-        do {
-            imagePath = try self.saveTemporaryImage(image)
-        } catch let sharingFlowError as SharingFlowError {
-            print("Error: \(sharingFlowError.debugDescription)")
-            return ""
-        } catch let error as NSError {
-            print("Error: \(error.debugDescription)")
-            return ""
-        }
-        
-        return imagePath
-    }
     
     private func saveTemporaryImage(image: UIImage!) throws -> String {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
@@ -160,20 +146,14 @@ public final class SharingFlow: InstagramSharingFlow {
         })
     }
     
+    // FIXME: dispatch_async
+    
     /// Remove temporary image in "tmp/" directory.
-    public func removeImage() throws {
+    public func removeTemporaryImage() throws {
         guard let imagePath = self.imagePath else {
             throw SharingFlowError.ImagePathIsEmpty
         }
         
-        do {
-            try removeTemporaryImage(imagePath)
-        } catch let error as NSError {
-            throw error
-        }
-    }
-    
-    private func removeTemporaryImage(imagePath: String!) throws {
         do {
             try NSFileManager().removeItemAtPath(imagePath)
         } catch let error as NSError {
