@@ -100,18 +100,18 @@ If you don't install Carthage, please install it.
     
     - Handling Errors Example
     
-    ```swift
-    switch result {
-    case .Success:
-        print("Success!")
-    case let .Failure(error as SharingFlowError):
-        print(error.debugDescription)
-    case let .Failure(error as NSError):
-        print(error.debugDescription)
-    case let .Failure(error):
-        print(error)
-    }
-    ```
+      ```swift
+      switch result {
+      case .Success:
+          print("Success!")
+      case let .Failure(error as SharingFlowError):
+          print(error.debugDescription)
+      case let .Failure(error as NSError):
+          print(error.debugDescription)
+      case let .Failure(error):
+          print(error)
+      }
+      ```
 
 ## Remove temporary image
 
@@ -123,7 +123,7 @@ To remove temporary image in "tmp/" directory, call `removeTemporaryImage` metho
   }
   ```
   
-  #### Parameters
+#### Parameters
   
   - completion: `((result: Result<ErrorType>) -> Void)?`
   
@@ -131,18 +131,18 @@ To remove temporary image in "tmp/" directory, call `removeTemporaryImage` metho
     
     - Handling Errors Example
     
-    ```swift
-    switch result {
-    case .Success:
-        print("Success!")
-    case let .Failure(error as SharingFlowError):
-        print(error.debugDescription)
-    case let .Failure(error as NSError):
-        print(error.debugDescription)
-    case let .Failure(error):
-        print(error)
-    }
-    ```
+      ```swift
+      switch result {
+      case .Success:
+          print("Success!")
+      case let .Failure(error as SharingFlowError):
+          print(error.debugDescription)
+      case let .Failure(error as NSError):
+          print(error.debugDescription)
+      case let .Failure(error):
+          print(error)
+      }
+      ```
 
 ## License
 
