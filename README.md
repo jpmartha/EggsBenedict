@@ -125,7 +125,7 @@ do {
 }
 ```
 
-  - Error Handing Example
+  - Handling Errors Example
   
   ```swift
   do {
