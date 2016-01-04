@@ -14,7 +14,7 @@ private protocol InstagramSharingFlow {
     var hasInstagram: Bool { get }
     init(type: SharingFlowType)
     func saveTemporaryImage(image: UIImage!) throws -> String
-    func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<Any>) -> Void)?)
+    func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
     func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
 }
 
@@ -56,7 +56,7 @@ public final class SharingFlow: InstagramSharingFlow {
     public var UTI: String!
     private var imagePath: String!
     lazy private var documentInteractionController = UIDocumentInteractionController()
-    
+
     public init(type: SharingFlowType) {
         switch type {
         case .IGPhoto:
@@ -78,21 +78,22 @@ public final class SharingFlow: InstagramSharingFlow {
             throw SharingFlowError.CannotManipulateImage
         }
         
-        let temporaryDirectory = NSTemporaryDirectory()
-        imagePath = (temporaryDirectory as NSString).stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
+        let temporaryDirectory = NSTemporaryDirectory() as NSString
+        let temporaryImagePath = temporaryDirectory.stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
         
-        guard imageData.writeToFile(imagePath, atomically: true) else {
+        guard imageData.writeToFile(temporaryImagePath, atomically: true) else {
             throw SharingFlowError.CannotSaveImage
         }
         
-        return imagePath
+        return temporaryImagePath
     }
     
     /// Send image to Instagram app.
     /// - Parameter image: The image for sending to Instagram app.
     /// - Parameter view: The view from which to display the options menu.
+    /// - Parameter documentInteractionControllerDelegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
     /// - Parameter completion: The block to execute after the sending image finishes. You may specify nil for this parameter.
-    public func sendImage(image: UIImage!, view: UIView!, completion: ((result: Result<Any>) -> Void)?) {
+    public func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagram else {
                 completion?(result: .Failure(SharingFlowError.NoInstagramApp))
@@ -118,16 +119,17 @@ public final class SharingFlow: InstagramSharingFlow {
                 completion?(result: .Failure(SharingFlowError.ImagePathIsEmpty))
                 return
             }
-
+            
+            self.documentInteractionController.URL = NSURL.fileURLWithPath(imagePath)
+            self.documentInteractionController.UTI = UTI
+            self.documentInteractionController.delegate = delegate
+            
             dispatch_async(dispatch_get_main_queue(), {
-                self.documentInteractionController.URL = NSURL.fileURLWithPath(imagePath)
-                self.documentInteractionController.UTI = UTI
                 self.documentInteractionController.presentOptionsMenuFromRect(
                     view.bounds,
                     inView: view,
                     animated: true
                 )
-                
                 completion?(result: .Success(imagePath))
             })
         })
@@ -148,7 +150,6 @@ public final class SharingFlow: InstagramSharingFlow {
                 completion?(result: .Failure(error))
                 return
             }
-            
             completion?(result: .Success(imagePath))
         })
     }

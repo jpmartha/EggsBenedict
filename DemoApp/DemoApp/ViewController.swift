@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIDocumentInteractionControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var shareOnInstagramButton: UIButton!
@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow.sendImage(imageView.image, view: view) { (result) -> Void in
+        sharingFlow.presentOptionsMenuWithImage(imageView.image, view: view, documentInteractionControllerDelegate: self) { (result) -> Void in
             switch result {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")
@@ -41,5 +41,11 @@ class ViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
+    }
+    
+    // MARK: - UIDocumentInteractionControllerDelegate
+    
+    func documentInteractionControllerDidDismissOptionsMenu(controller: UIDocumentInteractionController) {
+        print(__FUNCTION__)
     }
 }

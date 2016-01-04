@@ -36,7 +36,7 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
 
 If you don't install Carthage, please install it.
 
-1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.4`.
+1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.5`.
 2. Run `carthage update --platform iOS`.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents: 
@@ -76,10 +76,10 @@ If you don't install Carthage, please install it.
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
-3. Call `sendImage` method with two parameters.
+3. Call `presentOptionsMenuWithImage` method with two parameters.
 
   ```swift
-  sharingFlow.sendImage(imageView.image, view: view) { (result) -> Void in
+  sharingFlow.presentOptionsMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
       // Handling Errors
   }
   ```
@@ -94,9 +94,13 @@ If you don't install Carthage, please install it.
   
     The view from which to display the options menu.
     
+  - documentInteractionControllerDelegate: `UIDocumentInteractionControllerDelegate?`
+  
+    The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
+    
   - completion: `((result: Result<Any>) -> Void)?`
   
-    The block to execute after the sending image finishes. You may specify nil for this parameter.
+    The block to execute after the sending image finishes. You may specify `nil` for this parameter.
     
     - Handling Errors Example
     
