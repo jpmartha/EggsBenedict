@@ -24,8 +24,8 @@ class ViewController: UIViewController {
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
         sharingFlow.sendImage(imageView.image, view: view) { (result) -> Void in
             switch result {
-            case .Success:
-                print("Success!")
+            case .Success(let imagePath):
+                print("Success: \(imagePath)")
             case .Failure(let error):
                 print("Error: \(error)")
             }
@@ -35,8 +35,8 @@ class ViewController: UIViewController {
     @IBAction func removeTmpButtonTapped(sender: UIButton) {
         sharingFlow.removeTemporaryImage { (result) -> Void in
             switch result {
-            case .Success:
-                print("Success!")
+            case .Success(let imagePath):
+                print("Success: \(imagePath)")
             case .Failure(let error):
                 print("Error: \(error)")
             }
