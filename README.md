@@ -76,7 +76,7 @@ If you don't install Carthage, please install it.
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
-3. Call `presentOptionsMenuWithImage` method with two parameters.
+3. Call `presentOptionsMenuWithImage` method with two required parameters and two optional parameters.
 
   ```swift
   sharingFlow.presentOptionsMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
