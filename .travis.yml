@@ -1,4 +1,4 @@
 language: objective-c
 xcode_project: EggsBenedict.xcodeproj # path to your xcodeproj folder
-xcode_scheme: EggsBenedictTests
+xcode_scheme: EggsBenedict
 osx_image: xcode7.2
