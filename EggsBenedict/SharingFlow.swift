@@ -88,11 +88,11 @@ public final class SharingFlow: InstagramSharingFlow {
         return temporaryImagePath
     }
     
-    /// Send image to Instagram app.
+    /// Present an options menu for sending image to Instagram app.
     /// - Parameter image: The image for sending to Instagram app.
     /// - Parameter view: The view from which to display the options menu.
     /// - Parameter documentInteractionControllerDelegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
-    /// - Parameter completion: The block to execute after the sending image finishes. You may specify nil for this parameter.
+    /// - Parameter completion: The block to execute after the presenting an options menu. You may specify nil for this parameter.
     public func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagramApp else {
