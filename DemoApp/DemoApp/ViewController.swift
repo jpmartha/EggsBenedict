@@ -18,7 +18,7 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shareOnInstagramButton.enabled = sharingFlow.hasInstagram
+        shareOnInstagramButton.enabled = sharingFlow.hasInstagramApp
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {

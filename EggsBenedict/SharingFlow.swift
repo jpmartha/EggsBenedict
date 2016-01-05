@@ -11,7 +11,7 @@ import UIKit
 private protocol InstagramSharingFlow {
     var filenameExtension: String! { get }
     var UTI: String! { get }
-    var hasInstagram: Bool { get }
+    var hasInstagramApp: Bool { get }
     init(type: SharingFlowType)
     func saveTemporaryImage(image: UIImage!) throws -> String
     func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
@@ -69,11 +69,11 @@ public final class SharingFlow: InstagramSharingFlow {
     }
 
     /// Returns a Boolean value indicating whether or not Instagram app is installed on the device.
-    public var hasInstagram: Bool {
+    public var hasInstagramApp: Bool {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
     
-    private func saveTemporaryImage(image: UIImage!) throws -> String {
+    internal func saveTemporaryImage(image: UIImage!) throws -> String {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
             throw SharingFlowError.CannotManipulateImage
         }
@@ -95,7 +95,7 @@ public final class SharingFlow: InstagramSharingFlow {
     /// - Parameter completion: The block to execute after the sending image finishes. You may specify nil for this parameter.
     public func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-            guard self.hasInstagram else {
+            guard self.hasInstagramApp else {
                 completion?(result: .Failure(SharingFlowError.NoInstagramApp))
                 return
             }
