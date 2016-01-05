@@ -1,5 +1,6 @@
 language: objective-c
 xcode_project: EggsBenedict.xcodeproj
+xcode_scheme: EggsBenedictTests
 osx_image: xcode7.2
 script: xcodebuild test -scheme EggsBenedictTests
 notifications:
