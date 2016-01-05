@@ -1,7 +1,7 @@
 language: objective-c
 xcode_project: EggsBenedict.xcodeproj
-xcode_scheme: EggsBenedictTests
+xcode_scheme: EggsBenedict
 osx_image: xcode7.2
-script: xcodebuild test -scheme EggsBenedictTests
+script: xcodebuild test -scheme EggsBenedict
 notifications:
   email: false
