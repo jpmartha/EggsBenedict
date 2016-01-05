@@ -100,7 +100,7 @@ If you don't install Carthage, please install it.
     
   - completion: `((result: Result<Any>) -> Void)?`
   
-    The block to execute after the sending image finishes. You may specify `nil` for this parameter.
+    The block to execute after the presenting an options menu. You may specify `nil` for this parameter.
     
     - Handling Errors Example
     
@@ -127,7 +127,7 @@ To remove temporary image in "tmp/" directory, call `removeTemporaryImage` metho
   
   - completion: `((result: Result<Any>) -> Void)?`
   
-    The block to execute after the sending image finishes. You may specify nil for this parameter.
+    The block to execute after the removing temporary image finishes. You may specify nil for this parameter.
     
     - Handling Errors Example
     
