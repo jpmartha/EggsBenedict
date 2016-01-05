@@ -1,7 +1,4 @@
 language: objective-c
-xcode_project: EggsBenedict.xcodeproj
-xcode_scheme: EggsBenedict
-osx_image: xcode7.2
-script: xcodebuild test -scheme EggsBenedict
+script: xcodebuild test -scheme EggsBenedict -destination "name=iPhone 6s Plus" -configuration Debug -sdk iphonesimulator
 notifications:
   email: false
