@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIDocumentInteractionControllerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var shareOnInstagramButton: UIButton!
@@ -18,16 +18,34 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let sharingFlow = sharingFlow {
-            shareOnInstagramButton.enabled = sharingFlow.hasInstagram
-        }
+        shareOnInstagramButton.enabled = sharingFlow.hasInstagramApp
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow?.sendImage(imageView.image, view: view)
+        sharingFlow.presentOptionsMenuWithImage(imageView.image, view: view, documentInteractionControllerDelegate: self) { (result) -> Void in
+            switch result {
+            case .Success(let imagePath):
+                print("Success: \(imagePath)")
+            case .Failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+
+    @IBAction func removeTmpButtonTapped(sender: UIButton) {
+        sharingFlow.removeTemporaryImage { (result) -> Void in
+            switch result {
+            case .Success(let imagePath):
+                print("Success: \(imagePath)")
+            case .Failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
     
-    @IBAction func removeTmpButtonTapped(sender: UIButton) {
-        sharingFlow?.removeTemporaryImage()
+    // MARK: - UIDocumentInteractionControllerDelegate
+    
+    func documentInteractionControllerDidDismissOptionsMenu(controller: UIDocumentInteractionController) {
+        print(__FUNCTION__)
     }
 }

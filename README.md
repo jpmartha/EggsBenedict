@@ -1,4 +1,4 @@
-# EggsBenedict [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+# EggsBenedict [![Build Status](https://travis-ci.org/JPMartha/EggsBenedict.svg)](https://travis-ci.org/JPMartha/EggsBenedict) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
@@ -22,7 +22,7 @@ If the custom URL `instagram://` can be opened direct users on the iOS device, t
 
 #### _\- By the way, why was it named "EggsBenedict"?_
 
-The reason is because I like Eggs Benedict.
+The reason is because I like Eggs Benedict 😋
 
 ## Availability
 
@@ -36,7 +36,7 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
 
 If you don't install Carthage, please install it.
 
-1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.0`.
+1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.5`.
 2. Run `carthage update --platform iOS`.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents: 
@@ -45,7 +45,7 @@ If you don't install Carthage, please install it.
   ```
   and add the paths to EggsBenedict.framework:
   ```
-  $(SRCROOT)/Carthage/Build/iOS/EggsBenedict.framework`
+  $(SRCROOT)/Carthage/Build/iOS/EggsBenedict.framework
   ```
   
   This script works around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries and ensures that necessary bitcode-related files are copied when archiving.
@@ -58,7 +58,7 @@ If you don't install Carthage, please install it.
   ------------------------------------|--------|-----------
   LSApplicationQueriesSchemes | Array | instagram
 
-2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration. 
+2. Create an instance of `SharingFlow` class with `SharingFlowType` enumeration.
 
   ```swift
   let sharingFlow = SharingFlow(type: .IGOExclusivegram)
@@ -76,28 +76,69 @@ If you don't install Carthage, please install it.
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
-3. Call `sendImage` method with two parameters.
+3. Call `presentOptionsMenuWithImage` method with two required parameters and two optional parameters.
 
   ```swift
-  sharingFlow.sendImage(YourImage, view: YourView)
+  sharingFlow.presentOptionsMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
+      // Handling Errors
+  }
   ```
   
   #### Parameters
   
-  - image: `UIImage`
+  - image: `UIImage!`
   
     The image for sending to Instagram app.
     
-  - view: `UIView`
+  - view: `UIView!`
   
     The view from which to display the options menu.
+    
+  - documentInteractionControllerDelegate: `UIDocumentInteractionControllerDelegate?`
+  
+    The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
+    
+  - completion: `((result: Result<Any>) -> Void)?`
+  
+    The block to execute after the sending image finishes. You may specify `nil` for this parameter.
+    
+    - Handling Errors Example
+    
+      ```swift
+      switch result {
+      case .Success(let imagePath):
+          print("Success: \(imagePath)")
+      case .Failure(let error):
+          print("Error: \(error)")
+      }
+      ```
 
 ## Remove temporary image
 
 To remove temporary image in "tmp/" directory, call `removeTemporaryImage` method of the created instance.
-```swift
-sharingFlow.removeTemporaryImage()
-```
+
+  ```swift
+  sharingFlow.removeTemporaryImage { (result) -> Void in
+      // Handling Errors
+  }
+  ```
+  
+#### Parameters
+  
+  - completion: `((result: Result<Any>) -> Void)?`
+  
+    The block to execute after the sending image finishes. You may specify nil for this parameter.
+    
+    - Handling Errors Example
+    
+      ```swift
+      switch result {
+      case .Success(let imagePath):
+          print("Success: \(imagePath)")
+      case .Failure(let error):
+          print("Error: \(error)")
+      }
+      ```
 
 ## License
 
