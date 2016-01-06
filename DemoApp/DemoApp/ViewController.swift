@@ -22,7 +22,7 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow.presentOptionsMenuWithImage(imageView.image, view: view, documentInteractionControllerDelegate: self) { (result) -> Void in
+        sharingFlow.presentOpenInMenuWithImage(imageView.image, view: view, documentInteractionControllerDelegate: self) { (result) -> Void in
             switch result {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     
     // MARK: - UIDocumentInteractionControllerDelegate
     
-    func documentInteractionControllerDidDismissOptionsMenu(controller: UIDocumentInteractionController) {
+    func documentInteractionControllerDidDismissOpenInMenu(controller: UIDocumentInteractionController) {
         print(__FUNCTION__)
     }
 }

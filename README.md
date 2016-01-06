@@ -1,9 +1,8 @@
 # EggsBenedict [![Build Status](https://travis-ci.org/JPMartha/EggsBenedict.svg)](https://travis-ci.org/JPMartha/EggsBenedict) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
-__EggsBenedict__ is a library for sharing picture on Instagram in Swift.
+__EggsBenedict__ is a library for sharing picture with Instagram app in Swift.
 
-<img src="https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict.gif" width=272>
-
+<img src="./Images/EggsBenedict.gif" width=272>
 
 This library is following Instagram's sharing flow.
 
@@ -13,8 +12,8 @@ This library is following Instagram's sharing flow.
 
 If the custom URL `instagram://` can be opened direct users on the iOS device, the flow is as follows.
 
-1. Save temporary file named  `jpmarthaeggsbenedict` (JPEG format) in "tmp/" directory using the filename extension `.ig` or `.igo`.
-2. Display an options menu for copying to Instagram.
+1. Save temporary file named  `jpmarthaeggsbenedict` (JPEG format) in "tmp/" directory using the filename extension `".ig"` or `".igo"`.
+2. Display the menu for copying to Instagram app.
 3. If users tap the "Copy to Instagram" icon, open Instagram app with its filter screen.
 
   > The image is preloaded and sized appropriately for Instagram. For best results, Instagram prefers opening a JPEG that is 640px by 640px square. If the image is larger, it will be resized dynamically.
@@ -75,10 +74,10 @@ If you don't install Carthage, please install it.
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
-3. Call `presentOptionsMenuWithImage` method with two required parameters and two optional parameters.
+3. Call `presentOpenInMenuWithImage` method with two required parameters and two optional parameters.
 
   ```swift
-  sharingFlow.presentOptionsMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
+  sharingFlow.presentOpenInMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
       // Handling Errors
   }
   ```
@@ -91,7 +90,7 @@ If you don't install Carthage, please install it.
     
   - view: `UIView!`
   
-    The view from which to display the options menu.
+    The view from which to display the menu.
     
   - documentInteractionControllerDelegate: `UIDocumentInteractionControllerDelegate?`
   
