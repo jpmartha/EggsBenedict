@@ -12,7 +12,7 @@ This library is following Instagram's sharing flow.
 
 If the custom URL `instagram://` can be opened direct users on the iOS device, the flow is as follows.
 
-1. Save temporary file named  `jpmarthaeggsbenedict` (JPEG format) in "tmp/" directory using the filename extension `".ig"` or `".igo"`.
+1. Save temporary file named  `"jpmarthaeggsbenedict"` (JPEG format) in "tmp/" directory using the filename extension `".ig"` or `".igo"`.
 2. Display the menu for copying to Instagram app.
 3. If users tap the "Copy to Instagram" icon, open Instagram app with its filter screen.
 
