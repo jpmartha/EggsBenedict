@@ -2,8 +2,7 @@
 
 __EggsBenedict__ is a library for sharing picture on Instagram in Swift.
 
-![Options Menu](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict01.png)
-![Instagram app](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict02.png)
+![EggsBenedict](https://github.com/JPMartha/EggsBenedict/wiki/images/EggsBenedict.gif)
 
 
 This library is following Instagram's sharing flow.
