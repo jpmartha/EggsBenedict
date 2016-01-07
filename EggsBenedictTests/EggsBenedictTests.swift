@@ -31,34 +31,22 @@ class EggsBenedictTests: XCTestCase {
     
     func testTemporaryImageIGPhoto() {
         let sharingFlow = SharingFlow(type: .IGPhoto)
-        let imagePath: String
-        do {
-            imagePath = try sharingFlow.saveTemporaryImage(UIImage(named: "EggsBenedict"))
-        } catch {
-            return
-        }
-        
-        XCTAssertTrue(NSFileManager.defaultManager().fileExistsAtPath(imagePath))
-        
-        sharingFlow.removeTemporaryImage { (result) -> Void in
-            switch result {
-            case .Success(let imagePath as String):
-                XCTAssertFalse(NSFileManager.defaultManager().fileExistsAtPath(imagePath))
-            default:
-                break
-            }
-        }
+        testTemporaryImage(sharingFlow)
     }
     
     func testTemporaryImageIGOExclusivegram() {
         let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+        testTemporaryImage(sharingFlow)
+    }
+    
+    func testTemporaryImage(sharingFlow: SharingFlow) {
+        
         let imagePath: String
         do {
             imagePath = try sharingFlow.saveTemporaryImage(UIImage(named: "EggsBenedict"))
         } catch {
             return
         }
-        
         XCTAssertTrue(NSFileManager.defaultManager().fileExistsAtPath(imagePath))
         
         sharingFlow.removeTemporaryImage { (result) -> Void in
