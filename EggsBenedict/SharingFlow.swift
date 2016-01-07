@@ -92,7 +92,7 @@ public final class SharingFlow: InstagramSharingFlow {
     /// - Parameter image: The image for sending to Instagram app.
     /// - Parameter view: The view from which to display the options menu.
     /// - Parameter documentInteractionControllerDelegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
-    /// - Parameter completion: The block to execute after the presenting an options menu. You may specify nil for this parameter.
+    /// - Parameter completion: The block to execute after the presenting menu. You may specify nil for this parameter.
     public func presentOpenInMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagramApp else {

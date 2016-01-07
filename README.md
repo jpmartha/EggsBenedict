@@ -97,7 +97,7 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
     
   - completion: `((result: Result<Any>) -> Void)?`
   
-    The block to execute after the presenting an options menu. You may specify `nil` for this parameter.
+    The block to execute after the presenting menu. You may specify `nil` for this parameter.
     
     - Handling Errors Example
     
