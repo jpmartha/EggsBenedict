@@ -3,7 +3,7 @@
 
 __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのライブラリです。
 
-<img src="./Images/EggsBenedict.gif" width=272>
+<img src="../Images/EggsBenedict.gif" width=272>
 
 このライブラリは Instagram ドキュメントに記載されている手順に従います。
 
