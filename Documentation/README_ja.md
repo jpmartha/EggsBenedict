@@ -52,7 +52,13 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 #### [CocoaPods](https://cocoapods.org)
 
-1. [Podfile](https://guides.cocoapods.org/using/the-podfile.html) を作成し、`pod 'EggsBenedict', '~> 0.9.6'` を追記します。
+1. [Podfile](https://guides.cocoapods.org/using/the-podfile.html) を作成し、次の内容を入力します。
+
+  ```
+  use_frameworks!
+  pod 'EggsBenedict', '~> 0.9.6'`.
+  ```
+
 2. プロジェクトのフォルダで `$ pod install` を実行します。
 
 ## はじめ方

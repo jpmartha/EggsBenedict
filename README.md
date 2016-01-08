@@ -49,7 +49,13 @@ The reason is because I like Eggs Benedict 😋
   
 #### [CocoaPods](https://cocoapods.org)
 
-1. Create a [Podfile](https://guides.cocoapods.org/using/the-podfile.html), and add `pod 'EggsBenedict', '~> 0.9.6'`.
+1. Create a [Podfile](https://guides.cocoapods.org/using/the-podfile.html), and add the following contents:
+
+  ```
+  use_frameworks!
+  pod 'EggsBenedict', '~> 0.9.6'`.
+  ```
+  
 2. Run `$ pod install` in your project directory.
 
 ## Getting started
