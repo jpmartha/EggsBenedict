@@ -31,10 +31,10 @@ The reason is because I like Eggs Benedict 😋
 
 ## Adding EggsBenedict.framework to your project
 
-This library can be used with [Carthage](https://github.com/Carthage/Carthage).
+#### [Carthage](https://github.com/Carthage/Carthage) (preferred)
 
-1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) and add `github "JPMartha/EggsBenedict" ~> 0.9.5`.
-2. Run `carthage update --platform iOS`.
+1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile), and add `github "JPMartha/EggsBenedict" ~> 0.9.6`.
+2. Run `$ carthage update --platform iOS` in your project directory.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents: 
   ```
@@ -46,6 +46,11 @@ This library can be used with [Carthage](https://github.com/Carthage/Carthage).
   ```
   
   This script works around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries and ensures that necessary bitcode-related files are copied when archiving.
+  
+#### [CocoaPods](https://cocoapods.org)
+
+1. Create a [Podfile](https://guides.cocoapods.org/using/the-podfile.html), and add `pod 'EggsBenedict', '~> 0.9.6'`.
+2. Run `$ pod install` in your project directory.
 
 ## Getting started
 

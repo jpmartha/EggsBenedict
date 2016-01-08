@@ -33,10 +33,10 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 ## Xcodeプロジェクトに EggsBenedict.framework を追加
 
-このライブラリは [Carthage](https://github.com/Carthage/Carthage) を使用することができます。
+#### [Carthage](https://github.com/Carthage/Carthage) （オススメ）
 
-1. [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) を作成し、`github "JPMartha/EggsBenedict" ~> 0.9.5` と追記します。
-2. `carthage update --platform iOS` を実行します。
+1. [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) を作成し、`github "JPMartha/EggsBenedict" ~> 0.9.6` を追記します。
+2. プロジェクトのフォルダで `$ carthage update --platform iOS` を実行します。
 3. TARGETS の「Build Phases」にある「Link Binary With Libraries」の「+」アイコンをクリックして Carthage/Build フォルダから `EggsBenedict.framework` を追加します。
 4. TARGETS の「Build Phases」にある「+」アイコンをクリックして「New Run Script Phase」を選択し Run Script に次の内容を入力します。
   ```
@@ -49,6 +49,11 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   このスクリプトは [App Store へ提出時のバグ](http://www.openradar.me/radar?id=6409498411401216) を回避します。
   
   > This script works around an [App Store submission bug](http://www.openradar.me/radar?id=6409498411401216) triggered by universal binaries and ensures that necessary bitcode-related files are copied when archiving.
+
+#### [CocoaPods](https://cocoapods.org)
+
+1. [Podfile](https://guides.cocoapods.org/using/the-podfile.html) を作成し、`pod 'EggsBenedict', '~> 0.9.6'` を追記します。
+2. プロジェクトのフォルダで `$ pod install` を実行します。
 
 ## はじめ方
 
