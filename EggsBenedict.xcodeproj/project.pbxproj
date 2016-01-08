@@ -7,27 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5C8FA86C1C327B6D008F26EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
+		5CACDDC21C3F9C59005F9D49 /* EggsBenedict.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5CACDDC11C3F9C59005F9D49 /* EggsBenedict.jpg */; };
 		5CD031D61C31C7B600BC4BF6 /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
-		5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8661C3023BB00B203EC /* AppDelegate.swift */; };
-		5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86D1C3023BB00B203EC /* Assets.xcassets */; };
-		5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */; };
-		5CDCE8981C30244500B203EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8971C30244500B203EC /* ViewController.swift */; };
-		5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CDCE89B1C30254D00B203EC /* Main.storyboard */; };
 		5CF239031C30B1900009815F /* EggsBenedict.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF239021C30B1900009815F /* EggsBenedict.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF239101C30B1900009815F /* EggsBenedictTests.swift */; };
 		5CF239441C30CD520009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
-		5CF239451C30CD9C0009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		5CD031DC1C32161C00BC4BF6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
-			remoteInfo = EggsBenedict;
-		};
 		5CF2390B1C30B1900009815F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
@@ -35,36 +22,11 @@
 			remoteGlobalIDString = 5CF238FF1C30B1900009815F;
 			remoteInfo = EggsBenedict;
 		};
-		5CF2390D1C30B1900009815F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5CDCE85B1C3023BB00B203EC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5CDCE8621C3023BB00B203EC;
-			remoteInfo = SharingOnInstagram;
-		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		5CF2391C1C30B1910009815F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		5CDCE8631C3023BB00B203EC /* EggsBenedict.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EggsBenedict.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		5CDCE8661C3023BB00B203EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5CDCE86D1C3023BB00B203EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5CDCE8701C3023BB00B203EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5CDCE8971C30244500B203EC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5CACDDC11C3F9C59005F9D49 /* EggsBenedict.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = EggsBenedict.jpg; sourceTree = "<group>"; };
 		5CDCE8991C30249600B203EC /* SharingFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingFlow.swift; sourceTree = "<group>"; };
-		5CDCE89B1C30254D00B203EC /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CF239001C30B1900009815F /* EggsBenedict.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EggsBenedict.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF239021C30B1900009815F /* EggsBenedict.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EggsBenedict.h; sourceTree = "<group>"; };
 		5CF239041C30B1900009815F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,13 +36,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5CDCE8601C3023BB00B203EC /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5CF238FC1C30B1900009815F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,7 +56,6 @@
 		5CDCE85A1C3023BB00B203EC = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8651C3023BB00B203EC /* DemoApp */,
 				5CF239011C30B1900009815F /* EggsBenedict */,
 				5CF2390F1C30B1900009815F /* EggsBenedictTests */,
 				5CDCE8641C3023BB00B203EC /* Products */,
@@ -111,24 +65,10 @@
 		5CDCE8641C3023BB00B203EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5CDCE8631C3023BB00B203EC /* EggsBenedict.app */,
 				5CF239001C30B1900009815F /* EggsBenedict.framework */,
 				5CF239091C30B1900009815F /* EggsBenedictTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		5CDCE8651C3023BB00B203EC /* DemoApp */ = {
-			isa = PBXGroup;
-			children = (
-				5CDCE8661C3023BB00B203EC /* AppDelegate.swift */,
-				5CDCE8971C30244500B203EC /* ViewController.swift */,
-				5CDCE86D1C3023BB00B203EC /* Assets.xcassets */,
-				5CDCE89B1C30254D00B203EC /* Main.storyboard */,
-				5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */,
-			);
-			name = DemoApp;
-			path = DemoApp/DemoApp;
 			sourceTree = "<group>";
 		};
 		5CF239011C30B1900009815F /* EggsBenedict */ = {
@@ -145,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				5CF239101C30B1900009815F /* EggsBenedictTests.swift */,
+				5CACDDC11C3F9C59005F9D49 /* EggsBenedict.jpg */,
 				5CF239121C30B1900009815F /* Info.plist */,
 			);
 			path = EggsBenedictTests;
@@ -164,25 +105,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5CDCE8621C3023BB00B203EC /* DemoApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoApp" */;
-			buildPhases = (
-				5CDCE85F1C3023BB00B203EC /* Sources */,
-				5CDCE8601C3023BB00B203EC /* Frameworks */,
-				5CDCE8611C3023BB00B203EC /* Resources */,
-				5CF2391C1C30B1910009815F /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5CD031DD1C32161C00BC4BF6 /* PBXTargetDependency */,
-			);
-			name = DemoApp;
-			productName = SharingOnInstagram;
-			productReference = 5CDCE8631C3023BB00B203EC /* EggsBenedict.app */;
-			productType = "com.apple.product-type.application";
-		};
 		5CF238FF1C30B1900009815F /* EggsBenedict */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5CF2391B1C30B1910009815F /* Build configuration list for PBXNativeTarget "EggsBenedict" */;
@@ -213,7 +135,6 @@
 			);
 			dependencies = (
 				5CF2390C1C30B1900009815F /* PBXTargetDependency */,
-				5CF2390E1C30B1900009815F /* PBXTargetDependency */,
 			);
 			name = EggsBenedictTests;
 			productName = EggsBenedictTests;
@@ -230,9 +151,6 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = JPMartha;
 				TargetAttributes = {
-					5CDCE8621C3023BB00B203EC = {
-						CreatedOnToolsVersion = 7.2;
-					};
 					5CF238FF1C30B1900009815F = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -255,7 +173,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5CDCE8621C3023BB00B203EC /* DemoApp */,
 				5CF238FF1C30B1900009815F /* EggsBenedict */,
 				5CF239081C30B1900009815F /* EggsBenedictTests */,
 			);
@@ -263,16 +180,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		5CDCE8611C3023BB00B203EC /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5CDCE89C1C30254D00B203EC /* Main.storyboard in Resources */,
-				5CDCE8711C3023BB00B203EC /* LaunchScreen.storyboard in Resources */,
-				5CDCE86E1C3023BB00B203EC /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5CF238FE1C30B1900009815F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -284,23 +191,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5C8FA86C1C327B6D008F26EC /* Assets.xcassets in Resources */,
+				5CACDDC21C3F9C59005F9D49 /* EggsBenedict.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5CDCE85F1C3023BB00B203EC /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5CDCE8981C30244500B203EC /* ViewController.swift in Sources */,
-				5CDCE8671C3023BB00B203EC /* AppDelegate.swift in Sources */,
-				5CF239451C30CD9C0009815F /* SharingFlow.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		5CF238FB1C30B1900009815F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -321,33 +218,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5CD031DD1C32161C00BC4BF6 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
-			targetProxy = 5CD031DC1C32161C00BC4BF6 /* PBXContainerItemProxy */;
-		};
 		5CF2390C1C30B1900009815F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 5CF238FF1C30B1900009815F /* EggsBenedict */;
 			targetProxy = 5CF2390B1C30B1900009815F /* PBXContainerItemProxy */;
 		};
-		5CF2390E1C30B1900009815F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5CDCE8621C3023BB00B203EC /* DemoApp */;
-			targetProxy = 5CF2390D1C30B1900009815F /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		5CDCE86F1C3023BB00B203EC /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5CDCE8701C3023BB00B203EC /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		5CDCE8891C3023BB00B203EC /* Debug */ = {
@@ -431,32 +307,6 @@
 			};
 			name = Release;
 		};
-		5CDCE88C1C3023BB00B203EC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/EggsBenedict/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
-				PRODUCT_NAME = EggsBenedict;
-			};
-			name = Debug;
-		};
-		5CDCE88D1C3023BB00B203EC /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/EggsBenedict/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
-				PRODUCT_NAME = EggsBenedict;
-			};
-			name = Release;
-		};
 		5CF239171C30B1910009815F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -531,15 +381,6 @@
 			buildConfigurations = (
 				5CDCE8891C3023BB00B203EC /* Debug */,
 				5CDCE88A1C3023BB00B203EC /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5CDCE88B1C3023BB00B203EC /* Build configuration list for PBXNativeTarget "DemoApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5CDCE88C1C3023BB00B203EC /* Debug */,
-				5CDCE88D1C3023BB00B203EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

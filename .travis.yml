@@ -1,5 +1,8 @@
 language: objective-c
 osx_image: xcode7.2
-script: xcodebuild test -scheme EggsBenedict -destination "name=iPhone 6s Plus" -configuration Debug -sdk iphonesimulator
+script:
+  - pod lib lint
+  - set -o pipefail
+  - xcodebuild test -scheme EggsBenedict -destination "name=iPhone 6s Plus" -sdk iphonesimulator | xcpretty -c
 notifications:
   email: false

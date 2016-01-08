@@ -14,7 +14,7 @@ private protocol InstagramSharingFlow {
     var hasInstagramApp: Bool { get }
     init(type: SharingFlowType)
     func saveTemporaryImage(image: UIImage!) throws -> String
-    func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
+    func presentOpenInMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
     func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
 }
 
@@ -88,12 +88,12 @@ public final class SharingFlow: InstagramSharingFlow {
         return temporaryImagePath
     }
     
-    /// Present an options menu for sending image to Instagram app.
+    /// Present the menu for sending image to Instagram app.
     /// - Parameter image: The image for sending to Instagram app.
     /// - Parameter view: The view from which to display the options menu.
     /// - Parameter documentInteractionControllerDelegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
-    /// - Parameter completion: The block to execute after the presenting an options menu. You may specify nil for this parameter.
-    public func presentOptionsMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
+    /// - Parameter completion: The block to execute after the presenting menu. You may specify nil for this parameter.
+    public func presentOpenInMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagramApp else {
                 completion?(result: .Failure(SharingFlowError.NoInstagramApp))
@@ -119,13 +119,13 @@ public final class SharingFlow: InstagramSharingFlow {
                 completion?(result: .Failure(SharingFlowError.ImagePathIsEmpty))
                 return
             }
-            
+
             self.documentInteractionController.URL = NSURL.fileURLWithPath(imagePath)
             self.documentInteractionController.UTI = UTI
             self.documentInteractionController.delegate = delegate
             
             dispatch_async(dispatch_get_main_queue(), {
-                self.documentInteractionController.presentOptionsMenuFromRect(
+                self.documentInteractionController.presentOpenInMenuFromRect(
                     view.bounds,
                     inView: view,
                     animated: true
