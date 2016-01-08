@@ -11,13 +11,13 @@ import XCTest
 
 class EggsBenedictTests: XCTestCase {
     
-    func testSharingFlowIGPhotoInit() {
+    func testInitSharingFlowIGPhoto() {
         let sharingFlow = SharingFlow(type: .IGPhoto)
         XCTAssert(sharingFlow.filenameExtension == ".ig")
         XCTAssert(sharingFlow.UTI == "com.instagram.photo")
     }
     
-    func testSharingFlowIGOExclusivegramInit() {
+    func testInitSharingFlowIGOExclusivegram() {
         let sharingFlow = SharingFlow(type: .IGOExclusivegram)
         XCTAssert(sharingFlow.filenameExtension == ".igo")
         XCTAssert(sharingFlow.UTI == "com.instagram.exclusivegram")
@@ -28,23 +28,19 @@ class EggsBenedictTests: XCTestCase {
         let sharingFlow = SharingFlow(type: .IGOExclusivegram)
         XCTAssertEqual(sharingFlow.hasInstagramApp, result)
     }
-    
-    func testTemporaryImageIGPhoto() {
-        let sharingFlow = SharingFlow(type: .IGPhoto)
-        testTemporaryImage(sharingFlow)
-    }
-    
-    func testTemporaryImageIGOExclusivegram() {
-        let sharingFlow = SharingFlow(type: .IGOExclusivegram)
-        testTemporaryImage(sharingFlow)
-    }
-    
-    func testTemporaryImage(sharingFlow: SharingFlow) {
+
+    func testSaveAndRemoveTemporaryImage() {
+        guard let image = UIImage(named: "EggsBenedict.jpg", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil) else {
+            XCTFail("Image is nil.")
+            return
+        }
         
-        let imagePath: String
+        let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+        var imagePath: String
         do {
-            imagePath = try sharingFlow.saveTemporaryImage(UIImage(named: "EggsBenedict"))
+            imagePath = try sharingFlow.saveTemporaryImage(image)
         } catch {
+            XCTFail("Cannot save image.")
             return
         }
         XCTAssertTrue(NSFileManager.defaultManager().fileExistsAtPath(imagePath))
@@ -53,8 +49,10 @@ class EggsBenedictTests: XCTestCase {
             switch result {
             case .Success(let imagePath as String):
                 XCTAssertFalse(NSFileManager.defaultManager().fileExistsAtPath(imagePath))
+            case .Failure(let error):
+                XCTFail("Error: \(error)")
             default:
-                break
+                XCTFail()
             }
         }
     }
