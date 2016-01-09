@@ -56,7 +56,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
   ```
   use_frameworks!
-  pod 'EggsBenedict', '~> 0.9.6'`.
+  pod 'EggsBenedict', '~> 0.9.6'
   ```
 
 2. プロジェクトのフォルダで `$ pod install` を実行します。

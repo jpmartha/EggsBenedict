@@ -53,7 +53,7 @@ The reason is because I like Eggs Benedict 😋
 
   ```
   use_frameworks!
-  pod 'EggsBenedict', '~> 0.9.6'`.
+  pod 'EggsBenedict', '~> 0.9.6'
   ```
   
 2. Run `$ pod install` in your project directory.
