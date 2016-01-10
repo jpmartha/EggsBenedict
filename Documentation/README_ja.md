@@ -13,7 +13,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 ユーザーの iOS デバイス上でカスタム URL スキーム `instagram:// ` を開くことができる場合に次の手順を実行します。
 
-1. JPEG 形式で `"jpmarthaeggsbenedict"` という名前と拡張子 `".ig"` または `".igo"` を付けて tmp フォルダに書き込みます。
+1. JPEG 形式で `jpmarthaeggsbenedict` という名前と拡張子 `.ig` または `.igo` を付けて `tmp/` フォルダに書き込みます。
 2. Instagram アプリへコピーするためのメニューを表示します。
 3. 「Instagram にコピー」アイコンをタップすると Instagram アプリが起動してフィルタ画面に遷移します。
 
@@ -126,7 +126,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 ## 画像の削除
 
-tmp フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage` メソッドを呼びます。
+`tmp/` フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage` メソッドを呼びます。
 
   ```swift
   sharingFlow.removeTemporaryImage { (result) -> Void in
