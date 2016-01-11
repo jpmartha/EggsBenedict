@@ -11,9 +11,9 @@ This library is following Instagram's sharing flow.
 
 > - [Document Interaction](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)
 
-If the custom URL `instagram://` can be opened direct users on the iOS device, the flow is as follows.
+If the custom URL schemes `instagram://` can be opened direct users on the iOS device, the flow is as follows.
 
-1. Save temporary file named  `jpmarthaeggsbenedict` (JPEG format) in `tmp/` directory using the filename extension `.ig` or `.igo`.
+1. Save temporary image file named  `jpmarthaeggsbenedict` (JPEG format) in `tmp/` directory using the filename extension `.ig` or `.igo`.
 2. Display the menu for copying to Instagram app.
 3. If users tap the "Copy to Instagram" icon, open Instagram app with its filter screen.
 
@@ -66,7 +66,7 @@ The reason is because I like Eggs Benedict 😋
   ------------------------------------|--------|-----------
   LSApplicationQueriesSchemes | Array | instagram
 
-2. Create an instance of `SharingFlow` class with the `SharingFlowType` enumeration.
+2. Create an instance of the `SharingFlow` class with the `SharingFlowType` enumeration.
 
   ```swift
   let sharingFlow = SharingFlow(type: .IGOExclusivegram)
@@ -74,7 +74,7 @@ The reason is because I like Eggs Benedict 😋
   
   #### SharingFlowType enumeration
 
-  According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow. `SharingFlowType` is the enumeration following them.
+  According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow. The `SharingFlowType` is the enumeration following them.
 
   - `IGPhoto`
   
@@ -84,10 +84,10 @@ The reason is because I like Eggs Benedict 😋
   
     Show only Instagram in the application list. (Actually, some apps are shown.)
 
-3. Call `presentOpenInMenuWithImage` method with two required parameters and two optional parameters.
+3. Call the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method with two required parameters and two optional parameters.
 
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
       // Handling Errors
   }
   ```
@@ -102,7 +102,7 @@ The reason is because I like Eggs Benedict 😋
   
     The view from which to display the menu.
     
-  - documentInteractionControllerDelegate: `UIDocumentInteractionControllerDelegate?`
+  - delegate: `UIDocumentInteractionControllerDelegate?`
   
     The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
     
@@ -121,9 +121,9 @@ The reason is because I like Eggs Benedict 😋
       }
       ```
 
-## Remove temporary image
+## Remove temporary image file
 
-To remove temporary image in `tmp/` directory, call the `removeTemporaryImage` method of the created instance.
+To remove temporary image file in `tmp/` directory, call the `removeTemporaryImage:` method of the created instance.
 
   ```swift
   sharingFlow.removeTemporaryImage { (result) -> Void in
@@ -135,7 +135,7 @@ To remove temporary image in `tmp/` directory, call the `removeTemporaryImage` m
   
   - completion: `((result: Result<Any>) -> Void)?`
   
-    The block to execute after the removing temporary image finishes. You may specify nil for this parameter.
+    The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
     
     - Handling Errors Example
     
@@ -147,6 +147,10 @@ To remove temporary image in `tmp/` directory, call the `removeTemporaryImage` m
           print("Error: \(error)")
       }
       ```
+
+## Reference
+
+For more information, see [EggsBenedict Framework Reference (Swift, iOS)](http://jpmartha.hatenablog.jp/entry/2016/01/12/075621).
 
 ## License
 

@@ -23,7 +23,7 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow.presentOpenInMenuWithImage(imageView.image, view: view, documentInteractionControllerDelegate: self) { (result) -> Void in
+        sharingFlow.presentOpenInMenuWithImage(imageView.image, inView: view, documentInteractionDelegate: self) { (result) -> Void in
             switch result {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")

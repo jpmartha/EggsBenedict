@@ -87,10 +87,10 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   
     Instagram アプリだけが表示されます。（ドキュメントにはそのように記載されていますが実際にはいくつか表示されます）
 
-3. `presentOpenInMenuWithImage` メソッドを呼びます。必須のパラメータが2つ、任意のパラメータが2つあります。
+3. `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。必須のパラメータが2つ、任意のパラメータが2つあります。
 
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
       // エラー処理
   }
   ```
@@ -105,7 +105,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   
     メニューを表示するビューです。
     
-  - documentInteractionControllerDelegate: `UIDocumentInteractionControllerDelegate?`
+  - delegate: `UIDocumentInteractionControllerDelegate?`
   
     Document Interaction の通知を受け取りたい場合はデリゲートを設定します。必要なければ `nil` を指定します。
     
@@ -126,7 +126,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 ## 画像の削除
 
-`tmp/` フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage` メソッドを呼びます。
+`tmp/` フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage:` メソッドを呼びます。
 
   ```swift
   sharingFlow.removeTemporaryImage { (result) -> Void in
@@ -150,6 +150,10 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
           print("Error: \(error)")
       }
       ```
+
+## 参考
+
+詳しくは [EggsBenedict Framework Reference (Swift, iOS)](http://jpmartha.hatenablog.jp/entry/2016/01/12/075621)（英語）を参照してください。
 
 ## ライセンス
 
