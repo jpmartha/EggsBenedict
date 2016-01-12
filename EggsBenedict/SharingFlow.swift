@@ -14,7 +14,7 @@ private protocol InstagramSharingFlow {
     var hasInstagramApp: Bool { get }
     init(type: SharingFlowType)
     func saveTemporaryImage(image: UIImage!) throws -> String
-    func presentOpenInMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
+    func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
     func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
 }
 
@@ -90,10 +90,10 @@ public final class SharingFlow: InstagramSharingFlow {
     
     /// Present the menu for sending image to Instagram app.
     /// - Parameter image: The image for sending to Instagram app.
-    /// - Parameter view: The view from which to display the options menu.
-    /// - Parameter documentInteractionControllerDelegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
+    /// - Parameter view: The view from which to display the menu.
+    /// - Parameter delegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
     /// - Parameter completion: The block to execute after the presenting menu. You may specify nil for this parameter.
-    public func presentOpenInMenuWithImage(image: UIImage!, view: UIView!, documentInteractionControllerDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagramApp else {
                 completion?(result: .Failure(SharingFlowError.NoInstagramApp))
@@ -135,8 +135,8 @@ public final class SharingFlow: InstagramSharingFlow {
         })
     }
     
-    /// Remove temporary image in "tmp/" directory.
-    /// - Parameter completion: The block to execute after the removing temporary image finishes. You may specify nil for this parameter.
+    /// Remove temporary image file in "tmp/" directory.
+    /// - Parameter completion: The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
     public func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard let imagePath = self.imagePath else {
