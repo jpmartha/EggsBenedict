@@ -13,7 +13,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 ユーザーの iOS デバイス上でカスタム URL スキーム `instagram:// ` を開くことができる場合に次の手順を実行します。
 
-1. JPEG 形式で `"jpmarthaeggsbenedict"` という名前と拡張子 `".ig"` または `".igo"` を付けて tmp フォルダに書き込みます。
+1. JPEG 形式で `jpmarthaeggsbenedict` という名前と拡張子 `.ig` または `.igo` を付けて `tmp/` フォルダに書き込みます。
 2. Instagram アプリへコピーするためのメニューを表示します。
 3. 「Instagram にコピー」アイコンをタップすると Instagram アプリが起動してフィルタ画面に遷移します。
 
@@ -35,7 +35,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 #### [Carthage](https://github.com/Carthage/Carthage) （オススメ）
 
-1. [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) を作成し、`github "JPMartha/EggsBenedict" ~> 0.9.6` を追記します。
+1. [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) を作成し、`github "JPMartha/EggsBenedict" ~> 0.9.7` を追記します。
 2. プロジェクトのフォルダで `$ carthage update --platform iOS` を実行します。
 3. TARGETS の「Build Phases」にある「Link Binary With Libraries」の「+」アイコンをクリックして Carthage/Build フォルダから `EggsBenedict.framework` を追加します。
 4. TARGETS の「Build Phases」にある「+」アイコンをクリックして「New Run Script Phase」を選択し Run Script に次の内容を入力します。
@@ -52,11 +52,11 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 #### [CocoaPods](https://cocoapods.org)
 
-1. [Podfile](https://guides.cocoapods.org/using/the-podfile.html) を作成し、次の内容を入力します。
+1. [Podfile](https://guides.cocoapods.org/using/the-podfile.html) を作成し、次の内容を入力します。
 
   ```
   use_frameworks!
-  pod 'EggsBenedict', '~> 0.9.6'`.
+  pod 'EggsBenedict', '~> 0.9.6'
   ```
 
 2. プロジェクトのフォルダで `$ pod install` を実行します。
@@ -87,10 +87,10 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   
     Instagram アプリだけが表示されます。（ドキュメントにはそのように記載されていますが実際にはいくつか表示されます）
 
-3. `presentOpenInMenuWithImage` メソッドを呼びます。必須のパラメータが2つ、任意のパラメータが2つあります。
+3. `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。必須のパラメータが2つ、任意のパラメータが2つあります。
 
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, view: YourView, documentInteractionControllerDelegate: nil) { (result) -> Void in
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
       // エラー処理
   }
   ```
@@ -105,7 +105,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   
     メニューを表示するビューです。
     
-  - documentInteractionControllerDelegate: `UIDocumentInteractionControllerDelegate?`
+  - delegate: `UIDocumentInteractionControllerDelegate?`
   
     Document Interaction の通知を受け取りたい場合はデリゲートを設定します。必要なければ `nil` を指定します。
     
@@ -126,7 +126,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 ## 画像の削除
 
-tmp フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage` メソッドを呼びます。
+`tmp/` フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage:` メソッドを呼びます。
 
   ```swift
   sharingFlow.removeTemporaryImage { (result) -> Void in
@@ -150,6 +150,10 @@ tmp フォルダに保存した画像を削除するには作成したインス�
           print("Error: \(error)")
       }
       ```
+
+## 参考
+
+詳しくは [EggsBenedict Framework Reference (Swift, iOS)](http://jpmartha.hatenablog.jp/entry/2016/01/12/075621)（英語）を参照してください。
 
 ## ライセンス
 
