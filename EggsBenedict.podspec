@@ -14,7 +14,7 @@ This library is following Instagram's sharing flow.
   s.author    = "JPMartha"
   s.social_media_url   = "https://twitter.com/JPMartha_jp"
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/JPMartha/EggsBenedict.git", :tag => "v0.9.7" }
+  s.source       = { :git => "https://github.com/JPMartha/EggsBenedict.git", :tag => s.version }
   s.source_files  = "EggsBenedict/**/*.swift"
   s.requires_arc = true
 end
