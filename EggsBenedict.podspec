@@ -12,7 +12,7 @@ This library is following Instagram's sharing flow.
   s.homepage     = "https://github.com/JPMartha/EggsBenedict"
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author    = "JPMartha"
-  s.social_media_url   = "https://twitter.com/pan_martha_cake"
+  s.social_media_url   = "https://twitter.com/JPMartha_jp"
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/JPMartha/EggsBenedict.git", :tag => "v0.9.6" }
   s.source_files  = "EggsBenedict/**/*.swift"
