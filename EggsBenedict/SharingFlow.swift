@@ -126,6 +126,11 @@ public final class SharingFlow: InstagramSharingFlow {
     }
     
     /// Remove temporary image file in "tmp/" directory.
+    public func removeTemporaryImage() {
+        removeTemporaryImage(nil)
+    }
+    
+    /// Remove temporary image file in "tmp/" directory.
     /// - Parameter completion: The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
     public func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
