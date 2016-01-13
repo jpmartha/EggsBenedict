@@ -18,39 +18,6 @@ private protocol InstagramSharingFlow {
     func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
 }
 
-public enum SharingFlowType {
-    case IGPhoto
-    case IGOExclusivegram
-}
-
-public enum Result<T> {
-    case Success(T)
-    case Failure(T)
-}
-
-public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
-    case NoInstagramApp
-    case UTIIsEmpty
-    case CannotManipulateImage
-    case CannotSaveImage
-    case ImagePathIsEmpty
-    
-    public var debugDescription: String {
-        switch self {
-        case .NoInstagramApp:
-            return "Not found Instagram app."
-        case .UTIIsEmpty:
-            return "UTI is empty."
-        case .CannotManipulateImage:
-            return "Cannot manipulate image."
-        case .CannotSaveImage:
-            return "Cannot save image."
-        case .ImagePathIsEmpty:
-            return "ImagePath is empty."
-        }
-    }
-}
-
 public final class SharingFlow: InstagramSharingFlow {
     public var filenameExtension: String!
     public var UTI: String!
@@ -68,7 +35,7 @@ public final class SharingFlow: InstagramSharingFlow {
         }
     }
 
-    /// Returns a Boolean value indicating whether or not Instagram app is installed on the device.
+    /// Returns a Boolean value indicating whether or not Instagram app is installed on the iOS device.
     public var hasInstagramApp: Bool {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
@@ -86,6 +53,29 @@ public final class SharingFlow: InstagramSharingFlow {
         }
         
         return temporaryImagePath
+    }
+    
+    /// Present the menu for sending image to Instagram app.
+    /// - Parameter image: The image for sending to Instagram app.
+    /// - Parameter view: The view from which to display the menu.
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!) {
+        presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: nil)
+    }
+    
+    /// Present the menu for sending image to Instagram app.
+    /// - Parameter image: The image for sending to Instagram app.
+    /// - Parameter view: The view from which to display the menu.
+    /// - Parameter delegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?) {
+        presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: delegate, completion: nil)
+    }
+    
+    /// Present the menu for sending image to Instagram app.
+    /// - Parameter image: The image for sending to Instagram app.
+    /// - Parameter view: The view from which to display the menu.
+    /// - Parameter completion: The block to execute after the presenting menu. You may specify nil for this parameter.
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, completion: ((result: Result<Any>) -> Void)?) {
+        presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: completion)
     }
     
     /// Present the menu for sending image to Instagram app.
