@@ -2,7 +2,7 @@
 
 ### Creating an Instance
 
-- `init(type:)`
+  - `init(type:)`
   
   ##### Declaration
   
@@ -18,9 +18,11 @@
   
    For more information, see [SharingFlowType Enumeration](./SharingFlowTypeEnumeration.md).
   
+==
+
 ### Presenting Menus
 
-- `presentOpenInMenuWithImage:inView:`
+  - `presentOpenInMenuWithImage:inView:`
 
   Present the menu for sending image to Instagram app.
   
@@ -33,10 +35,10 @@
   ##### Discussion
   
   This method calls the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method setting the `delegate` parameter and the `completion` parameter `nil`.
-  
-- - -
 
-- `presentOpenInMenuWithImage:inView:documentInteractionDelegate:`
+==
+
+  - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:`
   
   Present the menu for sending image to Instagram app.
   
@@ -51,10 +53,10 @@
   ##### Discussion
   
   This method calls the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method setting the `completion` parameter `nil`.
-  
-- - -
+   
+==
 
-- `presentOpenInMenuWithImage:inView:completion:`
+  - `presentOpenInMenuWithImage:inView:completion:`
   
   Present the menu for sending image to Instagram app.
   
@@ -69,10 +71,10 @@
   ##### Discussion
   
   This method calls the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method setting the `delegate` parameter `nil`.
+  
+==
 
-- - -
-
-- `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:`
+  - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:`
   
   Present the menu for sending image to Instagram app.
   
@@ -106,26 +108,44 @@
   
   The completion handler is called after the `presentOpenInMenuFromRect:inView:animated:` method is called of an instance of the `UIDocumentInteractionController` class.
   
-    > __[UIDocumentInteractionController Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/)__
-    >
-    > This method displays the options menu asynchronously. The document interaction controller dismisses the menu automatically when the user selects an appropriate option.
+  > __[UIDocumentInteractionController Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/)__
+  >
+  > This method displays the options menu asynchronously. The document interaction controller dismisses the menu automatically when the user selects an appropriate option.
   
-    - Handling Errors Example
-    
-    ```swift
-    sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
-        switch result {
-        case .Success(let imagePath):
-            print("Success: \(imagePath)")
-        case .Failure(let error):
-            print("Error: \(error)")
-        }
-    }
-    ```
+  ##### Handling Errors Example
+      
+  ```swift
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
+      switch result {
+      case .Success(let imagePath):
+          print("Success: \(imagePath)")
+      case .Failure(let error):
+          print("Error: \(error)")
+      }
+  }
+  ```
+
+==
 
 ### Removing Temporary Image
 
-- `removeTemporaryImage:`
+  - `removeTemporaryImage`
+
+  Remove temporary image file in `tmp/` directory.
+
+  ##### Declaration
+
+  ```swift
+  func removeTemporaryImage()
+  ```
+  
+  ##### Discussion
+  
+    This method calls the `removeTemporaryImage:` method setting the `completion` parameter `nil`.
+  
+==
+
+  - `removeTemporaryImage:`
 
   Remove temporary image file in `tmp/` directory.
 
@@ -145,22 +165,24 @@
 
   It is not usually necessary to use this method because this library overwrites an existing file.
   
-    - Handling Errors Example
-    
-    ```swift
-    sharingFlow.removeTemporaryImage { (result) -> Void in
-        switch result {
-          case .Success(let imagePath):
-              print("Success: \(imagePath)")
-          case .Failure(let error):
-              print("Error: \(error)")
-          }
-    }
-    ```
+  ##### Handling Errors Example
+      
+  ```swift
+  sharingFlow.removeTemporaryImage { (result) -> Void in
+      switch result {
+      case .Success(let imagePath):
+          print("Success: \(imagePath)")
+      case .Failure(let error):
+          print("Error: \(error)")
+      }
+  }
+  ```
+
+==
 
 ### Accessing the Device Attributes
 
-- `hasInstagramApp`
+  - `hasInstagramApp`
 
   Returns a Boolean value indicating whether or not Instagram app is installed on the iOS device.
 

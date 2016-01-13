@@ -34,7 +34,7 @@ The reason is because I like Eggs Benedict 😋
 
 #### [Carthage](https://github.com/Carthage/Carthage) (preferred)
 
-1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile), and add `github "JPMartha/EggsBenedict" ~> 0.9.7`.
+1. Create a [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile), and add `github "JPMartha/EggsBenedict" ~> 0.9.8`.
 2. Run `$ carthage update --platform iOS` in your project directory.
 3. On your application targets’ “Build Phases” settings tab, in the “Link Binary With Libraries” section, click the “+” icon and add `EggsBenedict.framework` from the Carthage/Build folder on disk.
 4. On your application targets’ “Build Phases” settings tab, click the “+” icon and choose “New Run Script Phase”. Create a Run Script with the following contents: 
@@ -54,7 +54,7 @@ The reason is because I like Eggs Benedict 😋
 
   ```
   use_frameworks!
-  pod 'EggsBenedict', '~> 0.9.7'
+  pod 'EggsBenedict', '~> 0.9.8'
   ```
   
 2. Run `$ pod install` in your project directory.

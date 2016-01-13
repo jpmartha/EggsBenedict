@@ -16,7 +16,61 @@
   -------------|---------------
   _type_       | `SharingFlowType` のタイプ
 
+==
+
 ### メニューの表示
+
+  - `presentOpenInMenuWithImage:inView:`
+
+  Instagram アプリへ画像を渡すためのメニューを表示します。
+
+  ##### 宣言
+
+  ```swift
+  func presentOpenInMenuWithImage(_ image: UIImage!, inView view: UIView!)
+  ```
+  
+  ##### ディスカッション
+  
+  このメソッドは `delegate` パラメータと `completion` パラメータに `nil` を設定して `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。
+  
+==
+
+  - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:`
+
+  Instagram アプリへ画像を渡すためのメニューを表示します。
+
+  ##### 宣言
+
+  ```swift
+  func presentOpenInMenuWithImage(_ image: UIImage!,
+      inView view: UIView!,
+      documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?)
+  ```
+  
+  ##### ディスカッション
+  
+  このメソッドは `completion` パラメータに `nil` を設定して `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。
+  
+==
+
+  - `presentOpenInMenuWithImage:inView:completion:`
+
+  Instagram アプリへ画像を渡すためのメニューを表示します。
+
+  ##### 宣言
+
+  ```swift
+  func presentOpenInMenuWithImage(_ image: UIImage!,
+      inView view: UIView!,
+      completion: ((result: Result<Any>) -> Void)?)
+  ```
+
+  ##### ディスカッション
+  
+  このメソッドは `delegate` パラメータに `nil` を設定して `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。
+  
+==
 
   - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:`
 
@@ -54,8 +108,39 @@
   > __[UIDocumentInteractionController Class Reference](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIDocumentInteractionController_class/)__
   >
   > This method displays the options menu asynchronously. The document interaction controller dismisses the menu automatically when the user selects an appropriate option.
+  
+  ##### エラー処理の例
+    
+  ```swift
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
+      switch result {
+      case .Success(let imagePath):
+          print("Success: \(imagePath)")
+      case .Failure(let error):
+          print("Error: \(error)")
+      }
+  }
+  ```
+    
+==
 
 ### 画像の削除
+
+  - `removeTemporaryImage`
+
+  `tmp` フォルダに書き込んだ画像を削除します。
+
+  ##### 宣言
+
+  ```swift
+  func removeTemporaryImage(completion: ()
+  ```
+  
+  ##### ディスカッション
+  
+  このメソッドは `completion` パラメータに `nil` を設定して `removeTemporaryImage:` メソッドを呼びます。
+  
+==
 
   - `removeTemporaryImage:`
 
@@ -77,7 +162,22 @@
 
   このライブラリは既存ファイルを上書きするため、通常はこのメソッドを使う必要がありません。
 
-### Accessing the Device Attributes
+  ##### エラー処理の例
+    
+  ```swift
+  sharingFlow.removeTemporaryImage { (result) -> Void in
+      switch result {
+      case .Success(let imagePath):
+          print("Success: \(imagePath)")
+      case .Failure(let error):
+          print("Error: \(error)")
+      }
+  }
+  ```
+    
+==
+
+### iOSデバイスの状態
 
   - `hasInstagramApp`
 
