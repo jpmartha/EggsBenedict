@@ -20,4 +20,3 @@ enum SharingFlowType {
 - `IGOExclusivegram` (preferred)
 
   Show only Instagram in the application list. (Actually, some apps are shown.)
-  

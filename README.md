@@ -1,5 +1,6 @@
 # EggsBenedict
-[![Build Status](https://travis-ci.org/JPMartha/EggsBenedict.svg)](https://travis-ci.org/JPMartha/EggsBenedict) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) → [日本語](./Documentation/README_ja.md)
+
+[![Build Status](https://travis-ci.org/JPMartha/EggsBenedict.svg)](https://travis-ci.org/JPMartha/EggsBenedict) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [日本語](./Documentation/ja/)
 
 __EggsBenedict__ is a library for sharing picture with Instagram app written in Swift.
 
@@ -72,17 +73,7 @@ The reason is because I like Eggs Benedict 😋
   let sharingFlow = SharingFlow(type: .IGOExclusivegram)
   ```
   
-  #### SharingFlowType enumeration
-
-  According to the [Instagram's documentation](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction), you can use two ways in Instagram's sharing flow. The `SharingFlowType` is the enumeration following them.
-
-  - `IGPhoto`
-  
-    Show Instagram plus any other public/jpeg-conforming apps in the application list.
-
-  - `IGOExclusivegram` (preferred)
-  
-    Show only Instagram in the application list. (Actually, some apps are shown.)
+  For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
 
 3. Call the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method with two required parameters and two optional parameters.
 
@@ -92,65 +83,45 @@ The reason is because I like Eggs Benedict 😋
   }
   ```
   
-  #### Parameters
-  
-  - image: `UIImage!`
-  
-    The image for sending to Instagram app.
+  - Handling Errors Example
     
-  - view: `UIView!`
-  
-    The view from which to display the menu.
-    
-  - delegate: `UIDocumentInteractionControllerDelegate?`
-  
-    The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
-    
-  - completion: `((result: Result<Any>) -> Void)?`
-  
-    The block to execute after the presenting menu. You may specify `nil` for this parameter.
-    
-    - Handling Errors Example
-    
-      ```swift
-      switch result {
-      case .Success(let imagePath):
-          print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
-      }
-      ```
+    ```swift
+    switch result {
+    case .Success(let imagePath):
+        print("Success: \(imagePath)")
+    case .Failure(let error):
+        print("Error: \(error)")
+    }
+    ```
+
+For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
 
 ## Remove temporary image file
 
 To remove temporary image file in `tmp/` directory, call the `removeTemporaryImage:` method of the created instance.
 
+```swift
+sharingFlow.removeTemporaryImage { (result) -> Void in
+    // Handling Errors
+}
+```
+  
+  - Handling Errors Example
+  
   ```swift
-  sharingFlow.removeTemporaryImage { (result) -> Void in
-      // Handling Errors
+  switch result {
+  case .Success(let imagePath):
+      print("Success: \(imagePath)")
+  case .Failure(let error):
+      print("Error: \(error)")
   }
   ```
-  
-#### Parameters
-  
-  - completion: `((result: Result<Any>) -> Void)?`
-  
-    The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
-    
-    - Handling Errors Example
-    
-      ```swift
-      switch result {
-      case .Success(let imagePath):
-          print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
-      }
-      ```
 
-## Reference
+For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
 
-For more information, see [EggsBenedict Framework Reference (Swift, iOS)](http://jpmartha.hatenablog.jp/entry/2016/01/12/075621).
+## Documentation
+
+- [EggsBenedict Framework Reference](/Documentation)
 
 ## License
 

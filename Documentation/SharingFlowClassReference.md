@@ -82,7 +82,7 @@
 
   - `hasInstagramApp`
 
-  Returns a Boolean value indicating whether or not Instagram app is installed on the device.
+  Returns a Boolean value indicating whether or not Instagram app is installed on the iOS device.
 
   ##### Declaration
 
@@ -92,4 +92,4 @@
 
   ##### Discussion
 
-  If true, the iOS device has Instagram app; otherwise it does not.
+  If `true`, the iOS device has Instagram app; otherwise it does not.

@@ -1,9 +1,10 @@
 # EggsBenedict
-[![Build Status](https://travis-ci.org/JPMartha/EggsBenedict.svg)](https://travis-ci.org/JPMartha/EggsBenedict) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) → [English](../README.md)
+
+[![Build Status](https://travis-ci.org/JPMartha/EggsBenedict.svg)](https://travis-ci.org/JPMartha/EggsBenedict) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [English](https://github.com/JPMartha/EggsBenedict)
 
 __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのライブラリです。
 
-<img src="../Images/EggsBenedict.gif" width=272>
+<img src="./Images/EggsBenedict.gif" width=272>
 
 このライブラリは Instagram ドキュメントに記載されている手順に従います。
 
@@ -69,23 +70,13 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   ------------------------------------|--------|-----------
   LSApplicationQueriesSchemes | Array | instagram
 
-2. `SharingFlowType` を指定して `SharingFlow` クラスのインスタンスを作成します。
+2. `SharingFlowType` 列挙型のタイプを指定して `SharingFlow` クラスのインスタンスを作成します。
   
   ```swift
   let sharingFlow = SharingFlow(type: .IGOExclusivegram)
   ```
   
-  #### SharingFlowType 列挙型
-
-  [Instagramドキュメント](https://www.instagram.com/developer/mobile-sharing/iphone-hooks/#document-interaction)によると、Instagram アプリへ画像を渡す方法は2種類あります。`SharingFlowType` はそれらに従った列挙型です。
-
-  - `IGPhoto`
-  
-    Instagram アプリと public/jpeg に対応したほかのアプリが表示されます。
-
-  - `IGOExclusivegram` （オススメ）
-  
-    Instagram アプリだけが表示されます。（ドキュメントにはそのように記載されていますが実際にはいくつか表示されます）
+  詳しくは [SharingFlowType 列挙型](./Documentation/SharingFlowTypeEnumeration.md) を参照してください。
 
 3. `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。必須のパラメータが2つ、任意のパラメータが2つあります。
 
@@ -94,67 +85,47 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
       // エラー処理
   }
   ```
-  
-  #### パラメータ
-  
-  - image: `UIImage!`
-  
-    Instagram アプリに渡す画像です。
     
-  - view: `UIView!`
-  
-    メニューを表示するビューです。
+  - エラー処理の例
     
-  - delegate: `UIDocumentInteractionControllerDelegate?`
-  
-    Document Interaction の通知を受け取りたい場合はデリゲートを設定します。必要なければ `nil` を指定します。
-    
-  - completion: `((result: Result<Any>) -> Void)?`
-  
-    メニューを表示したあとに実行するブロックです。必要なければ `nil` を指定します。
-    
-    - エラー処理の例
-    
-      ```swift
-      switch result {
-      case .Success(let imagePath):
-          print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
-      }
-      ```
+    ```swift
+    switch result {
+    case .Success(let imagePath):
+        print("Success: \(imagePath)")
+    case .Failure(let error):
+        print("Error: \(error)")
+    }
+    ```
+
+詳しくは [SharingFlow クラスリファレンス](./Documentation/SharingFlowClassReference.md) を参照してください。
 
 ## 画像の削除
 
-`tmp/` フォルダに保存した画像を削除するには作成したインスタンスの `removeTemporaryImage:` メソッドを呼びます。
+`tmp` フォルダに書き込んだ画像を削除するには作成したインスタンスの `removeTemporaryImage:` メソッドを呼びます。
 
+```swift
+sharingFlow.removeTemporaryImage { (result) -> Void in
+    // エラー処理
+}
+```
+  
+  - エラー処理の例
+  
   ```swift
-  sharingFlow.removeTemporaryImage { (result) -> Void in
-      // エラー処理
+  switch result {
+  case .Success(let imagePath):
+      print("Success: \(imagePath)")
+  case .Failure(let error):
+      print("Error: \(error)")
   }
   ```
-  
-#### パラメータ
-  
-  - completion: `((result: Result<Any>) -> Void)?`
-  
-    画像を削除したあとに実行するブロックです。必要なければ `nil` を指定します。
-    
-    - エラー処理の例
-    
-      ```swift
-      switch result {
-      case .Success(let imagePath):
-          print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
-      }
-      ```
 
-## 参考
+詳しくは [SharingFlow クラスリファレンス](./Documentation/SharingFlowClassReference.md) を参照してください。
 
-詳しくは [EggsBenedict Framework Reference (Swift, iOS)](http://jpmartha.hatenablog.jp/entry/2016/01/12/075621)（英語）を参照してください。
+## ドキュメント
+
+- [EggsBenedict フレームワークリファレンス](./Documentation)
 
 ## ライセンス
 
-__EggsBenedict__ は [MIT License](LICENSE) でリリースしています。
+__EggsBenedict__ は [MIT License](LICENSE) の下に提供されています。
