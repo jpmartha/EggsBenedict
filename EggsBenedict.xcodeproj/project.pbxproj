@@ -12,6 +12,12 @@
 		5CF239031C30B1900009815F /* EggsBenedict.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CF239021C30B1900009815F /* EggsBenedict.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF239101C30B1900009815F /* EggsBenedictTests.swift */; };
 		5CF239441C30CD520009815F /* SharingFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CDCE8991C30249600B203EC /* SharingFlow.swift */; };
+		5CF8E73C1C46407100FC22EC /* SharingFlowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8E73B1C46407100FC22EC /* SharingFlowType.swift */; };
+		5CF8E73E1C46421A00FC22EC /* SharingFlowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8E73D1C46421A00FC22EC /* SharingFlowError.swift */; };
+		5CF8E73F1C46428600FC22EC /* SharingFlowType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8E73B1C46407100FC22EC /* SharingFlowType.swift */; };
+		5CF8E7401C46428900FC22EC /* SharingFlowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8E73D1C46421A00FC22EC /* SharingFlowError.swift */; };
+		5CF8E7421C4642DB00FC22EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8E7411C4642DB00FC22EC /* Result.swift */; };
+		5CF8E7431C4642DB00FC22EC /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF8E7411C4642DB00FC22EC /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +39,9 @@
 		5CF239091C30B1900009815F /* EggsBenedictTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EggsBenedictTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF239101C30B1900009815F /* EggsBenedictTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggsBenedictTests.swift; sourceTree = "<group>"; };
 		5CF239121C30B1900009815F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5CF8E73B1C46407100FC22EC /* SharingFlowType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingFlowType.swift; sourceTree = "<group>"; };
+		5CF8E73D1C46421A00FC22EC /* SharingFlowError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingFlowError.swift; sourceTree = "<group>"; };
+		5CF8E7411C4642DB00FC22EC /* Result.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +84,9 @@
 			isa = PBXGroup;
 			children = (
 				5CDCE8991C30249600B203EC /* SharingFlow.swift */,
+				5CF8E73B1C46407100FC22EC /* SharingFlowType.swift */,
+				5CF8E7411C4642DB00FC22EC /* Result.swift */,
+				5CF8E73D1C46421A00FC22EC /* SharingFlowError.swift */,
 				5CF239021C30B1900009815F /* EggsBenedict.h */,
 				5CF239041C30B1900009815F /* Info.plist */,
 			);
@@ -202,6 +214,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CF8E73C1C46407100FC22EC /* SharingFlowType.swift in Sources */,
+				5CF8E73E1C46421A00FC22EC /* SharingFlowError.swift in Sources */,
+				5CF8E7421C4642DB00FC22EC /* Result.swift in Sources */,
 				5CF239441C30CD520009815F /* SharingFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,7 +226,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD031D61C31C7B600BC4BF6 /* SharingFlow.swift in Sources */,
+				5CF8E7431C4642DB00FC22EC /* Result.swift in Sources */,
 				5CF239111C30B1900009815F /* EggsBenedictTests.swift in Sources */,
+				5CF8E73F1C46428600FC22EC /* SharingFlowType.swift in Sources */,
+				5CF8E7401C46428900FC22EC /* SharingFlowError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

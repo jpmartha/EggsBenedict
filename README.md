@@ -4,7 +4,7 @@
 
 __EggsBenedict__ is a library for sharing picture with Instagram app written in Swift.
 
-<img src="./Images/EggsBenedict.gif" width=272>
+<img src="./Documentation/Images/EggsBenedict.gif" width=272>
 
 This library is following Instagram's sharing flow.
 
@@ -75,49 +75,13 @@ The reason is because I like Eggs Benedict 😋
   
   For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
 
-3. Call the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method with two required parameters and two optional parameters.
+3. Call the `presentOpenInMenuWithImage:inView:` method with two parameters.
 
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
-      // Handling Errors
-  }
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView)
   ```
   
-  - Handling Errors Example
-    
-    ```swift
-    switch result {
-    case .Success(let imagePath):
-        print("Success: \(imagePath)")
-    case .Failure(let error):
-        print("Error: \(error)")
-    }
-    ```
-
-For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
-
-## Remove temporary image file
-
-To remove temporary image file in `tmp/` directory, call the `removeTemporaryImage:` method of the created instance.
-
-```swift
-sharingFlow.removeTemporaryImage { (result) -> Void in
-    // Handling Errors
-}
-```
-  
-  - Handling Errors Example
-  
-  ```swift
-  switch result {
-  case .Success(let imagePath):
-      print("Success: \(imagePath)")
-  case .Failure(let error):
-      print("Error: \(error)")
-  }
-  ```
-
-For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
+  For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
 
 ## Documentation
 
