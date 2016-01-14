@@ -15,6 +15,8 @@
   パラメータ | 説明
   -------------|---------------
   _type_       | `SharingFlowType` のタイプ
+  
+  詳しくは [SharingFlowType 列挙型](./SharingFlowTypeEnumeration.md) を参照してください。
 
 ==
 
@@ -63,7 +65,7 @@
   ```swift
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
-      completion: ((result: Result<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
   ```
 
   ##### ディスカッション
@@ -82,7 +84,7 @@
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
       documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?,
-      completion: ((result: Result<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
   ```
 
   ##### パラメータ
@@ -112,8 +114,8 @@
   ##### エラー処理の例
     
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
-      switch result {
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (sharingFlowResult) -> Void in
+      switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
       case .Failure(let error):
@@ -138,6 +140,8 @@
   
   ##### ディスカッション
   
+  このライブラリは既存ファイルを上書きするため、通常はこのメソッドを使う必要がありません。
+  
   このメソッドは `completion` パラメータに `nil` を設定して `removeTemporaryImage:` メソッドを呼びます。
   
 ==
@@ -149,7 +153,7 @@
   ##### 宣言
 
   ```swift
-  func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
+  func removeTemporaryImage(completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
   ```
 
   ##### パラメータ
@@ -165,8 +169,8 @@
   ##### エラー処理の例
     
   ```swift
-  sharingFlow.removeTemporaryImage { (result) -> Void in
-      switch result {
+  sharingFlow.removeTemporaryImage { (sharingFlowResult) -> Void in
+      switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
       case .Failure(let error):

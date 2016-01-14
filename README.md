@@ -73,19 +73,19 @@ The reason is because I like Eggs Benedict 😋
   let sharingFlow = SharingFlow(type: .IGOExclusivegram)
   ```
   
-  For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
+  For more information, see [SharingFlow Class Reference](./Documentation/SharingFlowClassReference.md) and [SharingFlowType Enumeration](./Documentation/SharingFlowTypeEnumeration.md).
 
-3. Call the `presentOpenInMenuWithImage:inView:` method with two parameters.
-
+3. Call the `presentOpenInMenuWithImage:inView:` of the created instance.
+  
   ```swift
   sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView)
   ```
   
-  For more information, see [SharingFlow Class Reference](/Documentation/SharingFlowClassReference.md).
+  For more information, see [SharingFlow Class Reference](./Documentation/SharingFlowClassReference.md).
 
 ## Documentation
 
-- [EggsBenedict Framework Reference](/Documentation)
+- [EggsBenedict Framework Reference](./Documentation)
 
 ## License
 

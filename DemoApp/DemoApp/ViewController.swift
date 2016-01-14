@@ -3,7 +3,7 @@
 //  DemoApp
 //
 //  Created by JPMartha on 2015/12/25.
-//  Copyright © 2015年 JPMartha. All rights reserved.
+//  Copyright © 2015 JPMartha. All rights reserved.
 //
 
 import UIKit
@@ -23,8 +23,8 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     }
     
     @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
-        sharingFlow.presentOpenInMenuWithImage(imageView.image, inView: view, documentInteractionDelegate: self) { (result) -> Void in
-            switch result {
+        sharingFlow.presentOpenInMenuWithImage(imageView.image, inView: view, documentInteractionDelegate: self) { (sharingFlowResult) -> Void in
+            switch sharingFlowResult {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")
             case .Failure(let error):
@@ -34,8 +34,8 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     }
 
     @IBAction func removeTmpButtonTapped(sender: UIButton) {
-        sharingFlow.removeTemporaryImage { (result) -> Void in
-            switch result {
+        sharingFlow.removeTemporaryImage { (sharingFlowResult) -> Void in
+            switch sharingFlowResult {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")
             case .Failure(let error):

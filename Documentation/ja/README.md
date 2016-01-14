@@ -76,51 +76,11 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
   let sharingFlow = SharingFlow(type: .IGOExclusivegram)
   ```
   
-  詳しくは [SharingFlowType 列挙型](./Documentation/SharingFlowTypeEnumeration.md) を参照してください。
+  詳しくは [SharingFlow クラスリファレンス](./Documentation/SharingFlowClassReference.md) と [SharingFlowType 列挙型](./Documentation/SharingFlowTypeEnumeration.md) を参照してください。
 
-3. `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。必須のパラメータが2つ、任意のパラメータが2つあります。
-
-  ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
-      // エラー処理
-  }
-  ```
+3. 作成したインスタンスの `presentOpenInMenuWithImage:inView:` メソッドを呼びます。
     
-  - エラー処理の例
-    
-    ```swift
-    switch result {
-    case .Success(let imagePath):
-        print("Success: \(imagePath)")
-    case .Failure(let error):
-        print("Error: \(error)")
-    }
-    ```
-
-詳しくは [SharingFlow クラスリファレンス](./Documentation/SharingFlowClassReference.md) を参照してください。
-
-## 画像の削除
-
-`tmp` フォルダに書き込んだ画像を削除するには作成したインスタンスの `removeTemporaryImage:` メソッドを呼びます。
-
-```swift
-sharingFlow.removeTemporaryImage { (result) -> Void in
-    // エラー処理
-}
-```
-  
-  - エラー処理の例
-  
-  ```swift
-  switch result {
-  case .Success(let imagePath):
-      print("Success: \(imagePath)")
-  case .Failure(let error):
-      print("Error: \(error)")
-  }
-  ```
-
-詳しくは [SharingFlow クラスリファレンス](./Documentation/SharingFlowClassReference.md) を参照してください。
+  詳しくは [SharingFlow クラスリファレンス](./Documentation/SharingFlowClassReference.md) を参照してください。
 
 ## ドキュメント
 

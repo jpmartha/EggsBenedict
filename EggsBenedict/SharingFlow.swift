@@ -3,7 +3,7 @@
 //  EggsBenedict
 //
 //  Created by JPMartha on 2015/12/26.
-//  Copyright © 2015年 JPMartha. All rights reserved.
+//  Copyright © 2015 JPMartha. All rights reserved.
 //
 
 import UIKit
@@ -14,8 +14,7 @@ private protocol InstagramSharingFlow {
     var hasInstagramApp: Bool { get }
     init(type: SharingFlowType)
     func saveTemporaryImage(image: UIImage!) throws -> String
-    func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?)
-    func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
+    func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
 }
 
 public final class SharingFlow: InstagramSharingFlow {
@@ -35,7 +34,10 @@ public final class SharingFlow: InstagramSharingFlow {
         }
     }
 
-    /// Returns a Boolean value indicating whether or not Instagram app is installed on the iOS device.
+    /**
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    - returns: A Boolean value indicating whether or not Instagram app is installed on the iOS device.
+    */
     public var hasInstagramApp: Bool {
         return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
     }
@@ -55,58 +57,74 @@ public final class SharingFlow: InstagramSharingFlow {
         return temporaryImagePath
     }
     
-    /// Present the menu for sending image to Instagram app.
-    /// - Parameter image: The image for sending to Instagram app.
-    /// - Parameter view: The view from which to display the menu.
+    /**
+    Present the menu for sending image to Instagram app.
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    - Parameters:
+      - image: The image for sending to Instagram app.
+      - view: The view from which to display the menu.
+    */
     public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: nil)
     }
     
-    /// Present the menu for sending image to Instagram app.
-    /// - Parameter image: The image for sending to Instagram app.
-    /// - Parameter view: The view from which to display the menu.
-    /// - Parameter delegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
+    /**
+    Present the menu for sending image to Instagram app.
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    - Parameters:
+      - image: The image for sending to Instagram app.
+      - view: The view from which to display the menu.
+      - delegate: The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
+    */
     public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: delegate, completion: nil)
     }
     
-    /// Present the menu for sending image to Instagram app.
-    /// - Parameter image: The image for sending to Instagram app.
-    /// - Parameter view: The view from which to display the menu.
-    /// - Parameter completion: The block to execute after the presenting menu. You may specify nil for this parameter.
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, completion: ((result: Result<Any>) -> Void)?) {
+    /**
+    Present the menu for sending image to Instagram app.
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    - Parameters:
+      - image: The image for sending to Instagram app.
+      - view: The view from which to display the menu.
+      - completion: The block to execute after the presenting menu. You may specify `nil` for this parameter.
+    */
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, completion: ((result: SharingFlowResult<Any>) -> Void)?) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: completion)
     }
     
-    /// Present the menu for sending image to Instagram app.
-    /// - Parameter image: The image for sending to Instagram app.
-    /// - Parameter view: The view from which to display the menu.
-    /// - Parameter delegate: The delegate you want to receive document interaction notifications. You may specify nil for this parameter.
-    /// - Parameter completion: The block to execute after the presenting menu. You may specify nil for this parameter.
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((result: Result<Any>) -> Void)?) {
+    /**
+    Present the menu for sending image to Instagram app.
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    - Parameters:
+      - image: The image for sending to Instagram app.
+      - view: The view from which to display the menu.
+      - delegate: The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
+      - completion: The block to execute after the presenting menu. You may specify `nil` for this parameter.
+    */
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard self.hasInstagramApp else {
-                completion?(result: .Failure(SharingFlowError.NoInstagramApp))
+                completion?(sharingFlowResult: .Failure(SharingFlowError.NoInstagramApp))
                 return
             }
             
             guard let UTI = self.UTI else {
-                completion?(result: .Failure(SharingFlowError.UTIIsEmpty))
+                completion?(sharingFlowResult: .Failure(SharingFlowError.UTIIsEmpty))
                 return
             }
             
             do {
                 self.imagePath = try self.saveTemporaryImage(image)
             } catch let sharingFlowError as SharingFlowError {
-                completion?(result: .Failure(sharingFlowError))
+                completion?(sharingFlowResult: .Failure(sharingFlowError))
                 return
             } catch let error as NSError {
-                completion?(result: .Failure(error))
+                completion?(sharingFlowResult: .Failure(error))
                 return
             }
             
             guard let imagePath = self.imagePath else {
-                completion?(result: .Failure(SharingFlowError.ImagePathIsEmpty))
+                completion?(sharingFlowResult: .Failure(SharingFlowError.ImagePathIsEmpty))
                 return
             }
 
@@ -120,32 +138,38 @@ public final class SharingFlow: InstagramSharingFlow {
                     inView: view,
                     animated: true
                 )
-                completion?(result: .Success(imagePath))
+                completion?(sharingFlowResult: .Success(imagePath))
             })
         })
     }
     
-    /// Remove temporary image file in "tmp/" directory.
+    /**
+    Remove temporary image file in `tmp/" directory.
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    */
     public func removeTemporaryImage() {
-        removeTemporaryImage(nil)
+        removeTemporaryImage(completionHandler: nil)
     }
     
-    /// Remove temporary image file in "tmp/" directory.
-    /// - Parameter completion: The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
-    public func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?) {
+    /**
+    Remove temporary image file in "tmp/" directory.
+    - Parameter completion: The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
+    - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
+    */
+    public func removeTemporaryImage(completionHandler completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
             guard let imagePath = self.imagePath else {
-                completion?(result: .Failure(SharingFlowError.ImagePathIsEmpty))
+                completion?(sharingFlowResult: .Failure(SharingFlowError.ImagePathIsEmpty))
                 return
             }
             
             do {
                 try NSFileManager().removeItemAtPath(imagePath)
             } catch let error as NSError {
-                completion?(result: .Failure(error))
+                completion?(sharingFlowResult: .Failure(error))
                 return
             }
-            completion?(result: .Success(imagePath))
+            completion?(sharingFlowResult: .Success(imagePath))
         })
     }
 }

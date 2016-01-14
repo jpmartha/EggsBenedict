@@ -3,7 +3,7 @@
 //  EggsBenedictTests
 //
 //  Created by JPMartha on 2015/12/28.
-//  Copyright © 2015年 JPMartha. All rights reserved.
+//  Copyright © 2015 JPMartha. All rights reserved.
 //
 
 import XCTest

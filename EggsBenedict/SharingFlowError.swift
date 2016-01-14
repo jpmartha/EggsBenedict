@@ -3,9 +3,17 @@
 //  EggsBenedict
 //
 //  Created by JPMartha on 2016/01/13.
-//  Copyright © 2016年 JPMartha. All rights reserved.
+//  Copyright © 2016 JPMartha. All rights reserved.
 //
 
+/**
+`SharingFlowError`
+- `NoInstagramApp`
+- `UTIIsEmpty`
+- `CannotManipulateImage`
+- `CannotSaveImage`
+- `ImagePathIsEmpty`
+*/
 public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
     case NoInstagramApp
     case UTIIsEmpty

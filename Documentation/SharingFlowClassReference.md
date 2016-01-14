@@ -65,7 +65,7 @@
   ```swift
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
-      completion: ((result: Result<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
   ```
   
   ##### Discussion
@@ -84,7 +84,7 @@
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
       documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?,
-      completion: ((result: Result<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
   ```
   
   ##### Parameters
@@ -113,10 +113,13 @@
   > This method displays the options menu asynchronously. The document interaction controller dismisses the menu automatically when the user selects an appropriate option.
   
   ##### Handling Errors Example
+  
+  The following example ?? the `SharingFlowResult` enumeration at?? the completion handler.
+  If `Success` ?? the path temporary image file path was written.
       
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (result) -> Void in
-      switch result {
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (sharingFlowResult) -> Void in
+      switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
       case .Failure(let error):
@@ -141,7 +144,9 @@
   
   ##### Discussion
   
-    This method calls the `removeTemporaryImage:` method setting the `completion` parameter `nil`.
+  It is not usually necessary to use this method because this library overwrites an existing file. 
+  
+  This method calls the `removeTemporaryImage:` method setting the `completion` parameter `nil`.
   
 ==
 
@@ -152,7 +157,7 @@
   ##### Declaration
 
   ```swift
-  func removeTemporaryImage(completion: ((result: Result<Any>) -> Void)?)
+  func removeTemporaryImage(completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
   ```
 
   ##### Parameters
@@ -168,8 +173,8 @@
   ##### Handling Errors Example
       
   ```swift
-  sharingFlow.removeTemporaryImage { (result) -> Void in
-      switch result {
+  sharingFlow.removeTemporaryImage { (sharingFlowResult) -> Void in
+      switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
       case .Failure(let error):
