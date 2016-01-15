@@ -35,7 +35,11 @@
   ##### Discussion
   
   This method calls the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method setting the `delegate` parameter and the `completion` parameter `nil`.
-
+  
+  ##### Availability
+  
+  Available in 0.9.8 and later.
+  
 ==
 
   - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:`
@@ -53,6 +57,10 @@
   ##### Discussion
   
   This method calls the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method setting the `completion` parameter `nil`.
+  
+  ##### Availability
+  
+  Available in 0.9.8 and later.
    
 ==
 
@@ -72,6 +80,10 @@
   
   This method calls the `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` method setting the `delegate` parameter `nil`.
   
+  ##### Availability
+  
+  Available in 0.9.8 and later.
+  
 ==
 
   - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:`
@@ -84,7 +96,7 @@
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
       documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?,
-      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<String, ErrorType>) -> Void)?)
   ```
   
   ##### Parameters
@@ -113,17 +125,14 @@
   > This method displays the options menu asynchronously. The document interaction controller dismisses the menu automatically when the user selects an appropriate option.
   
   ##### Handling Errors Example
-  
-  The following example ?? the `SharingFlowResult` enumeration at?? the completion handler.
-  If `Success` ?? the path temporary image file path was written.
       
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (sharingFlowResult) -> Void in
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView: YourView, documentInteractionDelegate: self) { (sharingFlowResult) -> Void in
       switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
+      case let .Failure(imagePath, errorType):
+          print("ImagePath: \(imagePath), ErrorType: \(errorType)")
       }
   }
   ```
@@ -148,6 +157,10 @@
   
   This method calls the `removeTemporaryImage:` method setting the `completion` parameter `nil`.
   
+  ##### Availability
+  
+  Available in 0.9.8 and later.
+  
 ==
 
   - `removeTemporaryImage:`
@@ -157,7 +170,7 @@
   ##### Declaration
 
   ```swift
-  func removeTemporaryImage(completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
+  func removeTemporaryImage(completionHandler completion: ((sharingFlowResult: SharingFlowResult<String, ErrorType>) -> Void)?)
   ```
 
   ##### Parameters
@@ -177,8 +190,8 @@
       switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
+      case let .Failure(imagePath, errorType):
+          print("ImagePath: \(imagePath), ErrorType: \(errorType)")
       }
   }
   ```

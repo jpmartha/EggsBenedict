@@ -27,8 +27,8 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
             switch sharingFlowResult {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")
-            case .Failure(let error):
-                print("Error: \(error)")
+            case let .Failure(imagePath, errorType):
+                print("ImagePath: \(imagePath), ErrorType: \(errorType)")
             }
         }
     }
@@ -38,8 +38,8 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
             switch sharingFlowResult {
             case .Success(let imagePath):
                 print("Success: \(imagePath)")
-            case .Failure(let error):
-                print("Error: \(error)")
+            case let .Failure(imagePath, errorType):
+                print("ImagePath: \(imagePath), ErrorType: \(errorType)")
             }
         }
     }

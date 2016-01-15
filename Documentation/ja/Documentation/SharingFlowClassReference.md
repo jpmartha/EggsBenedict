@@ -36,6 +36,10 @@
   
   このメソッドは `delegate` パラメータと `completion` パラメータに `nil` を設定して `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。
   
+  ##### 必要条件
+  
+  0.9.8 以降で利用できます。
+  
 ==
 
   - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:`
@@ -53,6 +57,10 @@
   ##### ディスカッション
   
   このメソッドは `completion` パラメータに `nil` を設定して `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。
+  
+  ##### 必要条件
+  
+  0.9.8 以降で利用できます。
   
 ==
 
@@ -72,6 +80,10 @@
   
   このメソッドは `delegate` パラメータに `nil` を設定して `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:` メソッドを呼びます。
   
+  ##### 必要条件
+  
+  0.9.8 以降で利用できます。
+  
 ==
 
   - `presentOpenInMenuWithImage:inView:documentInteractionDelegate:completion:`
@@ -84,7 +96,7 @@
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
       documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?,
-      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<String, ErrorType>) -> Void)?)
   ```
 
   ##### パラメータ
@@ -114,12 +126,12 @@
   ##### エラー処理の例
     
   ```swift
-  sharingFlow.presentOpenInMenuWithImage(YourImage, inView view: YourView, documentInteractionDelegate: nil) { (sharingFlowResult) -> Void in
+  sharingFlow.presentOpenInMenuWithImage(YourImage, inView: YourView, documentInteractionDelegate: self) { (sharingFlowResult) -> Void in
       switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
+      case let .Failure(imagePath, errorType):
+          print("ImagePath: \(imagePath), ErrorType: \(errorType)")
       }
   }
   ```
@@ -135,7 +147,7 @@
   ##### 宣言
 
   ```swift
-  func removeTemporaryImage(completion: ()
+  func removeTemporaryImage()
   ```
   
   ##### ディスカッション
@@ -143,6 +155,10 @@
   このライブラリは既存ファイルを上書きするため、通常はこのメソッドを使う必要がありません。
   
   このメソッドは `completion` パラメータに `nil` を設定して `removeTemporaryImage:` メソッドを呼びます。
+  
+  ##### 必要条件
+  
+  0.9.8 以降で利用できます。
   
 ==
 
@@ -153,7 +169,7 @@
   ##### 宣言
 
   ```swift
-  func removeTemporaryImage(completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
+  func removeTemporaryImage(completionHandler completion: ((sharingFlowResult: SharingFlowResult<String, ErrorType>) -> Void)?)
   ```
 
   ##### パラメータ
@@ -173,8 +189,8 @@
       switch sharingFlowResult {
       case .Success(let imagePath):
           print("Success: \(imagePath)")
-      case .Failure(let error):
-          print("Error: \(error)")
+      case let .Failure(imagePath, errorType):
+          print("ImagePath: \(imagePath), ErrorType: \(errorType)")
       }
   }
   ```

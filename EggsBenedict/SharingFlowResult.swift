@@ -7,9 +7,11 @@
 //
 
 /**
-`SharingFlowResult`
+`.Success(T)`
+
+`.Failure(T, U)`
 */
-public enum SharingFlowResult<T> {
+public enum SharingFlowResult<T, U> {
     case Success(T)
-    case Failure(T)
+    case Failure(T, U)
 }

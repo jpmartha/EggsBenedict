@@ -7,30 +7,33 @@
 //
 
 /**
-`SharingFlowError`
-- `NoInstagramApp`
-- `UTIIsEmpty`
-- `CannotManipulateImage`
-- `CannotSaveImage`
-- `ImagePathIsEmpty`
+`.NotFoundInstagramApp`
+
+`.UTIisEmpty`
+
+`.ImageJPEGRepresentationFailed`
+
+`.WriteToFileFailed`
+
+`.ImagePathIsEmpty`
 */
 public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
-    case NoInstagramApp
-    case UTIIsEmpty
-    case CannotManipulateImage
-    case CannotSaveImage
+    case NotFoundInstagramApp
+    case UTIisEmpty
+    case ImageJPEGRepresentationFailed
+    case WriteToFileFailed
     case ImagePathIsEmpty
     
     public var debugDescription: String {
         switch self {
-        case .NoInstagramApp:
+        case .NotFoundInstagramApp:
             return "Not found Instagram app."
-        case .UTIIsEmpty:
+        case .UTIisEmpty:
             return "UTI is empty."
-        case .CannotManipulateImage:
-            return "Cannot manipulate image."
-        case .CannotSaveImage:
-            return "Cannot save image."
+        case .ImageJPEGRepresentationFailed:
+            return "\"UIImageJPEGRepresentation::\" method failed."
+        case .WriteToFileFailed:
+            return "\"writeToFile:atomically:\" method failed."
         case .ImagePathIsEmpty:
             return "ImagePath is empty."
         }
