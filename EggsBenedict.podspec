@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "EggsBenedict"
-  s.version      = "0.9.8"
+  s.version      = "0.9.9"
   s.summary      = "EggsBenedict is a library for sharing picture on Instagram written in Swift."
   s.description  = <<-DESC
 This library is following Instagram's sharing flow.

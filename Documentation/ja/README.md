@@ -36,7 +36,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
 #### [Carthage](https://github.com/Carthage/Carthage) （オススメ）
 
-1. [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) を作成し、`github "JPMartha/EggsBenedict" ~> 0.9.8` を追記します。
+1. [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile) を作成し、`github "JPMartha/EggsBenedict" ~> 0.9.9` を追記します。
 2. プロジェクトのフォルダで `$ carthage update --platform iOS` を実行します。
 3. TARGETS の「Build Phases」にある「Link Binary With Libraries」の「+」アイコンをクリックして Carthage/Build フォルダから `EggsBenedict.framework` を追加します。
 4. TARGETS の「Build Phases」にある「+」アイコンをクリックして「New Run Script Phase」を選択し Run Script に次の内容を入力します。
@@ -57,7 +57,7 @@ __EggsBenedict__ は Swift で Instagram アプリに画像を渡すためのラ
 
   ```
   use_frameworks!
-  pod 'EggsBenedict', '~> 0.9.8'
+  pod 'EggsBenedict', '~> 0.9.9'
   ```
 
 2. プロジェクトのフォルダで `$ pod install` を実行します。
