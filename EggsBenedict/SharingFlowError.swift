@@ -6,17 +6,6 @@
 //  Copyright © 2016 JPMartha. All rights reserved.
 //
 
-/**
-`.NotFoundInstagramApp`
-
-`.UTIisEmpty`
-
-`.ImageJPEGRepresentationFailed`
-
-`.WriteToFileFailed`
-
-`.ImagePathIsEmpty`
-*/
 public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
     case NotFoundInstagramApp
     case UTIisEmpty

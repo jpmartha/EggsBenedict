@@ -32,7 +32,6 @@ public final class SharingFlow: InstagramSharingFlow {
             self.filenameExtension = ".igo"
             self.UTI = "com.instagram.exclusivegram"
         }
-        
         let temporaryDirectory = NSTemporaryDirectory() as NSString
         self.imagePath = temporaryDirectory.stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
     }
@@ -112,8 +111,11 @@ public final class SharingFlow: InstagramSharingFlow {
             let result: Bool
             do {
                 result = try self.writeTemporaryImage(image)
-            } catch let error as NSError {
-                completion?(sharingFlowResult: .Failure(self.imagePath, error))
+            } catch let sharingFlowError as SharingFlowError {
+                completion?(sharingFlowResult: .Failure(self.imagePath, sharingFlowError))
+                return
+            } catch let errorType {
+                completion?(sharingFlowResult: .Failure(self.imagePath, errorType))
                 return
             }
             
@@ -121,16 +123,10 @@ public final class SharingFlow: InstagramSharingFlow {
                 completion?(sharingFlowResult: .Failure(self.imagePath, SharingFlowError.WriteToFileFailed))
                 return
             }
-            
-            guard !self.imagePath.isEmpty else {
-                completion?(sharingFlowResult: .Failure(self.imagePath, SharingFlowError.ImagePathIsEmpty))
-                return
-            }
 
             self.documentInteractionController.URL = NSURL.fileURLWithPath(self.imagePath)
             self.documentInteractionController.UTI = UTI
             self.documentInteractionController.delegate = delegate
-            
             dispatch_async(dispatch_get_main_queue(), {
                 self.documentInteractionController.presentOpenInMenuFromRect(
                     view.bounds,
@@ -164,8 +160,8 @@ public final class SharingFlow: InstagramSharingFlow {
             
             do {
                 try NSFileManager().removeItemAtPath(self.imagePath)
-            } catch let error as NSError {
-                completion?(sharingFlowResult: .Failure(self.imagePath, error))
+            } catch let errorType {
+                completion?(sharingFlowResult: .Failure(self.imagePath, errorType))
                 return
             }
             completion?(sharingFlowResult: .Success(self.imagePath))
