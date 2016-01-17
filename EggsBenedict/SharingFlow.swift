@@ -83,7 +83,7 @@ public final class SharingFlow: InstagramSharingFlow {
       - view: The view from which to display the menu.
       - completion: The block to execute after the presenting menu. You may specify `nil` for this parameter.
     */
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, completion: ((result: SharingFlowResult<String, ErrorType>) -> Void)?) {
+    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, completion: ((sharingFlowResult: SharingFlowResult<String, ErrorType>) -> Void)?) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: completion)
     }
     
@@ -111,9 +111,6 @@ public final class SharingFlow: InstagramSharingFlow {
             let result: Bool
             do {
                 result = try self.writeTemporaryImage(image)
-            } catch let sharingFlowError as SharingFlowError {
-                completion?(sharingFlowResult: .Failure(self.imagePath, sharingFlowError))
-                return
             } catch let errorType {
                 completion?(sharingFlowResult: .Failure(self.imagePath, errorType))
                 return
