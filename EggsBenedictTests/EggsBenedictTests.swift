@@ -88,7 +88,7 @@ class EggsBenedictTests: XCTestCase {
         sharingFlow.presentOpenInMenuWithImage(UIImage(), inView: UIView()) { (sharingFlowResult) -> Void in
             switch sharingFlowResult {
             case .Success(_):
-                XCTFail()
+                XCTFail("An unknown error occurred.")
             case let .Failure(_, sharingFlowError as SharingFlowError):
                 XCTAssertEqual(sharingFlowError, SharingFlowError.NotFoundInstagramApp)
             case let .Failure(_, error as NSError):
