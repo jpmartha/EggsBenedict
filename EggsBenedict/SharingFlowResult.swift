@@ -6,7 +6,7 @@
 //  Copyright © 2016 JPMartha. All rights reserved.
 //
 
-public enum SharingFlowResult<T, U> {
-    case Success(T)
-    case Failure(T, U)
+public enum SharingFlowResult {
+    case Success(String)
+    case Failure(String, ErrorType)
 }

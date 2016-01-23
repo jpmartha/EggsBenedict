@@ -73,7 +73,7 @@
   ```swift
   func presentOpenInMenuWithImage(_ image: UIImage!,
       inView view: UIView!,
-      completion: ((sharingFlowResult: SharingFlowResult<Any>) -> Void)?)
+      completion: ((sharingFlowResult: SharingFlowResult<String, ErrorType>) -> Void)?)
   ```
   
   ##### Discussion

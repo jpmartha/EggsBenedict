@@ -83,6 +83,38 @@ class EggsBenedictTests: XCTestCase {
         XCTFail("An unknown error occurred.")
     }
     
+    func testPresentOpenInMenuWithImageInViewCompletion() {
+        let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+        sharingFlow.presentOpenInMenuWithImage(UIImage(), inView: UIView()) { (sharingFlowResult) -> Void in
+            switch sharingFlowResult {
+            case .Success(_):
+                XCTFail("An unknown error occurred.")
+            case let .Failure(_, sharingFlowError as SharingFlowError):
+                XCTAssertEqual(sharingFlowError, SharingFlowError.NotFoundInstagramApp)
+            case let .Failure(_, error as NSError):
+                XCTFail(error.debugDescription)
+            default:
+                XCTFail("An unknown error occurred.")
+            }
+        }
+    }
+    
+    func testPresentOpenInMenuWithImageInViewDocumentInteractionDelegateCompletion() {
+        let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+        sharingFlow.presentOpenInMenuWithImage(UIImage(), inView: UIView(), documentInteractionDelegate: nil) { (sharingFlowResult) -> Void in
+            switch sharingFlowResult {
+            case .Success(_):
+                XCTFail()
+            case let .Failure(_, sharingFlowError as SharingFlowError):
+                XCTAssertEqual(sharingFlowError, SharingFlowError.NotFoundInstagramApp)
+            case let .Failure(_, error as NSError):
+                XCTFail(error.debugDescription)
+            default:
+                XCTFail("An unknown error occurred.")
+            }
+        }
+    }
+    
     func testRemoveTemporaryImageIG() {
         guard let image = UIImage(named: "EggsBenedict.jpg", inBundle: NSBundle(forClass: self.dynamicType), compatibleWithTraitCollection: nil) else {
             XCTFail("Image is nil.")
