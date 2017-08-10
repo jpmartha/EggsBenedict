@@ -165,6 +165,7 @@
 				TargetAttributes = {
 					5CF238FF1C30B1900009815F = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 					};
 					5CF239081C30B1900009815F = {
 						CreatedOnToolsVersion = 7.2;
@@ -340,6 +341,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -361,6 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.EggsBenedict;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

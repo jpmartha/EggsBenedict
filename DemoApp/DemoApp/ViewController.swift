@@ -14,31 +14,31 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var shareOnInstagramButton: UIButton!
 
-    let sharingFlow = SharingFlow(type: .IGOExclusivegram)
+    let sharingFlow = SharingFlow(type: .igoExclusivegram)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        shareOnInstagramButton.enabled = sharingFlow.hasInstagramApp
+        shareOnInstagramButton.isEnabled = sharingFlow.hasInstagramApp
     }
     
-    @IBAction func shareOnInstagramButtonTapped(sender: UIButton) {
+    @IBAction func shareOnInstagramButtonTapped(_ sender: UIButton) {
         sharingFlow.presentOpenInMenuWithImage(imageView.image, inView: view, documentInteractionDelegate: self) { (sharingFlowResult) -> Void in
             switch sharingFlowResult {
-            case .Success(let imagePath):
+            case .success(let imagePath):
                 print("Success: \(imagePath)")
-            case let .Failure(imagePath, errorType):
+            case let .failure(imagePath, errorType):
                 print("ImagePath: \(imagePath), ErrorType: \(errorType)")
             }
         }
     }
 
-    @IBAction func removeTmpButtonTapped(sender: UIButton) {
+    @IBAction func removeTmpButtonTapped(_ sender: UIButton) {
         sharingFlow.removeTemporaryImage { (sharingFlowResult) -> Void in
             switch sharingFlowResult {
-            case .Success(let imagePath):
+            case .success(let imagePath):
                 print("Success: \(imagePath)")
-            case let .Failure(imagePath, errorType):
+            case let .failure(imagePath, errorType):
                 print("ImagePath: \(imagePath), ErrorType: \(errorType)")
             }
         }
@@ -46,7 +46,7 @@ class ViewController: UIViewController, UIDocumentInteractionControllerDelegate 
     
     // MARK: - UIDocumentInteractionControllerDelegate
     
-    func documentInteractionControllerDidDismissOpenInMenu(controller: UIDocumentInteractionController) {
-        print(__FUNCTION__)
+    func documentInteractionControllerDidDismissOpenInMenu(_ controller: UIDocumentInteractionController) {
+        print(#function)
     }
 }

@@ -13,6 +13,6 @@ A type of Instagram's sharing flow.
 - `IGOExclusivegram` __(preferred)__: Show only Instagram in the application list. (Actually, some apps are shown.)
 */
 public enum SharingFlowType {
-    case IGPhoto
-    case IGOExclusivegram
+    case igPhoto
+    case igoExclusivegram
 }

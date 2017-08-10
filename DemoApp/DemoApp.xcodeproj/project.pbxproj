@@ -7,13 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5CACDDBC1C3F8ED2005F9D49 /* EggsBenedict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CACDDBB1C3F8ED2005F9D49 /* EggsBenedict.framework */; };
-		5CACDDBE1C3F8F46005F9D49 /* EggsBenedict.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5CACDDBB1C3F8ED2005F9D49 /* EggsBenedict.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		5CF153681C3F0F6A0004411D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF153601C3F0F6A0004411D /* AppDelegate.swift */; };
 		5CF153691C3F0F6A0004411D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CF153611C3F0F6A0004411D /* Assets.xcassets */; };
 		5CF1536A1C3F0F6A0004411D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF153631C3F0F6A0004411D /* LaunchScreen.storyboard */; };
 		5CF1536B1C3F0F6A0004411D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CF153651C3F0F6A0004411D /* Main.storyboard */; };
 		5CF1536C1C3F0F6A0004411D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF153671C3F0F6A0004411D /* ViewController.swift */; };
+		F10D8C131F3C867C0001B700 /* EggsBenedict.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F10D8C121F3C867C0001B700 /* EggsBenedict.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,14 +22,12 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5CACDDBE1C3F8F46005F9D49 /* EggsBenedict.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5CACDDBB1C3F8ED2005F9D49 /* EggsBenedict.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EggsBenedict.framework; path = "../../Library/Developer/Xcode/DerivedData/EggsBenedict-avpdwokamsboahflmcfmhfjatpxj/Build/Products/Debug-iphoneos/EggsBenedict.framework"; sourceTree = "<group>"; };
 		5CF1533C1C3F0EC60004411D /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF1534B1C3F0EC60004411D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5CF153601C3F0F6A0004411D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +35,7 @@
 		5CF153641C3F0F6A0004411D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5CF153661C3F0F6A0004411D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		5CF153671C3F0F6A0004411D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F10D8C121F3C867C0001B700 /* EggsBenedict.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EggsBenedict.framework; path = "../../../Library/Developer/Xcode/DerivedData/EggsBenedict-chhbmoqvatmpswayrvvjjswkvwcp/Build/Products/Debug-iphonesimulator/EggsBenedict.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5CACDDBC1C3F8ED2005F9D49 /* EggsBenedict.framework in Frameworks */,
+				F10D8C131F3C867C0001B700 /* EggsBenedict.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,9 +53,9 @@
 		5CF153331C3F0EC60004411D = {
 			isa = PBXGroup;
 			children = (
-				5CACDDBB1C3F8ED2005F9D49 /* EggsBenedict.framework */,
 				5CF1533E1C3F0EC60004411D /* DemoApp */,
 				5CF1533D1C3F0EC60004411D /* Products */,
+				F10D8C111F3C867C0001B700 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +86,14 @@
 				5CF153651C3F0F6A0004411D /* Main.storyboard */,
 			);
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		F10D8C111F3C867C0001B700 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F10D8C121F3C867C0001B700 /* EggsBenedict.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +129,7 @@
 				TargetAttributes = {
 					5CF1533B1C3F0EC60004411D = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -284,6 +291,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -300,6 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = jp.martha.DemoApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INCLUDE_PATHS = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

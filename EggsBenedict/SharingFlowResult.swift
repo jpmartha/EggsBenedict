@@ -7,6 +7,6 @@
 //
 
 public enum SharingFlowResult {
-    case Success(String)
-    case Failure(String, ErrorType)
+    case success(String)
+    case failure(String, Error)
 }
