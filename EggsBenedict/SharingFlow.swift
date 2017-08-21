@@ -13,27 +13,27 @@ private protocol InstagramSharingFlow {
     var UTI: String! { get }
     var hasInstagramApp: Bool { get }
     init(type: SharingFlowType)
-    func writeTemporaryImage(image: UIImage!) throws -> Bool
-    func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((sharingFlowResult: SharingFlowResult) -> Void)?)
+    func writeTemporaryImage(_ image: UIImage!) throws -> Bool
+    func presentOpenInMenuWithImage(_ image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((_ sharingFlowResult: SharingFlowResult) -> Void)?)
 }
 
 public final class SharingFlow: InstagramSharingFlow {
     public var filenameExtension: String!
     public var UTI: String!
     internal var imagePath: String!
-    lazy private var documentInteractionController = UIDocumentInteractionController()
+    lazy fileprivate var documentInteractionController = UIDocumentInteractionController()
 
     public init(type: SharingFlowType) {
         switch type {
-        case .IGPhoto:
+        case .igPhoto:
             self.filenameExtension = ".ig"
             self.UTI = "com.instagram.photo"
-        case .IGOExclusivegram:
+        case .igoExclusivegram:
             self.filenameExtension = ".igo"
             self.UTI = "com.instagram.exclusivegram"
         }
         let temporaryDirectory = NSTemporaryDirectory() as NSString
-        self.imagePath = temporaryDirectory.stringByAppendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
+        self.imagePath = temporaryDirectory.appendingPathComponent("jpmarthaeggsbenedict\(filenameExtension)")
     }
 
     /**
@@ -41,15 +41,15 @@ public final class SharingFlow: InstagramSharingFlow {
     - returns: A Boolean value indicating whether or not Instagram app is installed on the iOS device.
     */
     public var hasInstagramApp: Bool {
-        return UIApplication.sharedApplication().canOpenURL(NSURL(string: "instagram://")!)
+        return UIApplication.shared.canOpenURL(URL(string: "instagram://")!)
     }
     
-    internal func writeTemporaryImage(image: UIImage!) throws -> Bool {
+    internal func writeTemporaryImage(_ image: UIImage!) throws -> Bool {
         guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {
-            throw SharingFlowError.ImageJPEGRepresentationFailed
+            throw SharingFlowError.imageJPEGRepresentationFailed
         }
         
-        return imageData.writeToFile(imagePath, atomically: true)
+        return ((try? imageData.write(to: URL(fileURLWithPath: imagePath), options: [.atomic])) != nil)
     }
     
     /**
@@ -59,7 +59,7 @@ public final class SharingFlow: InstagramSharingFlow {
       - image: The image for sending to Instagram app.
       - view: The view from which to display the menu.
     */
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!) {
+    public func presentOpenInMenuWithImage(_ image: UIImage!, inView view: UIView!) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: nil)
     }
     
@@ -71,7 +71,7 @@ public final class SharingFlow: InstagramSharingFlow {
       - view: The view from which to display the menu.
       - delegate: The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
     */
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?) {
+    public func presentOpenInMenuWithImage(_ image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: delegate, completion: nil)
     }
     
@@ -83,7 +83,7 @@ public final class SharingFlow: InstagramSharingFlow {
       - view: The view from which to display the menu.
       - completion: The block to execute after the presenting menu. You may specify `nil` for this parameter.
     */
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, completion: ((sharingFlowResult: SharingFlowResult) -> Void)?) {
+    public func presentOpenInMenuWithImage(_ image: UIImage!, inView view: UIView!, completion: ((_ sharingFlowResult: SharingFlowResult) -> Void)?) {
         presentOpenInMenuWithImage(image, inView: view, documentInteractionDelegate: nil, completion: completion)
     }
     
@@ -96,15 +96,16 @@ public final class SharingFlow: InstagramSharingFlow {
       - delegate: The delegate you want to receive document interaction notifications. You may specify `nil` for this parameter.
       - completion: The block to execute after the presenting menu. You may specify `nil` for this parameter.
     */
-    public func presentOpenInMenuWithImage(image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((sharingFlowResult: SharingFlowResult) -> Void)?) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+    public func presentOpenInMenuWithImage(_ image: UIImage!, inView view: UIView!, documentInteractionDelegate delegate: UIDocumentInteractionControllerDelegate?, completion: ((_ sharingFlowResult: SharingFlowResult) -> Void)?) {
+        
+        DispatchQueue.global().async {
             guard self.hasInstagramApp else {
-                completion?(sharingFlowResult: .Failure(self.imagePath, SharingFlowError.NotFoundInstagramApp))
+                completion?(.failure(self.imagePath, SharingFlowError.notFoundInstagramApp))
                 return
             }
             
             guard let UTI = self.UTI else {
-                completion?(sharingFlowResult: .Failure(self.imagePath, SharingFlowError.UTIisEmpty))
+                completion?(.failure(self.imagePath, SharingFlowError.utIisEmpty))
                 return
             }
             
@@ -112,27 +113,27 @@ public final class SharingFlow: InstagramSharingFlow {
             do {
                 result = try self.writeTemporaryImage(image)
             } catch let errorType {
-                completion?(sharingFlowResult: .Failure(self.imagePath, errorType))
+                completion?(.failure(self.imagePath, errorType))
                 return
             }
             
             guard result else {
-                completion?(sharingFlowResult: .Failure(self.imagePath, SharingFlowError.WriteToFileFailed))
+                completion?(.failure(self.imagePath, SharingFlowError.writeToFileFailed))
                 return
             }
-
-            self.documentInteractionController.URL = NSURL.fileURLWithPath(self.imagePath)
-            self.documentInteractionController.UTI = UTI
+            
+            self.documentInteractionController.url = URL(fileURLWithPath: self.imagePath)
+            self.documentInteractionController.uti = UTI
             self.documentInteractionController.delegate = delegate
-            dispatch_async(dispatch_get_main_queue(), {
-                self.documentInteractionController.presentOpenInMenuFromRect(
-                    view.bounds,
-                    inView: view,
+            DispatchQueue.main.async(execute: {
+                self.documentInteractionController.presentOpenInMenu(
+                    from: view.bounds,
+                    in: view,
                     animated: true
                 )
-                completion?(sharingFlowResult: .Success(self.imagePath))
+                completion?(.success(self.imagePath))
             })
-        })
+        }
     }
     
     /**
@@ -148,20 +149,21 @@ public final class SharingFlow: InstagramSharingFlow {
     - Parameter completion: The block to execute after the removing temporary image file finishes. You may specify nil for this parameter.
     - seealso: [SharingFlow Class Reference](https://github.com/JPMartha/EggsBenedict/blob/develop/Documentation/SharingFlowClassReference.md)
     */
-    public func removeTemporaryImage(completionHandler completion: ((sharingFlowResult: SharingFlowResult) -> Void)?) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+    public func removeTemporaryImage(completionHandler completion: ((_ sharingFlowResult: SharingFlowResult) -> Void)?) {
+        
+        DispatchQueue.global().async {
             guard !self.imagePath.isEmpty else {
-                completion?(sharingFlowResult: .Failure(self.imagePath, SharingFlowError.ImagePathIsEmpty))
+                completion?(.failure(self.imagePath, SharingFlowError.imagePathIsEmpty))
                 return
             }
             
             do {
-                try NSFileManager().removeItemAtPath(self.imagePath)
+                try FileManager().removeItem(atPath: self.imagePath)
             } catch let errorType {
-                completion?(sharingFlowResult: .Failure(self.imagePath, errorType))
+                completion?(.failure(self.imagePath, errorType))
                 return
             }
-            completion?(sharingFlowResult: .Success(self.imagePath))
-        })
+            completion?(.success(self.imagePath))
+        }
     }
 }

@@ -6,24 +6,25 @@
 //  Copyright © 2016 JPMartha. All rights reserved.
 //
 
-public enum SharingFlowError: ErrorType, CustomDebugStringConvertible {
-    case NotFoundInstagramApp
-    case UTIisEmpty
-    case ImageJPEGRepresentationFailed
-    case WriteToFileFailed
-    case ImagePathIsEmpty
+public enum SharingFlowError: Error, CustomDebugStringConvertible {
+
+    case notFoundInstagramApp
+    case utIisEmpty
+    case imageJPEGRepresentationFailed
+    case writeToFileFailed
+    case imagePathIsEmpty
     
     public var debugDescription: String {
         switch self {
-        case .NotFoundInstagramApp:
+        case .notFoundInstagramApp:
             return "Not found Instagram app."
-        case .UTIisEmpty:
+        case .utIisEmpty:
             return "UTI is empty."
-        case .ImageJPEGRepresentationFailed:
+        case .imageJPEGRepresentationFailed:
             return "\"UIImageJPEGRepresentation::\" method failed."
-        case .WriteToFileFailed:
+        case .writeToFileFailed:
             return "\"writeToFile:atomically:\" method failed."
-        case .ImagePathIsEmpty:
+        case .imagePathIsEmpty:
             return "ImagePath is empty."
         }
     }
